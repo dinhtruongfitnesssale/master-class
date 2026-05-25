@@ -834,7 +834,132 @@ nav.navbar {
 }
 
 @media (max-width: 860px) {
-  .combo-grid { grid-template-columns: 1fr; }
+  .combo-grid { grid-template-columns: 1fr !important; }
+  .combo-card.featured { transform: none !important; }
+}
+
+/* ===== COMBO 3-GRID ===== */
+.combo-3-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Solo cards (Khóa 01, 02) */
+.combo-solo-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all .3s;
+  display: flex;
+  flex-direction: column;
+}
+.combo-solo-card:hover {
+  border-color: rgba(255,222,89,0.3);
+  transform: translateY(-3px);
+}
+.combo-solo-label {
+  color: rgba(255,222,89,0.7);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.combo-solo-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+.combo-solo-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.combo-solo-old {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  text-decoration: line-through;
+  margin-bottom: 16px;
+}
+.combo-solo-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  margin-bottom: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex: 1;
+}
+.combo-solo-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: 0.2s;
+}
+.combo-solo-btn:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,222,89,0.4);
+}
+
+/* Featured combo card */
+.combo-featured-card {
+  background: linear-gradient(180deg, rgba(255,222,89,0.12) 0%, rgba(36,50,103,0.4) 100%);
+  border: 1px solid var(--yellow-500);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(255,222,89,0.2), 0 20px 60px rgba(0,0,0,0.3);
+  /* Nhô lên trên desktop bằng margin âm */
+  margin-top: -16px;
+  margin-bottom: -16px;
+}
+.combo-featured-badge {
+  display: inline-block;
+  background: var(--yellow-500);
+  color: var(--accent-600);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .combo-3-grid {
+    grid-template-columns: 1fr;
+  }
+  .combo-featured-card {
+    /* Trên mobile: bỏ margin âm, thêm border vàng nổi bật là đủ */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .combo-featured-badge {
+    /* Badge nằm inline, không cần absolute */
+    display: inline-block;
+    margin-bottom: 16px;
+  }
 }
 
 .combo-card {
@@ -1323,14 +1448,14 @@ footer {
 </div>
 </div>
     <h1>
-      Từ <span class="strike">"gà mờ"</span> trở thành<br />
-      <span class="accent">"kiện tướng" bán hàng</span>
+      Bán đúng cách —<br />
+      <span class="accent">Doanh thu tự đến</span>
     </h1>
     <p class="hero-sub">
-      Chương trình 59 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm kinh nghiệm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.
+      Chương trình 49 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm kinh nghiệm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.
     </p>
     <div class="hero-cta">
-      <a href="#courses" class="btn btn-primary btn-lg">Xem chi tiết 3 khóa học →</a>
+      <a href="#courses" class="btn btn-primary btn-lg">Xem chi tiết 2 khóa học →</a>
       <a href="#about" class="btn btn-secondary btn-lg">Tìm hiểu về thầy Trường</a>
     </div>
 
@@ -1457,14 +1582,13 @@ footer {
   <div class="container">
     <div class="section-header">
       <span class="label-pill"><span class="dot"></span>CHƯƠNG TRÌNH ĐÀO TẠO</span>
-      <h2>3 khóa học, <span class="accent">59 buổi thực chiến</span></h2>
+      <h2>2 khóa học, <span class="accent">49 buổi thực chiến</span></h2>
       <p>Từ kỹ năng cá nhân đến tư duy lãnh đạo, từ chiến lược đến thực thi. Chọn đúng khóa phù hợp với giai đoạn sự nghiệp của bạn.</p>
     </div>
 
     <div class="course-tabs" role="tablist">
       <button class="course-tab active" data-target="course-1" role="tab">Khóa 1 · Bán hàng</button>
       <button class="course-tab" data-target="course-2" role="tab">Khóa 2 · Lãnh đạo</button>
-      <button class="course-tab" data-target="course-3" role="tab">Khóa 3 · Chiến lược</button>
     </div>
 
     <!-- ===== COURSE 1 ===== -->
@@ -1473,17 +1597,7 @@ footer {
         <div class="course-hero-top">
           <div>
             <span class="course-tag">KHÓA 1 · 33 BUỔI</span>
-            <h3 class="course-title">Kỹ năng bán hàng xuất sắc</h3>
-          </div>
-          <div class="course-meta">
-            <div class="course-meta-item">
-              <div class="course-meta-label">Khai giảng</div>
-              <div class="course-meta-val">Thứ 3, 05.05.2026</div>
-            </div>
-            <div class="course-meta-item">
-              <div class="course-meta-label">Sĩ số</div>
-              <div class="course-meta-val">10 học viên</div>
-            </div>
+            <h3 class="course-title">Từ "gà mờ" trở thành "kiện tướng" bán hàng</h3>
           </div>
         </div>
         <div class="course-audience">
@@ -1573,16 +1687,6 @@ footer {
             <span class="course-tag">KHÓA 2 · 16 BUỔI</span>
             <h3 class="course-title">Phát triển kỹ năng lãnh đạo trong thời kỳ Fitness "hỗn loạn"</h3>
           </div>
-          <div class="course-meta">
-            <div class="course-meta-item">
-              <div class="course-meta-label">Khai giảng</div>
-              <div class="course-meta-val">Thứ 3, 07.07.2026</div>
-            </div>
-            <div class="course-meta-item">
-              <div class="course-meta-label">Sĩ số</div>
-              <div class="course-meta-val">10 học viên</div>
-            </div>
-          </div>
         </div>
         <div class="course-audience">
           <div class="course-audience-label">Dành cho</div>
@@ -1644,78 +1748,6 @@ footer {
       </div>
     </div>
 
-    <!-- ===== COURSE 3 ===== -->
-    <div class="course-panel" id="course-3">
-      <div class="course-hero">
-        <div class="course-hero-top">
-          <div>
-            <span class="course-tag">KHÓA 3 · 10 BUỔI</span>
-            <h3 class="course-title">Tăng trưởng doanh thu bền vững — từ chiến lược đến thực thi</h3>
-          </div>
-          <div class="course-meta">
-            <div class="course-meta-item">
-              <div class="course-meta-label">Khai giảng</div>
-              <div class="course-meta-val">Thứ 3, 04.08.2026</div>
-            </div>
-            <div class="course-meta-item">
-              <div class="course-meta-label">Sĩ số</div>
-              <div class="course-meta-val">10 học viên</div>
-            </div>
-          </div>
-        </div>
-        <div class="course-audience">
-          <div class="course-audience-label">Dành cho</div>
-          <strong>Quản lý/Giám đốc/Chủ phòng tập</strong> muốn hệ thống hóa chương trình đào tạo chiến lược cho đội ngũ lãnh đạo · Người đang chuẩn bị bước vào vai trò quản trị cấp cao của hệ thống phòng tập.
-        </div>
-      </div>
-
-      <div class="modules-grid">
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">1</div>
-            <div class="module-title">Thiết lập & lựa chọn chiến lược</div>
-          </div>
-          <ul class="module-list">
-            <li>Tuần 1: Chẩn đoán: Nhìn vào sự thật</li>
-            <li>Tuần 2: Định hướng: Vẽ tầm nhìn & mục tiêu 3 năm</li>
-          </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">2</div>
-            <div class="module-title">Hoàn thiện X-Matrix</div>
-          </div>
-          <ul class="module-list">
-            <li>Tuần 3: Triển khai (1): Chọn 3-5 đột phá năm</li>
-            <li>Tuần 4: Triển khai (2): Hoàn thiện X-Matrix</li>
-          </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">3</div>
-            <div class="module-title">Kế hoạch chi tiết & Kiểm soát</div>
-          </div>
-          <ul class="module-list">
-            <li>Tuần 5: Vận hành: Chỉ số đo lường & Báo cáo tháng</li>
-            <li>Tuần 6: Phản tỉnh & Tốt nghiệp: Nhìn lại · Đo lường · Tình huống 12 tháng</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="course-pricing">
-        <div class="course-pricing-left">
-          <div class="label">Học phí khóa 3</div>
-          <div class="price-main">
-            <span class="price-now">15.000.000đ</span>
-            <span class="price-old">20.000.000đ</span>
-          </div>
-          <div class="early">Ưu đãi cho 3 học viên đăng ký sớm nhất</div>
-        </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary btn-lg">Đăng ký khóa 3 →</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1728,8 +1760,26 @@ footer {
       <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
     </div>
 
-    <div class="combo-grid single">
-      <div class="combo-card featured">
+    <div class="combo-3-grid">
+
+      <!-- Khóa 01 riêng -->
+      <div class="combo-solo-card">
+        <div class="combo-solo-label">KHÓA 01</div>
+        <h3 class="combo-solo-title">Từ "gà mờ" trở thành "kiện tướng" bán hàng</h3>
+        <div class="combo-solo-price">35.000.000đ</div>
+        <div class="combo-solo-old">50.000.000đ</div>
+        <div class="combo-solo-features">
+          <div>✔ 33 buổi thực chiến</div>
+          <div>✔ Tư duy & tâm lý bán hàng</div>
+          <div>✔ Kỹ năng giao tiếp, tư vấn</div>
+          <div>✔ Chốt sale & giữ khách</div>
+        </div>
+        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-solo-btn">Đăng ký khóa 01 →</a>
+      </div>
+
+      <!-- COMBO nổi bật -->
+      <div class="combo-featured-card">
+        <div class="combo-featured-badge">✦ PHỔ BIẾN NHẤT</div>
         <div class="combo-label">COMBO</div>
         <h3 class="combo-name">Khóa 01 + Khóa 02</h3>
         <div class="combo-price">60.000.000đ</div>
@@ -1739,8 +1789,24 @@ footer {
           <div>✔ Kỹ năng lãnh đạo đội nhóm</div>
           <div>✔ 49 buổi thực chiến</div>
         </div>
-        <button class="combo-btn primary">Chọn combo này →</button>
+        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-btn primary" style="display:block;text-align:center;">Chọn combo này →</a>
       </div>
+
+      <!-- Khóa 02 riêng -->
+      <div class="combo-solo-card">
+        <div class="combo-solo-label">KHÓA 02</div>
+        <h3 class="combo-solo-title">Lãnh đạo trong thời kỳ Fitness "hỗn loạn"</h3>
+        <div class="combo-solo-price">25.000.000đ</div>
+        <div class="combo-solo-old">30.000.000đ</div>
+        <div class="combo-solo-features">
+          <div>✔ 16 buổi thực chiến</div>
+          <div>✔ Quản trị & lập kế hoạch</div>
+          <div>✔ Lãnh đạo đội nhóm</div>
+          <div>✔ Xử lý xung đột & động lực</div>
+        </div>
+        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-solo-btn">Đăng ký khóa 02 →</a>
+      </div>
+
     </div>
   </div>
 </section>
