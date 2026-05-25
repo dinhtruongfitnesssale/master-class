@@ -12,14 +12,21 @@
 <style>
 /* ===== CSS VARIABLES ===== */
 :root {
-  /* Accent — Red/Coral (thương hiệu Ladysfit, tone bán hàng mạnh) */
-  --accent-700: #B91C1C;
-  --accent-600: #DC2626;
-  --accent-500: #EF4444;
-  --accent-400: #F87171;
-  --accent-200: #FECACA;
-  --accent-100: #FEE2E2;
-  --accent-50:  #FFF5F5;
+  /* Accent — Navy/Yellow brand */
+  --accent-700: #1a2650;
+  --accent-600: #243267;
+  --accent-500: #2d3e80;
+  --accent-400: #4a5ea0;
+  --accent-200: #c0c9e8;
+  --accent-100: #e8ebf5;
+  --accent-50:  #f2f4fa;
+
+  /* Yellow highlight */
+  --yellow-500: #ffde59;
+  --yellow-400: #ffe680;
+  --yellow-600: #e8c800;
+  --yellow-100: #fffbe8;
+  --yellow-50:  #fffdf0;
 
   /* Neutrals */
   --gray-950: #0A0A0A;
@@ -35,7 +42,7 @@
   --gray-50:  #F9FAFB;
   --white:    #FFFFFF;
 
-  /* Amber cho stars */
+  /* Stars */
   --amber-400: #FBBF24;
 }
 
@@ -62,11 +69,10 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--gray-50); }
-::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 100px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+::-webkit-scrollbar-thumb { background: var(--accent-200); border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-400); }
 
 /* ===== LAYOUT HELPERS ===== */
 .container {
@@ -93,10 +99,10 @@ nav.navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  border-bottom: 1px solid rgba(36, 50, 103, 0.12);
 }
 
 .nav-inner {
@@ -114,18 +120,18 @@ nav.navbar {
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  color: var(--gray-950);
+  color: var(--accent-600);
   font-size: 15px;
   letter-spacing: -0.01em;
 }
 
 .logo-mark {
   width: 30px; height: 30px;
-  background: var(--accent-500);
+  background: var(--accent-600);
   border-radius: 8px;
   display: grid;
   place-items: center;
-  color: white;
+  color: var(--yellow-500);
   font-weight: 800;
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -134,12 +140,13 @@ nav.navbar {
 .logo-badge {
   font-size: 10px;
   font-weight: 600;
-  color: var(--gray-500);
-  border: 1px solid var(--gray-200);
+  color: var(--accent-600);
+  border: 1px solid var(--accent-200);
   border-radius: 4px;
   padding: 2px 6px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  background: var(--accent-50);
 }
 
 .nav-links {
@@ -152,7 +159,7 @@ nav.navbar {
 }
 
 .nav-links a { transition: color .15s; }
-.nav-links a:hover { color: var(--gray-950); }
+.nav-links a:hover { color: var(--accent-600); }
 
 .nav-cta-wrap { display: flex; align-items: center; gap: 12px; }
 
@@ -177,14 +184,14 @@ nav.navbar {
 }
 
 .btn-primary {
-  background: var(--accent-500);
-  color: white;
-  box-shadow: 0 1px 2px rgba(239,68,68,.2);
+  background: var(--accent-600);
+  color: var(--yellow-500);
+  box-shadow: 0 1px 2px rgba(36,50,103,.2);
 }
 .btn-primary:hover {
-  background: var(--accent-600);
+  background: var(--accent-700);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(239,68,68,.25);
+  box-shadow: 0 4px 12px rgba(36,50,103,.25);
 }
 
 .btn-secondary {
@@ -193,8 +200,9 @@ nav.navbar {
   border-color: var(--gray-200);
 }
 .btn-secondary:hover {
-  border-color: var(--gray-400);
-  background: var(--gray-50);
+  border-color: var(--accent-200);
+  background: var(--accent-50);
+  color: var(--accent-600);
 }
 
 .btn-lg { padding: 14px 26px; font-size: 15px; }
@@ -219,7 +227,7 @@ nav.navbar {
 .label-pill .dot {
   width: 6px; height: 6px;
   border-radius: 100px;
-  background: var(--accent-500);
+  background: var(--yellow-500);
 }
 
 /* ===== SECTION HEADER ===== */
@@ -241,7 +249,7 @@ nav.navbar {
   text-wrap: balance;
 }
 
-.section-header h2 .accent { color: var(--accent-500); }
+.section-header h2 .accent { color: var(--accent-600); }
 
 .section-header p {
   font-size: 1.0625rem;
@@ -265,18 +273,18 @@ nav.navbar {
   gap: 8px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--gray-600);
-  background: white;
-  border: 1px solid var(--gray-200);
+  color: var(--accent-600);
+  background: var(--accent-50);
+  border: 1px solid var(--accent-200);
   border-radius: 100px;
   padding: 6px 14px;
   margin-bottom: 28px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  box-shadow: 0 1px 2px rgba(36,50,103,.06);
 }
 
 .hero-announce .pulse {
   width: 6px; height: 6px;
-  background: var(--accent-500);
+  background: var(--yellow-500);
   border-radius: 100px;
   animation: pulse 2s infinite;
 }
@@ -296,7 +304,7 @@ nav.navbar {
   text-wrap: balance;
 }
 
-.hero h1 .accent { color: var(--accent-500); }
+.hero h1 .accent { color: var(--accent-600); }
 .hero h1 .strike {
   position: relative;
   display: inline-block;
@@ -308,7 +316,7 @@ nav.navbar {
   left: -4px; right: -4px;
   top: 52%;
   height: 4px;
-  background: var(--accent-500);
+  background: var(--yellow-500);
   transform: rotate(-3deg);
   border-radius: 100px;
 }
@@ -356,13 +364,13 @@ nav.navbar {
 .stat-num {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--gray-950);
+  color: var(--accent-600);
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 
-.stat-card:hover .stat-num { color: var(--accent-600); }
+.stat-card:hover .stat-num { color: var(--accent-700); }
 
 .stat-label {
   font-size: 10.5px;
@@ -414,9 +422,9 @@ nav.navbar {
 .about-tag {
   position: absolute;
   bottom: 16px; left: 16px;
-  background: rgba(10,10,10,.85);
+  background: rgba(36,50,103,.92);
   backdrop-filter: blur(8px);
-  color: white;
+  color: var(--yellow-500);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .06em;
@@ -436,7 +444,7 @@ nav.navbar {
   margin-bottom: 12px;
 }
 
-.about-content h2 .accent { color: var(--accent-500); }
+.about-content h2 .accent { color: var(--accent-600); }
 
 .about-role {
   font-size: 15px;
@@ -463,7 +471,7 @@ nav.navbar {
   flex-shrink: 0;
   width: 22px; height: 22px;
   border-radius: 8px;
-  background: var(--accent-100);
+  background: var(--yellow-100);
   color: var(--accent-600);
   display: grid;
   place-items: center;
@@ -498,12 +506,12 @@ nav.navbar {
 .service-card:hover {
   border-color: var(--accent-200);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  box-shadow: 0 8px 24px rgba(36,50,103,.06);
 }
 
 .service-icon {
   width: 44px; height: 44px;
-  background: var(--accent-100);
+  background: var(--yellow-500);
   color: var(--accent-600);
   border-radius: 12px;
   display: grid;
@@ -514,7 +522,7 @@ nav.navbar {
 .service-num {
   font-size: 11px;
   font-weight: 600;
-  color: var(--gray-400);
+  color: var(--accent-400);
   letter-spacing: .1em;
   margin-bottom: 8px;
 }
@@ -558,13 +566,14 @@ nav.navbar {
 }
 
 .course-tab.active {
-  background: white;
-  color: var(--gray-950);
-  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  background: var(--accent-600);
+  color: var(--yellow-500);
+  box-shadow: 0 1px 4px rgba(36,50,103,.2);
 }
 
 .course-tab:hover:not(.active) {
-  color: var(--gray-900);
+  color: var(--accent-600);
+  background: var(--accent-50);
 }
 
 .course-panel {
@@ -604,8 +613,8 @@ nav.navbar {
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent-600);
-  background: var(--accent-50);
-  border: 1px solid var(--accent-200);
+  background: var(--yellow-100);
+  border: 1px solid var(--yellow-500);
   border-radius: 100px;
   padding: 4px 12px;
   margin-bottom: 14px;
@@ -649,8 +658,8 @@ nav.navbar {
 .course-meta-val.accent { color: var(--accent-600); }
 
 .course-audience {
-  background: var(--gray-50);
-  border-left: 3px solid var(--accent-500);
+  background: var(--accent-50);
+  border-left: 3px solid var(--yellow-500);
   padding: 16px 20px;
   border-radius: 8px;
   font-size: 14.5px;
@@ -691,7 +700,7 @@ nav.navbar {
 .module-card:hover {
   border-color: var(--accent-200);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  box-shadow: 0 8px 24px rgba(36,50,103,.06);
 }
 
 .module-head {
@@ -705,8 +714,8 @@ nav.navbar {
 
 .module-num {
   width: 32px; height: 32px;
-  background: var(--accent-500);
-  color: white;
+  background: var(--accent-600);
+  color: var(--yellow-500);
   border-radius: 8px;
   display: grid;
   place-items: center;
@@ -741,7 +750,7 @@ nav.navbar {
   content: '';
   flex-shrink: 0;
   width: 5px; height: 5px;
-  background: var(--accent-500);
+  background: var(--yellow-500);
   border-radius: 100px;
   margin-top: 9px;
 }
@@ -797,7 +806,7 @@ nav.navbar {
 
 /* ===== COMBO PRICING ===== */
 .combo {
-  background: var(--gray-950);
+  background: var(--accent-600);
   color: white;
 }
 
@@ -805,12 +814,15 @@ nav.navbar {
   color: white;
 }
 .combo .section-header p {
-  color: var(--gray-400);
+  color: rgba(255,255,255,0.7);
 }
 .combo .label-pill {
-  background: rgba(239,68,68,.15);
-  border-color: rgba(239,68,68,.3);
-  color: var(--accent-400);
+  background: rgba(255,222,89,.15);
+  border-color: rgba(255,222,89,.4);
+  color: var(--yellow-500);
+}
+.combo .label-pill .dot {
+  background: var(--yellow-500);
 }
 
 .combo-grid {
@@ -826,8 +838,8 @@ nav.navbar {
 }
 
 .combo-card {
-  background: #151515;
-  border: 1px solid #262626;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 20px;
   padding: 32px 28px;
   position: relative;
@@ -835,20 +847,20 @@ nav.navbar {
 }
 
 .combo-card.featured {
-  border-color: var(--accent-500);
-  background: linear-gradient(180deg, rgba(239,68,68,.08) 0%, #151515 100%);
+  border-color: var(--yellow-500);
+  background: rgba(255,222,89,.08);
 }
 
 .combo-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent-400);
+  border-color: var(--yellow-400);
 }
 
 .combo-badge {
   position: absolute;
   top: -12px; left: 28px;
-  background: var(--accent-500);
-  color: white;
+  background: var(--yellow-500);
+  color: var(--accent-600);
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -860,7 +872,7 @@ nav.navbar {
 .combo-name {
   font-size: 13px;
   font-weight: 600;
-  color: var(--accent-400);
+  color: var(--yellow-500);
   letter-spacing: .06em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -888,8 +900,8 @@ nav.navbar {
   gap: 6px;
   font-size: 12.5px;
   font-weight: 600;
-  color: var(--accent-400);
-  background: rgba(239,68,68,.12);
+  color: var(--accent-600);
+  background: var(--yellow-500);
   padding: 4px 10px;
   border-radius: 100px;
   margin-bottom: 24px;
@@ -902,22 +914,22 @@ nav.navbar {
   gap: 10px;
   margin-bottom: 28px;
   padding-top: 20px;
-  border-top: 1px solid #262626;
+  border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 .combo-modules li {
   display: flex;
   gap: 10px;
   font-size: 13.5px;
-  color: #c7c7c7;
+  color: rgba(255,255,255,0.8);
   line-height: 1.5;
 }
 
 .combo-modules li .ck {
   flex-shrink: 0;
   width: 18px; height: 18px;
-  background: rgba(239,68,68,.15);
-  color: var(--accent-400);
+  background: rgba(255,222,89,.2);
+  color: var(--yellow-500);
   border-radius: 6px;
   display: grid;
   place-items: center;
@@ -928,23 +940,23 @@ nav.navbar {
   width: 100%;
   justify-content: center;
   background: white;
-  color: var(--gray-950);
+  color: var(--accent-600);
   font-weight: 600;
   padding: 12px 20px;
   border-radius: 10px;
 }
 
 .btn-combo:hover {
-  background: var(--accent-500);
-  color: white;
+  background: var(--yellow-500);
+  color: var(--accent-600);
 }
 
 .combo-card.featured .btn-combo {
-  background: var(--accent-500);
-  color: white;
+  background: var(--yellow-500);
+  color: var(--accent-600);
 }
 .combo-card.featured .btn-combo:hover {
-  background: var(--accent-400);
+  background: var(--yellow-400);
 }
 
 /* ===== TESTIMONIALS ===== */
@@ -969,7 +981,7 @@ nav.navbar {
 .testi-card:hover {
   border-color: var(--accent-200);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  box-shadow: 0 8px 24px rgba(36,50,103,.06);
 }
 
 .testi-stars {
@@ -1011,8 +1023,9 @@ nav.navbar {
 
 .testi-role {
   font-size: 12px;
-  color: var(--gray-500);
+  color: var(--accent-400);
   margin-top: 2px;
+  font-weight: 500;
 }
 
 /* ===== LOCATION ===== */
@@ -1058,7 +1071,7 @@ nav.navbar {
 .info-icon {
   flex-shrink: 0;
   width: 36px; height: 36px;
-  background: var(--accent-100);
+  background: var(--yellow-500);
   color: var(--accent-600);
   border-radius: 10px;
   display: grid;
@@ -1098,7 +1111,7 @@ nav.navbar {
 /* ===== FINAL CTA ===== */
 .final-cta {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 100%, var(--accent-100), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, var(--yellow-100), transparent 70%),
     white;
   text-align: center;
 }
@@ -1113,7 +1126,7 @@ nav.navbar {
   text-wrap: balance;
 }
 
-.final-cta h2 .accent { color: var(--accent-500); }
+.final-cta h2 .accent { color: var(--accent-600); }
 
 .final-cta p {
   font-size: 1.125rem;
@@ -1138,8 +1151,8 @@ nav.navbar {
 
 /* ===== FOOTER ===== */
 footer {
-  background: var(--gray-950);
-  color: var(--gray-400);
+  background: var(--accent-600);
+  color: rgba(255,255,255,0.6);
   padding: 48px 0 32px;
 }
 
@@ -1159,14 +1172,17 @@ footer {
   font-weight: 700;
 }
 
-.footer-brand .logo-mark { background: var(--accent-500); }
+.footer-brand .logo-mark {
+  background: var(--yellow-500);
+  color: var(--accent-600);
+}
 
 .footer-meta {
   font-size: 13px;
 }
 
-.footer-meta a { color: var(--accent-400); }
-.footer-meta a:hover { color: var(--accent-300); }
+.footer-meta a { color: var(--yellow-500); }
+.footer-meta a:hover { color: var(--yellow-400); }
 
 /* ===== REVEAL ANIMATION ===== */
 .reveal {
@@ -1179,13 +1195,94 @@ footer {
   transform: translateY(0);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+.announce-sep {
+  margin: 0 6px;
+  color: var(--accent-200);
+}
+
+/* GRID → CĂN GIỮA */
+.combo-grid.single {
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD CHÍNH */
+.combo-card.featured {
+  width: 360px;
+  background: linear-gradient(180deg, rgba(255,222,89,0.12) 0%, rgba(36,50,103,0.4) 100%);
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid var(--yellow-500);
+  box-shadow:
+    0 0 0 1px rgba(255,222,89,0.2),
+    0 30px 80px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.combo-label {
+  color: var(--yellow-500);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.combo-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.combo-price {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.combo-save {
+  display: inline-block;
+  background: var(--yellow-500);
+  color: var(--accent-600);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.combo-features {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0.9;
+  color: rgba(255,255,255,0.85);
+}
+
+.combo-btn.primary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--yellow-500);
+  color: var(--accent-600);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.combo-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255,222,89,0.35);
+  background: var(--yellow-400);
 }
 
 </style>
@@ -1216,10 +1313,15 @@ footer {
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container">
-    <div class="hero-announce">
-      <span class="pulse"></span>
-      KHAI GIẢNG KHÓA MỚI · 05.05.2026 · CHỈ 10 HỌC VIÊN
-    </div>
+  <div class="hero-announce">
+  <span class="pulse"></span>
+  K01 · Khai giảng 05.05.2026 
+  <span class="announce-sep">|</span>
+  K02 · Khai giảng 10.06.2026
+  <span class="announce-sep">|</span>
+  CHỈ 10 HỌC VIÊN
+</div>
+</div>
     <h1>
       Từ <span class="strike">"gà mờ"</span> trở thành<br />
       <span class="accent">"kiện tướng" bán hàng</span>
@@ -1571,37 +1673,33 @@ footer {
         <div class="module-card">
           <div class="module-head">
             <div class="module-num">1</div>
-            <div class="module-title">Tầm nhìn & Mô hình kinh doanh</div>
+            <div class="module-title">Thiết lập & lựa chọn chiến lược</div>
           </div>
           <ul class="module-list">
-            <li>Buổi 50: Quản trị sự thay đổi</li>
-            <li>Buổi 51: Xác định Tầm nhìn — Sứ mệnh — Giá trị cốt lõi — Mô hình kinh doanh</li>
-            <li>Buổi 52: Chiến lược & tầm quan trọng của chiến lược</li>
+            <li>Tuần 1: Chẩn đoán: Nhìn vào sự thật</li>
+            <li>Tuần 2: Định hướng: Vẽ tầm nhìn & mục tiêu 3 năm</li>
           </ul>
         </div>
 
         <div class="module-card">
           <div class="module-head">
             <div class="module-num">2</div>
-            <div class="module-title">Phân tích & Lựa chọn chiến lược</div>
+            <div class="module-title">Hoàn thiện X-Matrix</div>
           </div>
           <ul class="module-list">
-            <li>Buổi 53: Phân tích môi trường bên trong doanh nghiệp</li>
-            <li>Buổi 54: Phân tích môi trường bên ngoài doanh nghiệp</li>
-            <li>Buổi 55: Kết hợp chiến lược</li>
-            <li>Buổi 56: Lựa chọn chiến lược & thiết lập mục tiêu</li>
+            <li>Tuần 3: Triển khai (1): Chọn 3-5 đột phá năm</li>
+            <li>Tuần 4: Triển khai (2): Hoàn thiện X-Matrix</li>
           </ul>
         </div>
 
         <div class="module-card">
           <div class="module-head">
             <div class="module-num">3</div>
-            <div class="module-title">Thực thi & Kế hoạch chi tiết</div>
+            <div class="module-title">Kế hoạch chi tiết & Kiểm soát</div>
           </div>
           <ul class="module-list">
-            <li>Buổi 57: Xây dựng Master Plan</li>
-            <li>Buổi 58: Xây dựng Action Plan</li>
-            <li>Buổi 59: Xây dựng Detail Plan</li>
+            <li>Tuần 5: Vận hành: Chỉ số đo lường & Báo cáo tháng</li>
+            <li>Tuần 6: Phản tỉnh & Tốt nghiệp: Nhìn lại · Đo lường · Tình huống 12 tháng</li>
           </ul>
         </div>
       </div>
@@ -1626,50 +1724,22 @@ footer {
   <div class="container">
     <div class="section-header">
       <span class="label-pill"><span class="dot"></span>ƯU ĐÃI COMBO</span>
-      <h2>Học combo, <span style="color: var(--accent-400);">tiết kiệm tới 30 triệu</span></h2>
-      <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo → chiến lược. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
+      <h2>Học combo, <span style="color: var(--yellow-500);">tiết kiệm tới 20 triệu</span></h2>
+      <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
     </div>
 
-    <div class="combo-grid">
-      <div class="combo-card">
-        <div class="combo-name">Combo 01</div>
-        <div class="combo-title">Khóa 2 + Khóa 3</div>
-        <div class="combo-price">40.000.000đ</div>
-        <div class="combo-save">↓ Tiết kiệm 10 triệu</div>
-        <ul class="combo-modules">
-          <li><span class="ck">✓</span> Kỹ năng lãnh đạo đội nhóm</li>
-          <li><span class="ck">✓</span> Tăng trưởng doanh thu bền vững</li>
-          <li><span class="ck">✓</span> Chiến lược đến thực thi</li>
-        </ul>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-combo">Chọn combo này →</a>
-      </div>
-
+    <div class="combo-grid single">
       <div class="combo-card featured">
-        <div class="combo-badge">Phổ biến nhất</div>
-        <div class="combo-name">Combo 02</div>
-        <div class="combo-title">Full 3 khóa học</div>
-        <div class="combo-price">70.000.000đ</div>
-        <div class="combo-save">↓ Tiết kiệm 30 triệu</div>
-        <ul class="combo-modules">
-          <li><span class="ck">✓</span> Bán hàng xuất sắc (33 buổi)</li>
-          <li><span class="ck">✓</span> Phát triển kỹ năng lãnh đạo (16 buổi)</li>
-          <li><span class="ck">✓</span> Chiến lược tăng trưởng (10 buổi)</li>
-          <li><span class="ck">✓</span> Trọn vẹn 59 buổi thực chiến</li>
-        </ul>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-combo">Chọn combo này →</a>
-      </div>
-
-      <div class="combo-card">
-        <div class="combo-name">Combo 03</div>
-        <div class="combo-title">Khóa 1 + Khóa 2</div>
+        <div class="combo-label">COMBO</div>
+        <h3 class="combo-name">Khóa 01 + Khóa 02</h3>
         <div class="combo-price">60.000.000đ</div>
         <div class="combo-save">↓ Tiết kiệm 20 triệu</div>
-        <ul class="combo-modules">
-          <li><span class="ck">✓</span> Kỹ năng bán hàng xuất sắc</li>
-          <li><span class="ck">✓</span> Kỹ năng lãnh đạo đội nhóm</li>
-          <li><span class="ck">✓</span> 49 buổi kỹ năng cá nhân + tập thể</li>
-        </ul>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-combo">Chọn combo này →</a>
+        <div class="combo-features">
+          <div>✔ Kỹ năng bán hàng xuất sắc</div>
+          <div>✔ Kỹ năng lãnh đạo đội nhóm</div>
+          <div>✔ 49 buổi thực chiến</div>
+        </div>
+        <button class="combo-btn primary">Chọn combo này →</button>
       </div>
     </div>
   </div>
@@ -1833,7 +1903,7 @@ footer {
             </div>
             <div>
               <div class="info-label">Liên hệ</div>
-              <div class="info-val"><strong>Mr. Đinh Trường</strong><br /><a href="tel:0942523123" style="color: var(--accent-600);">0942.523.123</a></div>
+              <div class="info-val"><strong>Mr. Đình Trường</strong><br /><a href="tel:0942523123" style="color: var(--accent-600); font-weight: 600;">0942.523.123</a></div>
             </div>
           </li>
         </ul>
@@ -1866,7 +1936,7 @@ footer {
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark">Đ</div>
-        Đinh Trường · Master Class
+        Đình Trường · Master Class
       </div>
       <div class="footer-meta">
         © 2026 · Founder Ladysfit Vietnam · <a href="tel:0942523123">0942.523.123</a>
@@ -1876,7 +1946,6 @@ footer {
 </footer>
 
 <script>
-  // ===== COURSE TABS =====
   const tabs = document.querySelectorAll('.course-tab');
   const panels = document.querySelectorAll('.course-panel');
 
@@ -1890,7 +1959,6 @@ footer {
     });
   });
 
-  // ===== SCROLL REVEAL =====
   const revealEls = document.querySelectorAll('.stat-card, .service-card, .module-card, .testi-card, .combo-card');
   revealEls.forEach(el => el.classList.add('reveal'));
 
@@ -1905,11 +1973,10 @@ footer {
 
   revealEls.forEach(el => io.observe(el));
 
-  // ===== NAVBAR SHADOW ON SCROLL =====
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
-      navbar.style.boxShadow = '0 1px 0 rgba(0,0,0,.04)';
+      navbar.style.boxShadow = '0 1px 0 rgba(36,50,103,.08)';
     } else {
       navbar.style.boxShadow = 'none';
     }
