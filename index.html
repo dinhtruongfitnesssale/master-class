@@ -1410,6 +1410,146 @@ footer {
   background: var(--yellow-400);
 }
 
+/* ===== HERO HEADLINE STYLED ===== */
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+/* Dòng nhỏ phía trên */
+.hero-line-top {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: var(--gray-600);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+/* "lính mới" — gạch ngang qua */
+.hero-strike-wrap {
+  position: relative;
+  display: inline-block;
+  color: var(--gray-400);
+  font-style: italic;
+}
+.hero-strike-wrap::after {
+  content: '';
+  position: absolute;
+  left: -2px; right: -2px;
+  top: 50%;
+  height: 3px;
+  background: var(--yellow-500);
+  transform: rotate(-2deg);
+  border-radius: 100px;
+}
+
+/* Dòng chính to — chuyên gia bán hàng */
+.hero-line-main {
+  display: block;
+  line-height: 1.05;
+}
+.hero-highlight-wrap {
+  font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--gray-950);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Gạch chân vàng dưới "bán hàng" */
+.hero-underline-gold {
+  position: relative;
+  display: inline-block;
+  color: var(--accent-600);
+}
+.hero-underline-gold::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -4px;
+  height: 5px;
+  background: var(--yellow-500);
+  border-radius: 100px;
+  animation: slideInUnderline 0.6s ease 0.4s both;
+}
+@keyframes slideInUnderline {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Divider ✦ */
+.hero-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 8px;
+}
+.hero-dash {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-200), transparent);
+}
+.hero-star {
+  font-size: 13px;
+  color: var(--yellow-500);
+  line-height: 1;
+  animation: spinStar 6s linear infinite;
+}
+@keyframes spinStar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* "Đến hành trình trở thành" */
+.hero-line-sub {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  color: var(--gray-500);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+/* nhà "Lãnh đạo kiệt xuất" */
+.hero-line-accent {
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--gray-950);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.hero-gold-text {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-600) 0%, var(--accent-500) 40%, #3d55b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  font-style: italic;
+}
+/* Hào quang vàng nhỏ phía sau */
+.hero-gold-text::before {
+  content: '"Lãnh đạo kiệt xuất"';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--yellow-500) 0%, #ffb800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(12px);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+@media (max-width: 640px) {
+  .hero-headline { gap: 2px; }
+  .hero-dash { width: 28px; }
+}
+
 </style>
 </head>
 <body>
@@ -1447,9 +1587,22 @@ footer {
   CHỈ 10 HỌC VIÊN
 </div>
 </div>
-    <h1>
-      Bán đúng cách —<br />
-      <span class="accent">Doanh thu tự đến</span>
+    <h1 class="hero-headline">
+      <span class="hero-line-top">
+        Từ <span class="hero-strike-wrap">"lính mới"</span> trở thành
+      </span>
+      <span class="hero-line-main">
+        <span class="hero-highlight-wrap">chuyên gia <span class="hero-underline-gold">bán hàng</span></span>
+      </span>
+      <span class="hero-divider-row">
+        <span class="hero-dash"></span>
+        <span class="hero-star">✦</span>
+        <span class="hero-dash"></span>
+      </span>
+      <span class="hero-line-sub">Đến hành trình trở thành</span>
+      <span class="hero-line-accent">
+        nhà <span class="hero-gold-text">"Lãnh đạo kiệt xuất"</span>
+      </span>
     </h1>
     <p class="hero-sub">
       Chương trình 49 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm kinh nghiệm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.
