@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Đình Trường · Master Class — Từ "lính mới" thành chuyên gia bán hàng. Đến hành trình trở thành nhà "Lãnh đạo kiệt xuất"</title>
+<title>Đình Trường · Master Class — Từ "lính mới" thành nhà "lãnh đạo" kiệt xuất</title>
 <meta name="description" content="Chương trình đào tạo 49 buổi giúp PT, Sale, Quản lý phòng tập tăng trưởng doanh thu bền vững. Khai giảng 05/05/2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1550,6 +1550,116 @@ footer {
   .hero-dash { width: 28px; }
 }
 
+/* ===== FINAL CTA HEADLINE STYLED ===== */
+.cta-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  letter-spacing: unset;
+}
+
+/* "Sẵn sàng gia nhập hành trình" — nhỏ, mờ */
+.cta-line-top {
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  font-weight: 500;
+  color: var(--gray-500);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+/* Divider ✦ — nhỏ hơn hero */
+.cta-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 4px;
+}
+.cta-dash {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-200), transparent);
+}
+.cta-star {
+  font-size: 11px;
+  color: var(--yellow-500);
+  animation: spinStar 6s linear infinite;
+}
+
+/* "từ 'lính mới'" */
+.cta-line-main {
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--gray-700);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* gạch chân strikethrough vàng qua "lính mới" */
+.cta-strike {
+  position: relative;
+  display: inline-block;
+  color: var(--gray-400);
+  font-style: italic;
+}
+.cta-strike::after {
+  content: '';
+  position: absolute;
+  left: -2px; right: -2px;
+  top: 50%;
+  height: 3px;
+  background: var(--yellow-500);
+  transform: rotate(-1.5deg);
+  border-radius: 100px;
+}
+
+/* "thành nhà 'lãnh đạo' kiệt xuất?" — dòng lớn nhất */
+.cta-line-accent {
+  font-size: clamp(1.9rem, 4.8vw, 3.4rem);
+  font-weight: 900;
+  color: var(--gray-950);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+/* "lãnh đạo kiệt xuất" — gradient navy + glow vàng */
+.cta-gold-text {
+  display: inline;
+  background: linear-gradient(135deg, var(--accent-700) 0%, var(--accent-500) 50%, #3d55b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  position: relative;
+}
+.cta-gold-text::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 2px;
+  height: 4px;
+  background: var(--yellow-500);
+  border-radius: 100px;
+  animation: slideInUnderline 0.7s ease 0.3s both;
+}
+
+/* Dấu "?" — màu vàng để tạo điểm nhấn */
+.cta-question {
+  color: var(--yellow-600);
+  -webkit-text-fill-color: var(--yellow-600);
+  font-style: normal;
+}
+
+@media (max-width: 640px) {
+  .cta-headline { gap: 2px; }
+  .cta-dash { width: 24px; }
+}
+
 </style>
 </head>
 <body>
@@ -2138,7 +2248,20 @@ footer {
 <section class="final-cta">
   <div class="container">
     <div class="container-narrow">
-      <h2>Sẵn sàng gia nhập hành trình <br /><span class="accent">từ "lính mới" thành "lãnh đạo" kiệt xuất?</span></h2>
+      <h2 class="cta-headline">
+        <span class="cta-line-top">Sẵn sàng gia nhập hành trình</span>
+        <span class="cta-divider-row">
+          <span class="cta-dash"></span>
+          <span class="cta-star">✦</span>
+          <span class="cta-dash"></span>
+        </span>
+        <span class="cta-line-main">
+          từ <span class="cta-strike">"lính mới"</span>
+        </span>
+        <span class="cta-line-accent">
+          thành nhà <span class="cta-gold-text">"lãnh đạo" kiệt xuất</span><span class="cta-question">?</span>
+        </span>
+      </h2>
       <p>Chỉ 10 học viên mỗi khóa. Khai giảng 05.05.2026. Đăng ký sớm để nhận ưu đãi giảm tới 30% học phí.</p>
       <div class="final-cta-btns">
         <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary btn-lg">Đăng ký ngay →</a>
