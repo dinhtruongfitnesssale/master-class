@@ -1,1677 +1,242 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Đình Trường · Master Class — Từ "lính mới" thành nhà "lãnh đạo" kiệt xuất</title>
-<meta name="description" content="Chương trình đào tạo 49 buổi giúp PT, Sale, Quản lý phòng tập tăng trưởng doanh thu bền vững. Khai giảng 05/05/2026." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
+<meta name="description" content="Chương trình đào tạo 52 buổi giúp PT, Sale, Quản lý phòng tập tăng trưởng doanh thu bền vững. Online qua Zoom. Khai giảng 08/08.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
 <style>
-/* ===== CSS VARIABLES ===== */
-:root {
-  /* Accent — Navy/Yellow brand */
-  --accent-700: #1a2650;
-  --accent-600: #243267;
-  --accent-500: #2d3e80;
-  --accent-400: #4a5ea0;
-  --accent-200: #c0c9e8;
-  --accent-100: #e8ebf5;
-  --accent-50:  #f2f4fa;
-
-  /* Yellow highlight */
-  --yellow-500: #ffde59;
-  --yellow-400: #ffe680;
-  --yellow-600: #e8c800;
-  --yellow-100: #fffbe8;
-  --yellow-50:  #fffdf0;
-
-  /* Neutrals */
-  --gray-950: #0A0A0A;
-  --gray-900: #111827;
-  --gray-800: #1F2937;
-  --gray-700: #374151;
-  --gray-600: #4B5563;
-  --gray-500: #6B7280;
-  --gray-400: #9CA3AF;
-  --gray-300: #D1D5DB;
-  --gray-200: #E5E7EB;
-  --gray-100: #F3F4F6;
-  --gray-50:  #F9FAFB;
-  --white:    #FFFFFF;
-
-  /* Stars */
-  --amber-400: #FBBF24;
+/* ============ TOKENS (Dark Bento) ============ */
+:root{
+  --bg-page:#0A0A0B; --bg-card:#141416; --bg-card-hi:#1C1C1F;
+  --border:rgba(255,255,255,0.08); --border-hi:rgba(255,255,255,0.14);
+  --text-primary:#F5F5F7; --text-secondary:#A1A1A6; --text-tertiary:#6E6E73;
+  --accent:#2F6BFF; --accent-2:#5AA0FF; --accent-glow:rgba(47,107,255,0.28);
+  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px; --space-6:64px;
+  --text-hero:clamp(40px,6vw,72px); --text-h2:clamp(30px,4vw,48px); --text-h3:clamp(22px,2.5vw,30px);
+  --text-body-lg:18px; --text-body:16px; --text-small:14px; --text-micro:12px;
+  --card-primary:clamp(40px,5vw,64px); --card-secondary:16px; --card-tertiary:13px;
+  --radius:20px;
+  --ease-quiet:cubic-bezier(0.25,0.1,0.25,1); --dur-hover:300ms; --dur-reveal:500ms; --stagger:80ms;
 }
-
-/* ===== RESET & BASE ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-page); color:var(--text-primary);
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  line-height:1.5; letter-spacing:-0.01em; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--white);
-  color: var(--gray-900);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+/* ============ LAYOUT ============ */
+.section{max-width:1280px;margin:0 auto;padding:var(--space-6) 48px}
+.bento-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.section-head{margin-bottom:var(--space-5);max-width:760px}
+.eyebrow{font-size:var(--text-micro);font-weight:700;letter-spacing:0.16em;color:var(--accent);text-transform:uppercase;display:inline-block;margin-bottom:var(--space-2)}
+.section-head h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
+.section-head p{margin-top:var(--space-2);color:var(--text-secondary);font-size:var(--text-body-lg);line-height:1.6}
+
+/* ============ CARD BASE ============ */
+.card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:var(--space-4);transition:background-color var(--dur-hover) var(--ease-quiet),border-color var(--dur-hover) var(--ease-quiet);
+  display:flex;flex-direction:column;
 }
+.card:hover{background:var(--bg-card-hi);border-color:var(--border-hi)}
+.card-label{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;color:var(--text-tertiary);text-transform:uppercase}
 
-.font-mono { font-family: 'JetBrains Mono', monospace; }
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,11,0.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:14px 48px;display:flex;align-items:center;gap:var(--space-4)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
+.brand .mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:800}
+.nav-links{display:flex;gap:var(--space-4);margin-left:auto;font-size:var(--text-small);color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text-primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:700;font-size:var(--text-small);padding:11px 20px;transition:transform var(--dur-hover) var(--ease-quiet),background-color var(--dur-hover) var(--ease-quiet)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--border-hi);color:var(--text-primary)}
+.btn-ghost:hover{background:var(--bg-card-hi)}
+.nav .btn{padding:9px 18px}
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; }
-
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--gray-50); }
-::-webkit-scrollbar-thumb { background: var(--accent-200); border-radius: 100px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-400); }
-
-/* ===== LAYOUT HELPERS ===== */
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.container-narrow {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-section {
-  padding: 96px 0;
-  scroll-margin-top: 80px;
-}
-
-section.hero { padding: 140px 0 80px; }
-
-/* ===== NAVBAR ===== */
-nav.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(36, 50, 103, 0.12);
-}
-
-.nav-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  color: var(--accent-600);
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
-
-.logo-mark {
-  width: 30px; height: 30px;
-  background: var(--accent-600);
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  color: var(--yellow-500);
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-}
-
-.logo-badge {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--accent-600);
-  border: 1px solid var(--accent-200);
-  border-radius: 4px;
-  padding: 2px 6px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  background: var(--accent-50);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  font-size: 14px;
-  color: var(--gray-600);
-  font-weight: 500;
-}
-
-.nav-links a { transition: color .15s; }
-.nav-links a:hover { color: var(--accent-600); }
-
-.nav-cta-wrap { display: flex; align-items: center; gap: 12px; }
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-inner { height: 56px; }
-}
-
-/* ===== BUTTONS ===== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 10px;
-  transition: all .15s ease;
-  border: 1px solid transparent;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background: var(--accent-600);
-  color: var(--yellow-500);
-  box-shadow: 0 1px 2px rgba(36,50,103,.2);
-}
-.btn-primary:hover {
-  background: var(--accent-700);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(36,50,103,.25);
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--gray-800);
-  border-color: var(--gray-200);
-}
-.btn-secondary:hover {
-  border-color: var(--accent-200);
-  background: var(--accent-50);
-  color: var(--accent-600);
-}
-
-.btn-lg { padding: 14px 26px; font-size: 15px; }
-.btn-block { width: 100%; justify-content: center; }
-
-/* ===== SECTION LABEL PILL ===== */
-.label-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent-600);
-  background: var(--accent-50);
-  border: 1px solid var(--accent-200);
-  border-radius: 100px;
-  padding: 5px 12px;
-}
-
-.label-pill .dot {
-  width: 6px; height: 6px;
-  border-radius: 100px;
-  background: var(--yellow-500);
-}
-
-/* ===== SECTION HEADER ===== */
-.section-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 64px;
-}
-
-.section-header .label-pill { margin-bottom: 20px; }
-
-.section-header h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--gray-950);
-  margin-bottom: 16px;
-  text-wrap: balance;
-}
-
-.section-header h2 .accent { color: var(--accent-600); }
-
-.section-header p {
-  font-size: 1.0625rem;
-  color: var(--gray-600);
-  line-height: 1.65;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
+/* ============ HERO (full-width banner) ============ */
+.hero-banner{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, var(--accent-50), transparent 70%),
-    white;
+    radial-gradient(900px 520px at 18% -10%, rgba(47,107,255,0.30), transparent 60%),
+    radial-gradient(700px 500px at 100% 0%, rgba(90,160,255,0.16), transparent 55%),
+    linear-gradient(180deg, #0C1326 0%, var(--bg-page) 70%);
+}
+.hero-banner::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(700px 480px at 25% 25%, #000 0%, transparent 75%);
+  mask-image:radial-gradient(700px 480px at 25% 25%, #000 0%, transparent 75%);
+}
+.hero-inner{position:relative;max-width:1280px;margin:0 auto;padding:var(--space-6) 48px calc(var(--space-6) + 8px);display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:var(--space-3)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:var(--text-micro);font-weight:700;letter-spacing:0.06em;padding:7px 13px;border-radius:999px;border:1px solid var(--border-hi);color:var(--text-secondary);background:rgba(255,255,255,0.03)}
+.pill.hot{background:var(--accent);color:#fff;border-color:transparent;box-shadow:0 6px 24px var(--accent-glow)}
+.hero-copy h1{font-size:clamp(44px,5.6vw,76px);font-weight:800;line-height:1.12;letter-spacing:-0.02em;word-break:keep-all}
+.hero-copy h1 .acc{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{color:var(--text-secondary);font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:620px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--space-1)}
+.btn-primary{box-shadow:0 10px 30px var(--accent-glow)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hero-stats .card{background:rgba(255,255,255,0.04);border-color:var(--border-hi);backdrop-filter:blur(6px)}
+.card-stat{justify-content:center;gap:6px;min-height:150px}
+.card-stat .num{font-size:clamp(38px,4vw,56px);font-weight:800;line-height:1;letter-spacing:-0.03em;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card-stat .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--text-tertiary);text-transform:uppercase}
+
+/* ============ FEATURE ============ */
+.card-feature{grid-column:span 4;grid-row:span 2;gap:var(--space-2)}
+.card-feature .icon{width:48px;height:48px;border-radius:14px;background:var(--accent-glow);border:1px solid var(--border-hi);display:grid;place-items:center;font-size:22px;margin-bottom:var(--space-1)}
+.card-feature h3{font-size:var(--text-h3);font-weight:700;line-height:1.3;word-break:keep-all}
+.card-feature p{color:var(--text-secondary);font-size:var(--text-body);line-height:1.6}
+.card-feature .num-tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;color:var(--accent)}
+
+/* ============ ABOUT ============ */
+.card-visual{grid-column:span 4;grid-row:span 3;padding:0;overflow:hidden;position:relative;min-height:420px}
+.card-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card-visual .cap{position:absolute;left:0;right:0;bottom:0;padding:var(--space-3);background:linear-gradient(transparent,rgba(10,10,11,0.92));z-index:1}
+.card-visual .cap b{display:block;font-weight:700}
+.card-visual .cap span{font-size:var(--text-small);color:var(--text-secondary)}
+.card-about{grid-column:span 8;grid-row:span 3;gap:var(--space-3);justify-content:center}
+.card-about h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
+.card-about .sub{color:var(--accent);font-weight:600}
+.about-list{display:grid;gap:14px;margin-top:var(--space-1)}
+.about-list li{list-style:none;display:flex;gap:12px;color:var(--text-secondary);line-height:1.6}
+.about-list li::before{content:"✦";color:var(--accent);flex:none;font-size:14px;margin-top:3px}
+.about-list b{color:var(--text-primary);font-weight:700}
+
+/* ============ COURSES ============ */
+.card-course{grid-column:span 6;grid-row:span 1;gap:var(--space-3)}
+.course-head{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap}
+.course-tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase}
+.card-course h3{font-size:var(--text-h3);font-weight:800;line-height:1.3;word-break:keep-all}
+.course-for{font-size:var(--text-small);color:var(--text-secondary);line-height:1.6;border-left:2px solid var(--accent);padding-left:14px}
+.course-for b{color:var(--text-primary)}
+.course-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.course-meta .m{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,0.02)}
+.course-meta .m .k{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--text-tertiary);text-transform:uppercase}
+.course-meta .m .v{font-size:var(--text-small);font-weight:700;color:var(--text-primary);margin-top:3px}
+.modules{display:grid;gap:14px}
+.module{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,0.015)}
+.module summary{cursor:pointer;font-weight:700;font-size:var(--text-small);display:flex;align-items:center;gap:10px;list-style:none}
+.module summary::-webkit-details-marker{display:none}
+.module summary .n{width:24px;height:24px;border-radius:8px;background:var(--accent-glow);color:var(--accent);display:grid;place-items:center;font-size:12px;flex:none}
+.module summary::after{content:"+";margin-left:auto;color:var(--text-tertiary);font-weight:700}
+.module[open] summary::after{content:"–"}
+.module ul{margin-top:12px;display:grid;gap:7px;padding-left:34px}
+.module ul li{font-size:var(--text-small);color:var(--text-secondary);line-height:1.5;list-style:none;position:relative}
+.module ul li::before{content:"";position:absolute;left:-14px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--text-tertiary)}
+.price-box{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap;border-top:1px solid var(--border);padding-top:var(--space-3)}
+.price-box .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--text-tertiary);text-transform:uppercase}
+.price-now{font-size:var(--text-h3);font-weight:800;color:var(--text-primary)}
+.price-old{font-size:var(--text-body);color:var(--text-tertiary);text-decoration:line-through;margin-left:8px}
+.price-note{font-size:var(--text-small);color:var(--accent);margin-top:4px}
+
+/* ============ COMBO ============ */
+.card-combo{grid-column:span 4;grid-row:span 1;gap:var(--space-2);padding:var(--space-5) var(--space-4)}
+.card-combo.featured{border-color:var(--accent);box-shadow:0 0 70px var(--accent-glow);background:linear-gradient(180deg,rgba(47,107,255,0.10),var(--bg-card) 40%);transform:translateY(-6px)}
+.combo-badge{display:inline-flex;align-self:flex-start;font-size:var(--text-micro);font-weight:800;letter-spacing:0.1em;color:var(--accent);background:var(--accent-glow);border:1px solid var(--border-hi);padding:6px 12px;border-radius:999px}
+.card-combo h3{font-size:clamp(20px,2vw,24px);font-weight:800;line-height:1.3;word-break:keep-all;min-height:2.6em}
+.price-stack{display:flex;flex-direction:column;gap:2px;margin-top:var(--space-1)}
+.price-stack .price-now{font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.05;letter-spacing:-0.02em;white-space:nowrap;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.price-stack .price-sub{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:var(--text-small);color:var(--text-tertiary)}
+.price-stack .price-old{font-size:var(--text-small);color:var(--text-tertiary);text-decoration:line-through;margin:0;white-space:nowrap}
+.price-stack .per{font-size:var(--text-micro);color:var(--text-tertiary)}
+.combo-feats{display:grid;gap:10px;margin:var(--space-2) 0;padding-top:var(--space-2);border-top:1px solid var(--border)}
+.combo-feats li{list-style:none;font-size:var(--text-small);color:var(--text-secondary);display:flex;gap:9px}
+.combo-feats li::before{content:"✔";color:var(--accent);flex:none}
+.card-combo .btn{margin-top:auto;justify-content:center;padding:13px 20px}
+
+/* ============ TESTIMONIALS ============ */
+.card-quote{grid-column:span 4;grid-row:span 1;gap:var(--space-3);justify-content:space-between}
+.card-quote.wide{grid-column:span 4}
+.stars{color:var(--accent);letter-spacing:2px;font-size:14px}
+.card-quote p{font-size:var(--text-body-lg);line-height:1.55;color:var(--text-primary);font-weight:500}
+.who{display:flex;align-items:center;gap:12px}
+.who img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--border-hi)}
+.who b{display:block;font-size:var(--text-small);font-weight:700}
+.who span{font-size:var(--text-micro);color:var(--text-tertiary)}
+
+/* ============ CONTACT ============ */
+.card-contact{grid-column:span 8;grid-row:span 2;gap:var(--space-3);justify-content:center}
+.card-contact h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
+.contact-rows{display:grid;gap:var(--space-2);margin-top:var(--space-1)}
+.contact-row{display:flex;gap:14px;color:var(--text-secondary);line-height:1.55}
+.contact-row .ic{width:40px;height:40px;border-radius:12px;background:var(--accent-glow);display:grid;place-items:center;flex:none;font-size:18px}
+.contact-row b{color:var(--text-primary);display:block}
+.card-map{grid-column:span 4;grid-row:span 2;padding:0;overflow:hidden;position:relative;min-height:300px}
+.card-map img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+
+/* ============ FINAL CTA ============ */
+.card-cta{grid-column:span 12;grid-row:span 1;align-items:center;text-align:center;gap:var(--space-3);padding:var(--space-6);position:relative;overflow:hidden;box-shadow:0 0 80px var(--accent-glow)}
+.card-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--accent-glow),transparent 60%);pointer-events:none}
+.card-cta h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;max-width:760px;word-break:keep-all;position:relative}
+.card-cta p{color:var(--text-secondary);max-width:600px;font-size:var(--text-body-lg);position:relative}
+.card-cta .hero-cta{justify-content:center;position:relative}
+.card-cta small{color:var(--text-tertiary);font-size:var(--text-small);position:relative}
+
+/* ============ FOOTER ============ */
+.footer{border-top:1px solid var(--border);margin-top:var(--space-5)}
+.footer-inner{max-width:1280px;margin:0 auto;padding:var(--space-4) 48px;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;color:var(--text-tertiary);font-size:var(--text-small)}
+
+/* ============ REVEAL ANIM ============ */
+.card{opacity:0;transform:translateY(16px);animation:reveal var(--dur-reveal) var(--ease-quiet) forwards}
+@keyframes reveal{to{opacity:1;transform:none}}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;padding:var(--space-5) 48px}
+  .hero-stats{grid-template-columns:repeat(4,1fr);gap:16px}
+  .card-stat{min-height:120px}
+  .card-about{grid-column:span 12;grid-row:auto}
+  .card-visual{grid-column:span 12;grid-row:auto;min-height:340px}
+  .card-course{grid-column:span 12}
+  .card-combo{grid-column:span 12}
+  .card-combo.featured{transform:none;order:-1}
+  .card-combo h3{min-height:0}
+  .card-contact{grid-column:span 12;grid-row:auto}
+  .card-map{grid-column:span 12;grid-row:auto;min-height:260px}
+  .card-quote,.card-quote.wide{grid-column:span 6}
+  .nav-links{display:none}
+}
+@media (max-width:640px){
+  .section{padding:var(--space-5) 16px}
+  .nav-inner{padding:12px 16px}
+  .footer-inner{padding:var(--space-3) 16px}
+  .bento-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .hero-inner{padding:var(--space-5) 16px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .card-stat{min-height:110px}
+  .card-feature{grid-column:span 4;grid-row:auto}
+  .card-about,.card-visual,.card-course,.card-contact,.card-map,.card-cta{grid-column:span 4;grid-row:auto}
+  .card-combo{grid-column:span 4}
+  .card-quote,.card-quote.wide{grid-column:span 4}
+  .card{padding:var(--space-3)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .card{opacity:1;transform:none}
 }
-
-.hero-announce {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent-600);
-  background: var(--accent-50);
-  border: 1px solid var(--accent-200);
-  border-radius: 100px;
-  padding: 6px 14px;
-  margin-bottom: 28px;
-  box-shadow: 0 1px 2px rgba(36,50,103,.06);
-}
-
-.hero-announce .pulse {
-  width: 6px; height: 6px;
-  background: var(--yellow-500);
-  border-radius: 100px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .5; transform: scale(1.3); }
-}
-
-.hero h1 {
-  font-size: clamp(2.25rem, 5.5vw, 4rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  color: var(--gray-950);
-  margin-bottom: 24px;
-  text-wrap: balance;
-}
-
-.hero h1 .accent { color: var(--accent-600); }
-.hero h1 .strike {
-  position: relative;
-  display: inline-block;
-  color: var(--gray-400);
-}
-.hero h1 .strike::after {
-  content: '';
-  position: absolute;
-  left: -4px; right: -4px;
-  top: 52%;
-  height: 4px;
-  background: var(--yellow-500);
-  transform: rotate(-3deg);
-  border-radius: 100px;
-}
-
-.hero-sub {
-  font-size: 1.125rem;
-  color: var(--gray-600);
-  max-width: 620px;
-  margin: 0 auto 36px;
-  line-height: 1.65;
-}
-
-.hero-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 64px;
-}
-
-/* ===== STATS ===== */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.stat-card {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 14px;
-  padding: 22px 16px;
-  text-align: center;
-  transition: all .2s;
-}
-.stat-card:hover {
-  border-color: var(--accent-200);
-  background: var(--accent-50);
-  transform: translateY(-2px);
-}
-
-.stat-num {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent-600);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-}
-
-.stat-card:hover .stat-num { color: var(--accent-700); }
-
-.stat-label {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  line-height: 1.3;
-}
-
-@media (max-width: 640px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ===== ABOUT SECTION ===== */
-.about-wrap {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 56px;
-  align-items: start;
-}
-
-@media (max-width: 860px) {
-  .about-wrap { grid-template-columns: 1fr; gap: 32px; }
-}
-
-.about-photo {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--gray-100);
-  aspect-ratio: 4/5;
-}
-
-.about-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-
-.about-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 20px;
-  pointer-events: none;
-}
-
-.about-tag {
-  position: absolute;
-  bottom: 16px; left: 16px;
-  background: rgba(36,50,103,.92);
-  backdrop-filter: blur(8px);
-  color: var(--yellow-500);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 100px;
-}
-
-.about-content .label-pill { margin-bottom: 20px; }
-
-.about-content h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--gray-950);
-  margin-bottom: 12px;
-}
-
-.about-content h2 .accent { color: var(--accent-600); }
-
-.about-role {
-  font-size: 15px;
-  color: var(--gray-500);
-  margin-bottom: 28px;
-}
-
-.about-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  list-style: none;
-}
-
-.about-list li {
-  display: flex;
-  gap: 14px;
-  font-size: 15px;
-  color: var(--gray-700);
-  line-height: 1.6;
-}
-
-.about-list li .check {
-  flex-shrink: 0;
-  width: 22px; height: 22px;
-  border-radius: 8px;
-  background: var(--yellow-100);
-  color: var(--accent-600);
-  display: grid;
-  place-items: center;
-  margin-top: 2px;
-}
-
-.about-list li strong { color: var(--gray-950); font-weight: 600; }
-
-/* ===== SERVICES (3 cards) ===== */
-.services {
-  background: var(--gray-50);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 860px) {
-  .services-grid { grid-template-columns: 1fr; }
-}
-
-.service-card {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all .2s;
-}
-
-.service-card:hover {
-  border-color: var(--accent-200);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(36,50,103,.06);
-}
-
-.service-icon {
-  width: 44px; height: 44px;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 20px;
-}
-
-.service-num {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-400);
-  letter-spacing: .1em;
-  margin-bottom: 8px;
-}
-
-.service-card h3 {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--gray-950);
-  line-height: 1.3;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
-}
-
-.service-card p {
-  font-size: 14.5px;
-  color: var(--gray-600);
-  line-height: 1.6;
-}
-
-/* ===== COURSES ===== */
-.course-tabs {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  background: var(--gray-100);
-  border-radius: 12px;
-  margin: 0 auto 40px;
-  max-width: fit-content;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.course-tab {
-  padding: 10px 18px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--gray-600);
-  border-radius: 8px;
-  transition: all .15s;
-  background: transparent;
-}
-
-.course-tab.active {
-  background: var(--accent-600);
-  color: var(--yellow-500);
-  box-shadow: 0 1px 4px rgba(36,50,103,.2);
-}
-
-.course-tab:hover:not(.active) {
-  color: var(--accent-600);
-  background: var(--accent-50);
-}
-
-.course-panel {
-  display: none;
-  animation: fadeUp .4s ease forwards;
-}
-.course-panel.active { display: block; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.course-hero {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 20px;
-}
-
-.course-hero-top {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-
-.course-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--accent-600);
-  background: var(--yellow-100);
-  border: 1px solid var(--yellow-500);
-  border-radius: 100px;
-  padding: 4px 12px;
-  margin-bottom: 14px;
-}
-
-.course-title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 800;
-  color: var(--gray-950);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  max-width: 560px;
-}
-
-.course-meta {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.course-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.course-meta-label {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--gray-400);
-}
-
-.course-meta-val {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gray-900);
-}
-
-.course-meta-val.accent { color: var(--accent-600); }
-
-.course-audience {
-  background: var(--accent-50);
-  border-left: 3px solid var(--yellow-500);
-  padding: 16px 20px;
-  border-radius: 8px;
-  font-size: 14.5px;
-  color: var(--gray-700);
-  line-height: 1.65;
-}
-
-.course-audience-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--accent-600);
-  margin-bottom: 6px;
-}
-
-/* Modules grid */
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-  .modules-grid { grid-template-columns: 1fr; }
-  .course-hero { padding: 28px 24px; }
-}
-
-.module-card {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all .2s;
-}
-
-.module-card:hover {
-  border-color: var(--accent-200);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(36,50,103,.06);
-}
-
-.module-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--gray-100);
-}
-
-.module-num {
-  width: 32px; height: 32px;
-  background: var(--accent-600);
-  color: var(--yellow-500);
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.module-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--gray-950);
-  letter-spacing: -0.01em;
-}
-
-.module-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.module-list li {
-  display: flex;
-  gap: 10px;
-  font-size: 13.5px;
-  color: var(--gray-700);
-  line-height: 1.5;
-  padding: 4px 0;
-}
-
-.module-list li::before {
-  content: '';
-  flex-shrink: 0;
-  width: 5px; height: 5px;
-  background: var(--yellow-500);
-  border-radius: 100px;
-  margin-top: 9px;
-}
-
-/* Pricing row in course */
-.course-pricing {
-  background: linear-gradient(135deg, var(--accent-50) 0%, white 100%);
-  border: 1px solid var(--accent-200);
-  border-radius: 16px;
-  padding: 28px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.course-pricing-left .label {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--accent-600);
-  margin-bottom: 4px;
-}
-
-.course-pricing-left .early {
-  font-size: 12px;
-  color: var(--gray-500);
-  margin-top: 4px;
-}
-
-.price-main {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.price-now {
-  font-size: 1.875rem;
-  font-weight: 800;
-  color: var(--accent-600);
-  letter-spacing: -0.02em;
-}
-
-.price-old {
-  font-size: 1rem;
-  color: var(--gray-400);
-  text-decoration: line-through;
-  font-weight: 500;
-}
-
-/* ===== COMBO PRICING ===== */
-.combo {
-  background: var(--accent-600);
-  color: white;
-}
-
-.combo .section-header h2 {
-  color: white;
-}
-.combo .section-header p {
-  color: rgba(255,255,255,0.7);
-}
-.combo .label-pill {
-  background: rgba(255,222,89,.15);
-  border-color: rgba(255,222,89,.4);
-  color: var(--yellow-500);
-}
-.combo .label-pill .dot {
-  background: var(--yellow-500);
-}
-
-.combo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-@media (max-width: 860px) {
-  .combo-grid { grid-template-columns: 1fr !important; }
-  .combo-card.featured { transform: none !important; }
-}
-
-/* ===== COMBO 3-GRID ===== */
-.combo-3-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: start;
-}
-
-/* Solo cards (Khóa 01, 02) */
-.combo-solo-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 20px;
-  padding: 28px;
-  transition: all .3s;
-  display: flex;
-  flex-direction: column;
-}
-.combo-solo-card:hover {
-  border-color: rgba(255,222,89,0.3);
-  transform: translateY(-3px);
-}
-.combo-solo-label {
-  color: rgba(255,222,89,0.7);
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.combo-solo-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 16px;
-  line-height: 1.35;
-}
-.combo-solo-price {
-  font-size: 28px;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
-}
-.combo-solo-old {
-  font-size: 12px;
-  color: rgba(255,255,255,0.35);
-  text-decoration: line-through;
-  margin-bottom: 16px;
-}
-.combo-solo-features {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: rgba(255,255,255,0.7);
-  font-size: 13px;
-  margin-bottom: 24px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  flex: 1;
-}
-.combo-solo-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.15);
-  transition: 0.2s;
-}
-.combo-solo-btn:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,222,89,0.4);
-}
-
-/* Featured combo card */
-.combo-featured-card {
-  background: linear-gradient(180deg, rgba(255,222,89,0.12) 0%, rgba(36,50,103,0.4) 100%);
-  border: 1px solid var(--yellow-500);
-  border-radius: 20px;
-  padding: 32px;
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(255,222,89,0.2), 0 20px 60px rgba(0,0,0,0.3);
-  /* Nhô lên trên desktop bằng margin âm */
-  margin-top: -16px;
-  margin-bottom: -16px;
-}
-.combo-featured-badge {
-  display: inline-block;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 100px;
-  white-space: nowrap;
-  margin-bottom: 16px;
-}
-
-/* Responsive */
-@media (max-width: 860px) {
-  .combo-3-grid {
-    grid-template-columns: 1fr;
-  }
-  .combo-featured-card {
-    /* Trên mobile: bỏ margin âm, thêm border vàng nổi bật là đủ */
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .combo-featured-badge {
-    /* Badge nằm inline, không cần absolute */
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-}
-
-.combo-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 20px;
-  padding: 32px 28px;
-  position: relative;
-  transition: all .3s;
-}
-
-.combo-card.featured {
-  border-color: var(--yellow-500);
-  background: rgba(255,222,89,.08);
-}
-
-.combo-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--yellow-400);
-}
-
-.combo-badge {
-  position: absolute;
-  top: -12px; left: 28px;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 100px;
-}
-
-.combo-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--yellow-500);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.combo-title {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
-}
-
-.combo-price {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
-}
-
-.combo-save {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--accent-600);
-  background: var(--yellow-500);
-  padding: 4px 10px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-
-.combo-modules {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-}
-
-.combo-modules li {
-  display: flex;
-  gap: 10px;
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.5;
-}
-
-.combo-modules li .ck {
-  flex-shrink: 0;
-  width: 18px; height: 18px;
-  background: rgba(255,222,89,.2);
-  color: var(--yellow-500);
-  border-radius: 6px;
-  display: grid;
-  place-items: center;
-  font-size: 11px;
-}
-
-.btn-combo {
-  width: 100%;
-  justify-content: center;
-  background: white;
-  color: var(--accent-600);
-  font-weight: 600;
-  padding: 12px 20px;
-  border-radius: 10px;
-}
-
-.btn-combo:hover {
-  background: var(--yellow-500);
-  color: var(--accent-600);
-}
-
-.combo-card.featured .btn-combo {
-  background: var(--yellow-500);
-  color: var(--accent-600);
-}
-.combo-card.featured .btn-combo:hover {
-  background: var(--yellow-400);
-}
-
-/* ===== TESTIMONIALS ===== */
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
-
-.testi-card {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all .2s;
-  display: flex;
-  flex-direction: column;
-}
-
-.testi-card:hover {
-  border-color: var(--accent-200);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(36,50,103,.06);
-}
-
-.testi-stars {
-  color: var(--amber-400);
-  font-size: 14px;
-  margin-bottom: 14px;
-  letter-spacing: 2px;
-}
-
-.testi-quote {
-  font-size: 14.5px;
-  color: var(--gray-700);
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex: 1;
-}
-
-.testi-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--gray-100);
-}
-
-.testi-avatar {
-  width: 40px; height: 40px;
-  border-radius: 100px;
-  object-fit: cover;
-  background: var(--gray-200);
-}
-
-.testi-name {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--gray-950);
-  line-height: 1.3;
-}
-
-.testi-role {
-  font-size: 12px;
-  color: var(--accent-400);
-  margin-top: 2px;
-  font-weight: 500;
-}
-
-/* ===== LOCATION ===== */
-.location {
-  background: var(--gray-50);
-}
-
-.location-wrap {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 20px;
-  padding: 40px;
-}
-
-@media (max-width: 860px) {
-  .location-wrap { grid-template-columns: 1fr; padding: 28px; }
-}
-
-.location h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--gray-950);
-  margin-bottom: 24px;
-  letter-spacing: -0.02em;
-}
-
-.info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  list-style: none;
-}
-
-.info-item {
-  display: flex;
-  gap: 14px;
-}
-
-.info-icon {
-  flex-shrink: 0;
-  width: 36px; height: 36px;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-}
-
-.info-label {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: var(--gray-400);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.info-val {
-  font-size: 14.5px;
-  color: var(--gray-800);
-  line-height: 1.55;
-  font-weight: 500;
-}
-
-.info-val strong { color: var(--gray-950); font-weight: 700; }
-
-.location-img {
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  background: var(--gray-100);
-}
-
-.location-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-
-/* ===== FINAL CTA ===== */
-.final-cta {
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 100%, var(--yellow-100), transparent 70%),
-    white;
-  text-align: center;
-}
-
-.final-cta h2 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  color: var(--gray-950);
-  margin-bottom: 16px;
-  text-wrap: balance;
-}
-
-.final-cta h2 .accent { color: var(--accent-600); }
-
-.final-cta p {
-  font-size: 1.125rem;
-  color: var(--gray-600);
-  max-width: 560px;
-  margin: 0 auto 32px;
-  line-height: 1.6;
-}
-
-.final-cta-btns {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.final-cta-note {
-  margin-top: 24px;
-  font-size: 13px;
-  color: var(--gray-500);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: var(--accent-600);
-  color: rgba(255,255,255,0.6);
-  padding: 48px 0 32px;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  font-weight: 700;
-}
-
-.footer-brand .logo-mark {
-  background: var(--yellow-500);
-  color: var(--accent-600);
-}
-
-.footer-meta {
-  font-size: 13px;
-}
-
-.footer-meta a { color: var(--yellow-500); }
-.footer-meta a:hover { color: var(--yellow-400); }
-
-/* ===== REVEAL ANIMATION ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-  .reveal { opacity: 1; transform: none; }
-}
-
-.announce-sep {
-  margin: 0 6px;
-  color: var(--accent-200);
-}
-
-/* GRID → CĂN GIỮA */
-.combo-grid.single {
-  display: flex;
-  justify-content: center;
-}
-
-/* CARD CHÍNH */
-.combo-card.featured {
-  width: 360px;
-  background: linear-gradient(180deg, rgba(255,222,89,0.12) 0%, rgba(36,50,103,0.4) 100%);
-  border-radius: 20px;
-  padding: 32px;
-  border: 1px solid var(--yellow-500);
-  box-shadow:
-    0 0 0 1px rgba(255,222,89,0.2),
-    0 30px 80px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-.combo-label {
-  color: var(--yellow-500);
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.combo-name {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.combo-price {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.combo-save {
-  display: inline-block;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.combo-features {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0.9;
-  color: rgba(255,255,255,0.85);
-}
-
-.combo-btn.primary {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--yellow-500);
-  color: var(--accent-600);
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.2s;
-}
-
-.combo-btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255,222,89,0.35);
-  background: var(--yellow-400);
-}
-
-/* ===== HERO HEADLINE STYLED ===== */
-.hero-headline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 24px;
-}
-
-/* Dòng nhỏ phía trên */
-.hero-line-top {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 500;
-  color: var(--gray-600);
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-}
-
-/* "lính mới" — gạch ngang qua */
-.hero-strike-wrap {
-  position: relative;
-  display: inline-block;
-  color: var(--gray-400);
-  font-style: italic;
-}
-.hero-strike-wrap::after {
-  content: '';
-  position: absolute;
-  left: -2px; right: -2px;
-  top: 50%;
-  height: 3px;
-  background: var(--yellow-500);
-  transform: rotate(-2deg);
-  border-radius: 100px;
-}
-
-/* Dòng chính to — chuyên gia bán hàng */
-.hero-line-main {
-  display: block;
-  line-height: 1.05;
-}
-.hero-highlight-wrap {
-  font-size: clamp(2.6rem, 6.5vw, 4.5rem);
-  font-weight: 900;
-  color: var(--gray-950);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-}
-
-/* Gạch chân vàng dưới "bán hàng" */
-.hero-underline-gold {
-  position: relative;
-  display: inline-block;
-  color: var(--accent-600);
-}
-.hero-underline-gold::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  bottom: -4px;
-  height: 5px;
-  background: var(--yellow-500);
-  border-radius: 100px;
-  animation: slideInUnderline 0.6s ease 0.4s both;
-}
-@keyframes slideInUnderline {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
-}
-
-/* Divider ✦ */
-.hero-divider-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 10px 0 8px;
-}
-.hero-dash {
-  display: block;
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-200), transparent);
-}
-.hero-star {
-  font-size: 13px;
-  color: var(--yellow-500);
-  line-height: 1;
-  animation: spinStar 6s linear infinite;
-}
-@keyframes spinStar {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* "Đến hành trình trở thành" */
-.hero-line-sub {
-  font-size: clamp(1rem, 2.2vw, 1.3rem);
-  font-weight: 400;
-  color: var(--gray-500);
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-}
-
-/* nhà "Lãnh đạo kiệt xuất" */
-.hero-line-accent {
-  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
-  font-weight: 800;
-  color: var(--gray-950);
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-}
-
-.hero-gold-text {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent-600) 0%, var(--accent-500) 40%, #3d55b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  font-style: italic;
-}
-/* Hào quang vàng nhỏ phía sau */
-.hero-gold-text::before {
-  content: '"Lãnh đạo kiệt xuất"';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--yellow-500) 0%, #ffb800 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: blur(12px);
-  opacity: 0.25;
-  z-index: -1;
-}
-
-@media (max-width: 640px) {
-  .hero-headline { gap: 2px; }
-  .hero-dash { width: 28px; }
-}
-
-/* ===== FINAL CTA HEADLINE STYLED ===== */
-.cta-headline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 20px;
-  font-size: unset;
-  font-weight: unset;
-  line-height: unset;
-  letter-spacing: unset;
-}
-
-/* "Sẵn sàng gia nhập hành trình" — nhỏ, mờ */
-.cta-line-top {
-  font-size: clamp(0.95rem, 2vw, 1.2rem);
-  font-weight: 500;
-  color: var(--gray-500);
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-}
-
-/* Divider ✦ — nhỏ hơn hero */
-.cta-divider-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 6px 0 4px;
-}
-.cta-dash {
-  display: block;
-  width: 36px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-200), transparent);
-}
-.cta-star {
-  font-size: 11px;
-  color: var(--yellow-500);
-  animation: spinStar 6s linear infinite;
-}
-
-/* "từ 'lính mới'" */
-.cta-line-main {
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-  font-weight: 700;
-  color: var(--gray-700);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-/* gạch chân strikethrough vàng qua "lính mới" */
-.cta-strike {
-  position: relative;
-  display: inline-block;
-  color: var(--gray-400);
-  font-style: italic;
-}
-.cta-strike::after {
-  content: '';
-  position: absolute;
-  left: -2px; right: -2px;
-  top: 50%;
-  height: 3px;
-  background: var(--yellow-500);
-  transform: rotate(-1.5deg);
-  border-radius: 100px;
-}
-
-/* "thành nhà 'lãnh đạo' kiệt xuất?" — dòng lớn nhất */
-.cta-line-accent {
-  font-size: clamp(1.9rem, 4.8vw, 3.4rem);
-  font-weight: 900;
-  color: var(--gray-950);
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-}
-
-/* "lãnh đạo kiệt xuất" — gradient navy + glow vàng */
-.cta-gold-text {
-  display: inline;
-  background: linear-gradient(135deg, var(--accent-700) 0%, var(--accent-500) 50%, #3d55b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-style: italic;
-  position: relative;
-}
-.cta-gold-text::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  bottom: 2px;
-  height: 4px;
-  background: var(--yellow-500);
-  border-radius: 100px;
-  animation: slideInUnderline 0.7s ease 0.3s both;
-}
-
-/* Dấu "?" — màu vàng để tạo điểm nhấn */
-.cta-question {
-  color: var(--yellow-600);
-  -webkit-text-fill-color: var(--yellow-600);
-  font-style: normal;
-}
-
-@media (max-width: 640px) {
-  .cta-headline { gap: 2px; }
-  .cta-dash { width: 24px; }
-}
-
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
+<!-- ===== NAV ===== -->
+<nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-mark">Đ</div>
-      <span>Đình Trường</span>
-      <span class="logo-badge">Master Class</span>
-    </a>
+    <a href="#" class="brand"><span class="mark">Đ</span> Đình Trường <span style="color:var(--text-tertiary);font-weight:600">Master Class</span></a>
     <div class="nav-links">
       <a href="#about">Về tôi</a>
       <a href="#courses">Khóa học</a>
@@ -1679,651 +244,381 @@ footer {
       <a href="#testimonials">Học viên</a>
       <a href="#contact">Liên hệ</a>
     </div>
-    <div class="nav-cta-wrap">
-      <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary">Đăng ký →</a>
-    </div>
+    <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="container">
-  <div class="hero-announce">
-  <span class="pulse"></span>
-  K01 · Khai giảng 05.05.2026 
-  <span class="announce-sep">|</span>
-  K02 · Khai giảng 10.06.2026
-  <span class="announce-sep">|</span>
-  CHỈ 10 HỌC VIÊN
-</div>
-</div>
-    <h1 class="hero-headline">
-      <span class="hero-line-top">
-        Từ <span class="hero-strike-wrap">"lính mới"</span> thành
-      </span>
-      <span class="hero-line-main">
-        <span class="hero-highlight-wrap">chuyên gia <span class="hero-underline-gold">bán hàng</span></span>
-      </span>
-      <span class="hero-divider-row">
-        <span class="hero-dash"></span>
-        <span class="hero-star">✦</span>
-        <span class="hero-dash"></span>
-      </span>
-      <span class="hero-line-sub">Đến hành trình trở thành</span>
-      <span class="hero-line-accent">
-        nhà <span class="hero-gold-text">"Lãnh đạo kiệt xuất"</span>
-      </span>
-    </h1>
-    <p class="hero-sub">
-      Chương trình 49 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm kinh nghiệm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.
-    </p>
-    <div class="hero-cta">
-      <a href="#courses" class="btn btn-primary btn-lg">Xem chi tiết 2 khóa học →</a>
-      <a href="#about" class="btn btn-secondary btn-lg">Tìm hiểu về thầy Trường</a>
+<!-- ===== HERO (full-width banner) ===== -->
+<header class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="pill-row">
+        <span class="pill hot">CHỈ 10 HỌC VIÊN</span>
+        <span class="pill">Khóa 1 · Khai giảng 08/08</span>
+        <span class="pill">Khóa 2 · Khai giảng 09/07</span>
+        <span class="pill">Online qua Zoom</span>
+      </div>
+      <h1>Từ <span class="acc">"lính mới"</span> thành chuyên gia bán hàng — đến nhà <span class="acc">"lãnh đạo kiệt xuất"</span></h1>
+      <p>Chương trình 52 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#courses">Xem chi tiết 2 khóa học →</a>
+        <a class="btn btn-ghost" href="#about">Tìm hiểu về thầy Trường</a>
+      </div>
     </div>
-
-    <div class="stats">
-      <div class="stat-card">
-        <div class="stat-num">12+</div>
-        <div class="stat-label">NĂM TRONG NGÀNH FITNESS</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">PHÒNG TẬP LADYSFIT</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">1000+</div>
-        <div class="stat-label">PT ĐÃ QUA ĐÀO TẠO</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">300+</div>
-        <div class="stat-label">QUẢN LÝ, CHỦ PHÒNG GYM</div>
-      </div>
+    <div class="hero-stats">
+      <div class="card card-stat"><span class="num">12+</span><span class="lbl">Năm trong ngành Fitness</span></div>
+      <div class="card card-stat"><span class="num">30+</span><span class="lbl">Phòng tập Ladysfit</span></div>
+      <div class="card card-stat"><span class="num">1000+</span><span class="lbl">PT đã qua đào tạo</span></div>
+      <div class="card card-stat"><span class="num">300+</span><span class="lbl">Quản lý, chủ phòng gym</span></div>
     </div>
   </div>
-</section>
+</header>
 
-<!-- ===== SERVICES ===== -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-header">
-      <span class="label-pill"><span class="dot"></span>DỊCH VỤ CHUYÊN SÂU</span>
-      <h2>Ba mảng giá trị tôi mang lại cho <span class="accent">ngành fitness Việt Nam</span></h2>
-      <p>Không phải thứ lý thuyết sách vở. Đây là những gì tôi đã làm đi làm lại trong 12 năm vận hành và đào tạo thật.</p>
+<!-- ===== DỊCH VỤ ===== -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Dịch vụ chuyên sâu</span>
+    <h2>Ba mảng giá trị tôi mang lại cho ngành fitness Việt Nam</h2>
+    <p>Không phải lý thuyết sách vở. Đây là những gì tôi đã làm đi làm lại trong 12 năm vận hành và đào tạo thật.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-feature">
+      <div class="icon">🎯</div>
+      <span class="num-tag">01 · ĐÀO TẠO</span>
+      <h3>Kỹ năng bán hàng & tư vấn chuyên sâu</h3>
+      <p>Đột phá doanh thu dựa trên sự tử tế và thấu hiểu — không chiêu trò, không ép khách.</p>
     </div>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="service-num">01 · ĐÀO TẠO</div>
-        <h3>Kỹ năng bán hàng &<br />tư vấn chuyên sâu</h3>
-        <p>Đột phá doanh thu dựa trên sự tử tế và thấu hiểu — không chiêu trò, không ép khách.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="service-num">02 · LÃNH ĐẠO</div>
-        <h3>Đào tạo quản lý &<br />lãnh đạo đội nhóm</h3>
-        <p>Nâng tầm tư duy lãnh đạo và kỹ năng quản trị để dẫn dắt đội nhóm vượt qua khủng hoảng.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-        </div>
-        <div class="service-num">03 · TƯ VẤN</div>
-        <h3>Tư vấn giải pháp<br />& vận hành tinh gọn</h3>
-        <p>Thiết lập chiến lược và bộ máy vận hành tinh gọn, tạo nền móng phát triển bền vững.</p>
-      </div>
+    <div class="card card-feature">
+      <div class="icon">🧭</div>
+      <span class="num-tag">02 · LÃNH ĐẠO</span>
+      <h3>Đào tạo quản lý & lãnh đạo đội nhóm</h3>
+      <p>Nâng tầm tư duy lãnh đạo và kỹ năng quản trị để dẫn dắt đội nhóm vượt qua khủng hoảng.</p>
+    </div>
+    <div class="card card-feature">
+      <div class="icon">⚙️</div>
+      <span class="num-tag">03 · TƯ VẤN</span>
+      <h3>Tư vấn giải pháp & vận hành tinh gọn</h3>
+      <p>Thiết lập chiến lược và bộ máy vận hành tinh gọn, tạo nền móng phát triển bền vững.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== ABOUT ===== -->
-<section id="about">
-  <div class="container">
-    <div class="about-wrap">
-      <div class="about-photo">
-        <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường — Founder Ladysfit Vietnam" loading="lazy" />
-        <div class="about-tag">Founder & Fitness Sale Expert</div>
-      </div>
-
-      <div class="about-content">
-        <span class="label-pill"><span class="dot"></span>VỀ NGƯỜI ĐÀO TẠO</span>
-        <h2>Đình Trường — <span class="accent">người vừa dạy vừa làm</span></h2>
-        <p class="about-role">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT trên toàn quốc</p>
-
-        <ul class="about-list">
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span><strong>Hơn 12 năm kinh nghiệm</strong> trong lĩnh vực fitness — từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span>
-          </li>
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span><strong>Founder hệ thống Ladysfit Việt Nam</strong> với 30+ phòng tập trên toàn quốc.</span>
-          </li>
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span><strong>Founder học viện VPTA</strong> — đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span>
-          </li>
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span>Tác giả cuốn sách <strong>"Bán mà không Bán — Nghệ thuật bán hàng dành riêng cho PT"</strong>.</span>
-          </li>
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span>Đào tạo <strong>300+ quản lý, chủ phòng gym</strong>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span>
-          </li>
-          <li>
-            <span class="check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <strong>mô hình nhượng quyền</strong>.</span>
-          </li>
-        </ul>
-      </div>
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="eyebrow">Về người đào tạo</span>
+    <h2>Đình Trường — người vừa dạy vừa làm</h2>
+  </div>
+  <div class="bento-grid">
+    <!-- Visual card (4x3) bên trái — optical balance -->
+    <div class="card card-visual">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường — Founder Ladysfit Vietnam" loading="lazy">
+      <div class="cap"><b>Đình Trường</b><span>Founder & Fitness Sale Expert</span></div>
+    </div>
+    <!-- About card (8x3) -->
+    <div class="card card-about">
+      <p class="sub">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT toàn quốc</p>
+      <ul class="about-list">
+        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness — từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
+        <li><span><b>Founder hệ thống Ladysfit Việt Nam</b> với 30+ phòng tập trên toàn quốc.</span></li>
+        <li><span><b>Founder học viện VPTA</b> — đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
+        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán — Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
+        <li><span>Đào tạo <b>300+ quản lý, chủ phòng gym</b>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span></li>
+        <li><span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <b>mô hình nhượng quyền</b>.</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ===== COURSES ===== -->
-<section id="courses" style="background: var(--gray-50);">
-  <div class="container">
-    <div class="section-header">
-      <span class="label-pill"><span class="dot"></span>CHƯƠNG TRÌNH ĐÀO TẠO</span>
-      <h2>2 khóa học, <span class="accent">49 buổi thực chiến</span></h2>
-      <p>Từ kỹ năng cá nhân đến tư duy lãnh đạo, từ chiến lược đến thực thi. Chọn đúng khóa phù hợp với giai đoạn sự nghiệp của bạn.</p>
-    </div>
-
-    <div class="course-tabs" role="tablist">
-      <button class="course-tab active" data-target="course-1" role="tab">Khóa 1 · Bán hàng</button>
-      <button class="course-tab" data-target="course-2" role="tab">Khóa 2 · Lãnh đạo</button>
-    </div>
-
-    <!-- ===== COURSE 1 ===== -->
-    <div class="course-panel active" id="course-1">
-      <div class="course-hero">
-        <div class="course-hero-top">
-          <div>
-            <span class="course-tag">KHÓA 1 · 33 BUỔI</span>
-            <h3 class="course-title">Từ "gà mờ" trở thành "kiện tướng" bán hàng</h3>
-          </div>
-        </div>
-        <div class="course-audience">
-          <div class="course-audience-label">Dành cho</div>
-          Học viên đang làm <strong>PT/Sale</strong> tại các tổ hợp fitness, fitness private, studio, freelancer — và quản lý muốn hệ thống hóa chương trình đào tạo kỹ năng bán hàng để "nhân bản" cho phòng tập.
-        </div>
+<!-- ===== KHÓA HỌC ===== -->
+<section class="section" id="courses">
+  <div class="section-head">
+    <span class="eyebrow">Chương trình đào tạo</span>
+    <h2>2 khóa học, 52 buổi thực chiến</h2>
+    <p>Từ kỹ năng cá nhân đến tư duy lãnh đạo, từ chiến lược đến thực thi. Chọn đúng khóa phù hợp với giai đoạn sự nghiệp của bạn.</p>
+  </div>
+  <div class="bento-grid">
+    <!-- KHÓA 1 -->
+    <div class="card card-course">
+      <div class="course-head">
+        <span class="course-tag">Khóa 1 · 35 buổi</span>
       </div>
-
-      <div class="modules-grid">
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">1</div>
-            <div class="module-title">Tư duy & Tâm lý bán hàng</div>
-          </div>
-          <ul class="module-list">
+      <h3>Khóa Huấn luyện kỹ năng bán hàng xuất sắc</h3>
+      <p class="course-for"><b>Dành cho:</b> PT/Sale tại tổ hợp fitness, fitness private, studio, freelancer — và quản lý muốn hệ thống hóa chương trình đào tạo kỹ năng bán hàng để "nhân bản" cho phòng tập.</p>
+      <div class="course-meta">
+        <div class="m"><div class="k">Thời gian học</div><div class="v">08/08 – 08/10</div></div>
+        <div class="m"><div class="k">Khai giảng</div><div class="v">08/08</div></div>
+        <div class="m"><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
+        <div class="m"><div class="k">Tài liệu</div><div class="v">Slide + Record buổi học</div></div>
+      </div>
+      <div class="modules">
+        <details class="module" open>
+          <summary><span class="n">1</span> Tư duy & Tâm lý bán hàng</summary>
+          <ul>
             <li>Buổi 1–2: Quản trị mục tiêu & Kiến tạo sự nghiệp</li>
-            <li>Buổi 3: Tư duy sống sót và phát triển trong thời kỳ fitness "hỗn loạn"</li>
+            <li>Buổi 3: Tư duy sống sót & phát triển thời fitness "hỗn loạn"</li>
             <li>Buổi 4: Hiểu cách não bộ ra quyết định mua hàng</li>
             <li>Buổi 5–6: Ứng dụng các hiệu ứng tâm lý trong bán hàng</li>
-            <li>Buổi 7: Các yếu tố ảnh hưởng tới quyết định mua hàng</li>
+            <li>Buổi 7: Yếu tố ảnh hưởng tới quyết định mua hàng & đạo đức bán hàng</li>
           </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">2</div>
-            <div class="module-title">Kỹ năng giao tiếp cốt lõi</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 8: Lắng nghe và thấu hiểu khách hàng</li>
+        </details>
+        <details class="module">
+          <summary><span class="n">2</span> Kỹ năng giao tiếp cốt lõi</summary>
+          <ul>
+            <li>Buổi 8: Lắng nghe & thấu hiểu khách hàng</li>
             <li>Buổi 9: Đặt câu hỏi "khám phá nhu cầu"</li>
             <li>Buổi 10: "Điều khiển" giọng nói như chuyên gia</li>
-            <li>Buổi 11: Diễn giải và truyền đạt rõ ràng</li>
-            <li>Buổi 12–13: Xây dựng mối quan hệ, xử lý tình huống khó</li>
-            <li>Buổi 14–15: Giao tiếp phi ngôn ngữ, quản lý thời gian</li>
+            <li>Buổi 11: Thực hành đặt câu hỏi & điều khiển giọng nói (Role Play)</li>
+            <li>Buổi 12: Diễn giải & truyền đạt rõ ràng (mô hình 7C, 3C)</li>
+            <li>Buổi 13: Xây dựng mối quan hệ & tạo thiện cảm (Rapport, Trust)</li>
+            <li>Buổi 14: Phản hồi, góp ý & xử lý tình huống khó</li>
+            <li>Buổi 15: Giao tiếp phi ngôn ngữ (quy tắc Mehrabian)</li>
+            <li>Buổi 16: Quản lý thời gian hiệu quả (Eisenhower, Time Blocking)</li>
           </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">3</div>
-            <div class="module-title">Tiếp cận & Tư vấn</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 16: Chân dung KH mục tiêu & thiết lập USP</li>
-            <li>Buổi 17: Tiếp cận khách hàng trên Sàn tập</li>
-            <li>Buổi 18: Thấu hiểu "Hành vi" để Telesale hiệu quả</li>
-            <li>Buổi 19–20: Tư vấn bán gói tập lớn qua điện thoại</li>
-            <li>Buổi 21–22: Kể chuyện trong bán hàng</li>
-            <li>Buổi 23–26: Phân tích Inbody, thuyết trình giải pháp</li>
+        </details>
+        <details class="module">
+          <summary><span class="n">3</span> Tiếp cận & Tư vấn</summary>
+          <ul>
+            <li>Buổi 17: Chân dung KH mục tiêu & thiết lập USP</li>
+            <li>Buổi 18: Thấu hiểu "hành vi" KH để telesale hiệu quả</li>
+            <li>Buổi 19–21: Tư vấn bán gói tập lớn qua điện thoại (P1–P3)</li>
+            <li>Buổi 22–23: Kỹ năng Storytelling trong bán hàng (P1–P2)</li>
+            <li>Buổi 24: Phân tích & tư vấn Inbody</li>
+            <li>Buổi 25–26: Thuyết phục & bán gói tập giá trị cao (P1–P2)</li>
+            <li>Buổi 27: Thuyết trình tư vấn giải pháp tập luyện</li>
           </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">4</div>
-            <div class="module-title">Chốt sale & Giữ khách</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 27–29: Chốt Sale và xử lý từ chối</li>
-            <li>Buổi 30: Xây dựng & phát triển mối quan hệ với KH</li>
-            <li>Buổi 31: Giảm Churn Rate & tăng Customer Lifetime Value</li>
-            <li>Buổi 32: Chiến lược "Renew — Tái ký" hiệu quả</li>
-            <li>Buổi 33: Khai thác nguồn "khách hàng giới thiệu"</li>
+        </details>
+        <details class="module">
+          <summary><span class="n">4</span> Đàm phán, Chốt sale & Giữ khách</summary>
+          <ul>
+            <li>Buổi 28: Kỹ năng đàm phán (Negotiation Skills)</li>
+            <li>Buổi 29–31: Chốt sale & xử lý từ chối (P1–P3)</li>
+            <li>Buổi 32: Xây dựng & phát triển mối quan hệ với KH</li>
+            <li>Buổi 33: Giảm Churn Rate & tăng Customer Lifetime Value</li>
+            <li>Buổi 34: Chiến lược "Renew — Tái ký" hiệu quả</li>
+            <li>Buổi 35: Khai thác nguồn "khách hàng giới thiệu"</li>
           </ul>
-        </div>
+        </details>
       </div>
-
-      <div class="course-pricing">
-        <div class="course-pricing-left">
-          <div class="label">Học phí khóa 1</div>
-          <div class="price-main">
-            <span class="price-now">35.000.000đ</span>
-            <span class="price-old">50.000.000đ</span>
-          </div>
-          <div class="early">Ưu đãi 30% cho 3 học viên đăng ký sớm nhất</div>
+      <div class="price-box">
+        <div>
+          <span class="lbl">Học phí khóa 1</span>
+          <div><span class="price-now">45.000.000đ</span><span class="price-old">50.000.000đ</span></div>
+          <div class="price-note">Áp dụng cho 3 học viên đăng ký sớm nhất · Chưa gồm VAT</div>
         </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary btn-lg">Đăng ký khóa 1 →</a>
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 1 →</a>
       </div>
     </div>
 
-    <!-- ===== COURSE 2 ===== -->
-    <div class="course-panel" id="course-2">
-      <div class="course-hero">
-        <div class="course-hero-top">
-          <div>
-            <span class="course-tag">KHÓA 2 · 16 BUỔI</span>
-            <h3 class="course-title">Phát triển kỹ năng lãnh đạo trong thời kỳ Fitness "hỗn loạn"</h3>
-          </div>
-        </div>
-        <div class="course-audience">
-          <div class="course-audience-label">Dành cho</div>
-          <strong>PT/Sale muốn thăng tiến</strong> lên quản lý hoặc khởi nghiệp phòng tập · Quản lý đang tại vị muốn phát triển kỹ năng lãnh đạo · <strong>Chủ phòng tập</strong> muốn hệ thống hóa chương trình đào tạo lãnh đạo để "nhân bản" cho đội ngũ.
-        </div>
+    <!-- KHÓA 2 -->
+    <div class="card card-course">
+      <div class="course-head">
+        <span class="course-tag">Khóa 2 · 17 buổi</span>
       </div>
-
-      <div class="modules-grid">
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">1</div>
-            <div class="module-title">Quản trị bán hàng cho PT</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 34: Xây dựng quy trình bán hàng cho PT</li>
-            <li>Buổi 35: Lập kế hoạch bán hàng cho PT</li>
-          </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">2</div>
-            <div class="module-title">Lãnh đạo & Văn hóa</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 36: Phát triển kỹ năng lãnh đạo</li>
-            <li>Buổi 37: Chiến lược lãnh đạo bản thân</li>
-            <li>Buổi 38: Nâng tầm lãnh đạo</li>
-            <li>Buổi 39: Lãnh đạo đội nhóm & xây dựng văn hóa</li>
-            <li>Buổi 40: Văn hóa Cống hiến — Gắn kết</li>
-            <li>Buổi 41–43: Kỹ năng Giải quyết vấn đề</li>
-          </ul>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <div class="module-num">3</div>
-            <div class="module-title">Động lực & Xung đột</div>
-          </div>
-          <ul class="module-list">
-            <li>Buổi 43–44: Thúc đẩy & tạo động lực cho nhân sự</li>
-            <li>Buổi 45–46: Hóa giải xung đột dành cho Lãnh đạo</li>
-            <li>Buổi 47: Lãnh đạo TỐT — Lãnh đạo TỒI</li>
-            <li>Buổi 48–49: Kỹ năng Lãnh đạo theo tình huống</li>
-          </ul>
-        </div>
+      <h3>Phát triển kỹ năng lãnh đạo thời Fitness "hỗn loạn"</h3>
+      <p class="course-for"><b>Dành cho:</b> PT/Sale muốn thăng tiến lên quản lý hoặc khởi nghiệp phòng tập · Quản lý đang tại vị muốn phát triển kỹ năng lãnh đạo · Chủ phòng tập muốn hệ thống hóa chương trình đào tạo lãnh đạo để "nhân bản" cho đội ngũ.</p>
+      <div class="course-meta">
+        <div class="m"><div class="k">Thời gian học</div><div class="v">09/07 – 06/08</div></div>
+        <div class="m"><div class="k">Khai giảng</div><div class="v">09/07</div></div>
+        <div class="m"><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
+        <div class="m"><div class="k">Tài liệu</div><div class="v">Slide + Record buổi học</div></div>
       </div>
-
-      <div class="course-pricing">
-        <div class="course-pricing-left">
-          <div class="label">Học phí khóa 2</div>
-          <div class="price-main">
-            <span class="price-now">25.000.000đ</span>
-            <span class="price-old">30.000.000đ</span>
-          </div>
-          <div class="early">Ưu đãi cho 3 học viên đăng ký sớm nhất</div>
+      <div class="modules">
+        <details class="module" open>
+          <summary><span class="n">1</span> Quản trị bán hàng cho PT</summary>
+          <ul>
+            <li>Buổi 1: Xây dựng quy trình bán hàng 10 bước cho PT</li>
+            <li>Buổi 2: Lập kế hoạch bán hàng cho PT</li>
+          </ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">2</span> Lãnh đạo & Văn hóa đội nhóm</summary>
+          <ul>
+            <li>Buổi 3: Leading Teams — Phát triển kỹ năng lãnh đạo</li>
+            <li>Buổi 4: Chiến lược lãnh đạo bản thân</li>
+            <li>Buổi 5: Nâng tầm lãnh đạo (Leading Others & Growth)</li>
+            <li>Buổi 6: Lãnh đạo đội nhóm & xây dựng văn hóa hiệu quả</li>
+            <li>Buổi 7: Văn hóa Cống hiến — Gắn kết trong tổ chức</li>
+            <li>Buổi 8–9: Kỹ năng Giải quyết vấn đề (Problem Solving)</li>
+            <li>Buổi 10: Xây dựng văn hóa giải quyết vấn đề</li>
+          </ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">3</span> Động lực, Xung đột & Lãnh đạo tình huống</summary>
+          <ul>
+            <li>Buổi 11–12: Thúc đẩy & tạo động lực cho nhân sự (P1–P2)</li>
+            <li>Buổi 13–14: Hóa giải xung đột dành cho Lãnh đạo (P1–P2)</li>
+            <li>Buổi 15: Lãnh đạo TỐT — Lãnh đạo TỒI</li>
+            <li>Buổi 16–17: Phát triển kỹ năng Lãnh đạo theo tình huống (P1–P2)</li>
+          </ul>
+        </details>
+      </div>
+      <div class="price-box">
+        <div>
+          <span class="lbl">Học phí khóa 2</span>
+          <div><span class="price-now">35.000.000đ</span><span class="price-old">40.000.000đ</span></div>
+          <div class="price-note">Áp dụng cho 3 học viên đăng ký sớm nhất · Chưa gồm VAT</div>
         </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary btn-lg">Đăng ký khóa 2 →</a>
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 2 →</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ===== COMBO ===== -->
-<section id="combo" class="combo">
-  <div class="container">
-    <div class="section-header">
-      <span class="label-pill"><span class="dot"></span>ƯU ĐÃI COMBO</span>
-      <h2>Học combo, <span style="color: var(--yellow-500);">tiết kiệm tới 20 triệu</span></h2>
-      <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
+<section class="section" id="combo">
+  <div class="section-head">
+    <span class="eyebrow">Ưu đãi combo</span>
+    <h2>Học combo, tiết kiệm tới 20 triệu</h2>
+    <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-combo">
+      <span class="combo-badge">KHÓA 01</span>
+      <h3>Huấn luyện kỹ năng bán hàng xuất sắc</h3>
+      <div class="price-stack">
+        <span class="price-now">45.000.000đ</span>
+        <span class="price-sub"><span class="price-old">50.000.000đ</span><span class="per">/ học viên · chưa gồm VAT</span></span>
+      </div>
+      <ul class="combo-feats">
+        <li>35 buổi thực chiến</li>
+        <li>Tư duy & tâm lý bán hàng</li>
+        <li>Kỹ năng giao tiếp, tư vấn</li>
+        <li>Chốt sale & giữ khách</li>
+      </ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 01 →</a>
     </div>
-
-    <div class="combo-3-grid">
-
-      <!-- Khóa 01 riêng -->
-      <div class="combo-solo-card">
-        <div class="combo-solo-label">KHÓA 01</div>
-        <h3 class="combo-solo-title">Từ "gà mờ" trở thành "kiện tướng" bán hàng</h3>
-        <div class="combo-solo-price">35.000.000đ</div>
-        <div class="combo-solo-old">50.000.000đ</div>
-        <div class="combo-solo-features">
-          <div>✔ 33 buổi thực chiến</div>
-          <div>✔ Tư duy & tâm lý bán hàng</div>
-          <div>✔ Kỹ năng giao tiếp, tư vấn</div>
-          <div>✔ Chốt sale & giữ khách</div>
-        </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-solo-btn">Đăng ký khóa 01 →</a>
+    <div class="card card-combo featured">
+      <span class="combo-badge">✦ PHỔ BIẾN NHẤT · COMBO</span>
+      <h3>Khóa 01 + Khóa 02</h3>
+      <div class="price-stack">
+        <span class="price-now">60.000.000đ</span>
+        <span class="price-sub"><span class="price-old">80.000.000đ</span><span class="per">↓ Tiết kiệm 20 triệu · chưa gồm VAT</span></span>
       </div>
-
-      <!-- COMBO nổi bật -->
-      <div class="combo-featured-card">
-        <div class="combo-featured-badge">✦ PHỔ BIẾN NHẤT</div>
-        <div class="combo-label">COMBO</div>
-        <h3 class="combo-name">Khóa 01 + Khóa 02</h3>
-        <div class="combo-price">60.000.000đ</div>
-        <div class="combo-save">↓ Tiết kiệm 20 triệu</div>
-        <div class="combo-features">
-          <div>✔ Kỹ năng bán hàng xuất sắc</div>
-          <div>✔ Kỹ năng lãnh đạo đội nhóm</div>
-          <div>✔ 49 buổi thực chiến</div>
-        </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-btn primary" style="display:block;text-align:center;">Chọn combo này →</a>
+      <ul class="combo-feats">
+        <li>Kỹ năng bán hàng xuất sắc</li>
+        <li>Kỹ năng lãnh đạo đội nhóm</li>
+        <li>52 buổi thực chiến</li>
+      </ul>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo này →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">KHÓA 02</span>
+      <h3>Lãnh đạo thời Fitness "hỗn loạn"</h3>
+      <div class="price-stack">
+        <span class="price-now">35.000.000đ</span>
+        <span class="price-sub"><span class="price-old">40.000.000đ</span><span class="per">/ học viên · chưa gồm VAT</span></span>
       </div>
-
-      <!-- Khóa 02 riêng -->
-      <div class="combo-solo-card">
-        <div class="combo-solo-label">KHÓA 02</div>
-        <h3 class="combo-solo-title">Lãnh đạo trong thời kỳ Fitness "hỗn loạn"</h3>
-        <div class="combo-solo-price">25.000.000đ</div>
-        <div class="combo-solo-old">30.000.000đ</div>
-        <div class="combo-solo-features">
-          <div>✔ 16 buổi thực chiến</div>
-          <div>✔ Quản trị & lập kế hoạch</div>
-          <div>✔ Lãnh đạo đội nhóm</div>
-          <div>✔ Xử lý xung đột & động lực</div>
-        </div>
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="combo-solo-btn">Đăng ký khóa 02 →</a>
-      </div>
-
+      <ul class="combo-feats">
+        <li>17 buổi thực chiến</li>
+        <li>Quản trị & lập kế hoạch</li>
+        <li>Lãnh đạo đội nhóm</li>
+        <li>Xử lý xung đột & động lực</li>
+      </ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 02 →</a>
     </div>
   </div>
 </section>
 
 <!-- ===== TESTIMONIALS ===== -->
-<section id="testimonials">
-  <div class="container">
-    <div class="section-header">
-      <span class="label-pill"><span class="dot"></span>HỌC VIÊN NÓI GÌ</span>
-      <h2>Họ đã <span class="accent">hit target đều đặn</span> sau khóa học</h2>
-      <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
+<section class="section" id="testimonials">
+  <div class="section-head">
+    <span class="eyebrow">Học viên nói gì</span>
+    <h2>Họ đã hit target đều đặn sau khóa học</h2>
+    <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-quote wide">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi từ một người không biết gì, nay đã có thể tự tin hit Target mỗi tháng nhờ thầy Trường."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Cao Phước" loading="lazy"><div><b>Mr. Cao Phước</b><span>Personal Trainer</span></div></div>
     </div>
-
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Tôi từ một người không biết gì, nay đã có thể tự tin hit Target mỗi tháng nhờ thầy Trường."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Cao Phước" loading="lazy" />
-          <div>
-            <div class="testi-name">Mr. Cao Phước</div>
-            <div class="testi-role">Personal Trainer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Doanh thu của tôi đã tăng gấp đôi chỉ sau 1 tháng áp dụng kiến thức trong khóa học."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/hien.jpg" alt="Hiền Nguyễn" loading="lazy" />
-          <div>
-            <div class="testi-name">Ms. Hiền Nguyễn</div>
-            <div class="testi-role">Personal Trainer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Nhờ khóa học này, tôi đã hiểu rõ tư duy bán hàng và không còn sợ khách hàng từ chối nữa."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/maily.jpg" alt="Mai Ly" loading="lazy" />
-          <div>
-            <div class="testi-name">Mrs. Mai Ly</div>
-            <div class="testi-role">Personal Trainer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Nhờ kiến thức trong khóa học của thầy Trường, tôi đã giúp doanh số của toàn đội tăng 150%."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Lưu Ngân" loading="lazy" />
-          <div>
-            <div class="testi-name">Ms. Lưu Ngân</div>
-            <div class="testi-role">Fitness Manager</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Nhờ thầy Trường, tôi đã biết cách phân tích nhu cầu của khách hàng và chốt sale tự tin hơn."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Trung Trung" loading="lazy" />
-          <div>
-            <div class="testi-name">Mr. Trung Trung</div>
-            <div class="testi-role">Master Trainer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Tôi bước chân vào ngành Fitness như một người mới không biết gì, sau 1 năm tôi đã trở thành FM quản lý 3 phòng tập."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mai Mei" loading="lazy" />
-          <div>
-            <div class="testi-name">Mrs. Mai Mei</div>
-            <div class="testi-role">Fitness Manager</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Ngọc Duy" loading="lazy" />
-          <div>
-            <div class="testi-name">Mr. Ngọc Duy</div>
-            <div class="testi-role">Fitness Manager</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Danh Tài" loading="lazy" />
-          <div>
-            <div class="testi-name">Mr. Danh Tài</div>
-            <div class="testi-role">Fitness Manager</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Tôi đã học qua rất nhiều khóa của thầy Trường, vẫn thấy wow vì độ thực tiễn và lượng kiến thức khổng lồ trong khóa này."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Phương Thảo" loading="lazy" />
-          <div>
-            <div class="testi-name">Mrs. Phương Thảo</div>
-            <div class="testi-role">Fitness Manager</div>
-          </div>
-        </div>
-      </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Doanh thu của tôi đã tăng gấp đôi chỉ sau 1 tháng áp dụng kiến thức trong khóa học."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/hien.jpg" alt="Hiền Nguyễn" loading="lazy"><div><b>Ms. Hiền Nguyễn</b><span>Personal Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ khóa học này, tôi đã hiểu rõ tư duy bán hàng và không còn sợ khách hàng từ chối nữa."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/maily.jpg" alt="Mai Ly" loading="lazy"><div><b>Mrs. Mai Ly</b><span>Personal Trainer</span></div></div>
+    </div>
+    <div class="card card-quote wide">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ kiến thức trong khóa học của thầy Trường, tôi đã giúp doanh số của toàn đội tăng 150%."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Lưu Ngân" loading="lazy"><div><b>Ms. Lưu Ngân</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ thầy Trường, tôi đã biết cách phân tích nhu cầu khách hàng và chốt sale tự tin hơn."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Trung Trung" loading="lazy"><div><b>Mr. Trung Trung</b><span>Master Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi vào ngành Fitness như người mới không biết gì, sau 1 năm đã trở thành FM quản lý 3 phòng tập."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mai Mei" loading="lazy"><div><b>Mrs. Mai Mei</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote wide">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Đã học qua rất nhiều khóa của thầy Trường, vẫn thấy wow vì độ thực tiễn và lượng kiến thức khổng lồ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Phương Thảo" loading="lazy"><div><b>Mrs. Phương Thảo</b><span>Fitness Manager</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== LOCATION & CONTACT ===== -->
-<section id="contact" class="location">
-  <div class="container">
-    <div class="section-header">
-      <span class="label-pill"><span class="dot"></span>ĐỊA ĐIỂM & LIÊN HỆ</span>
-      <h2>Học offline tại Hà Nội hoặc <span class="accent">online qua Zoom</span></h2>
-      <p>Thứ 3 — 5 — 7 — Chủ Nhật hàng tuần · 9:00 — 11:30 · Lớp nhỏ, tương tác cao.</p>
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="eyebrow">Địa điểm & Liên hệ</span>
+    <h2>Học offline tại Hà Nội hoặc online qua Zoom</h2>
+    <p>Thứ 3 — 5 — 7 — Chủ Nhật hàng tuần · 9:00 — 11:30 · Lớp nhỏ, tương tác cao.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-contact">
+      <div class="contact-rows">
+        <div class="contact-row"><span class="ic">📍</span><span><b>Địa điểm</b>Tầng 5, số 8, Ngõ 69 Trần Duy Hưng, Hà Nội — hoặc online qua Zoom</span></div>
+        <div class="contact-row"><span class="ic">🕘</span><span><b>Thời gian</b>9:00 — 11:30 buổi sáng · Thứ 3, 5, 7 và Chủ nhật hàng tuần</span></div>
+        <div class="contact-row"><span class="ic">📞</span><span><b>Liên hệ — Mr. Đình Trường</b><a href="tel:0942523123" style="color:var(--accent);font-weight:700">0942.523.123</a></span></div>
+      </div>
     </div>
-
-    <div class="location-wrap">
-      <div>
-        <h3>Thông tin chi tiết</h3>
-        <ul class="info-list">
-          <li class="info-item">
-            <div class="info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Địa điểm</div>
-              <div class="info-val"><strong>Tầng 5, số 8, Ngõ 69 Trần Duy Hưng</strong>, Hà Nội<br />Hoặc online qua Zoom</div>
-            </div>
-          </li>
-          <li class="info-item">
-            <div class="info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Thời gian</div>
-              <div class="info-val"><strong>9:00 — 11:30</strong> buổi sáng<br />Thứ 3, 5, 7 và Chủ nhật hàng tuần</div>
-            </div>
-          </li>
-          <li class="info-item">
-            <div class="info-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Liên hệ</div>
-              <div class="info-val"><strong>Mr. Đình Trường</strong><br /><a href="tel:0942523123" style="color: var(--accent-600); font-weight: 600;">0942.523.123</a></div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="location-img">
-        <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/vanphong2.jpg" alt="Địa điểm học — Tầng 5, số 8 Ngõ 69 Trần Duy Hưng" loading="lazy" />
-      </div>
+    <div class="card card-map">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/vanphong2.jpg" alt="Địa điểm học — Tầng 5, số 8 Ngõ 69 Trần Duy Hưng" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="final-cta">
-  <div class="container">
-    <div class="container-narrow">
-      <h2 class="cta-headline">
-        <span class="cta-line-top">Sẵn sàng gia nhập hành trình</span>
-        <span class="cta-divider-row">
-          <span class="cta-dash"></span>
-          <span class="cta-star">✦</span>
-          <span class="cta-dash"></span>
-        </span>
-        <span class="cta-line-main">
-          từ <span class="cta-strike">"lính mới"</span>
-        </span>
-        <span class="cta-line-accent">
-          thành nhà <span class="cta-gold-text">"lãnh đạo" kiệt xuất</span><span class="cta-question">?</span>
-        </span>
-      </h2>
-      <p>Chỉ 10 học viên mỗi khóa. Khai giảng 05.05.2026. Đăng ký sớm để nhận ưu đãi giảm tới 30% học phí.</p>
-      <div class="final-cta-btns">
-        <a href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" class="btn btn-primary btn-lg">Đăng ký ngay →</a>
-        <a href="tel:0942523123" class="btn btn-secondary btn-lg">Gọi tư vấn: 0942.523.123</a>
+<section class="section">
+  <div class="bento-grid">
+    <div class="card card-cta">
+      <h2>Sẵn sàng gia nhập hành trình từ "lính mới" thành nhà "lãnh đạo kiệt xuất"?</h2>
+      <p>Chỉ 10 học viên mỗi khóa. Khóa 1 khai giảng 08/08, Khóa 2 khai giảng 09/07. Đăng ký sớm để nhận mức ưu đãi cho 3 học viên đầu tiên.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
       </div>
-      <div class="final-cta-note">💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</div>
+      <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
     </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo-mark">Đ</div>
-        Đình Trường · Master Class
-      </div>
-      <div class="footer-meta">
-        © 2026 · Founder Ladysfit Vietnam · <a href="tel:0942523123">0942.523.123</a>
-      </div>
-    </div>
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#" class="brand"><span class="mark">Đ</span> Đình Trường · Master Class</a>
+    <span>© 2026 · Founder Ladysfit Vietnam · <a href="tel:0942523123" style="color:var(--text-secondary)">0942.523.123</a></span>
   </div>
 </footer>
-
-<script>
-  const tabs = document.querySelectorAll('.course-tab');
-  const panels = document.querySelectorAll('.course-panel');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.target;
-      tabs.forEach(t => t.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById(target).classList.add('active');
-    });
-  });
-
-  const revealEls = document.querySelectorAll('.stat-card, .service-card, .module-card, .testi-card, .combo-card');
-  revealEls.forEach(el => el.classList.add('reveal'));
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-  revealEls.forEach(el => io.observe(el));
-
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.style.boxShadow = '0 1px 0 rgba(36,50,103,.08)';
-    } else {
-      navbar.style.boxShadow = 'none';
-    }
-  });
-</script>
 
 </body>
 </html>
