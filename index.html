@@ -2,251 +2,337 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đình Trường · Master Class — Từ "lính mới" thành nhà "lãnh đạo" kiệt xuất</title>
-<meta name="description" content="Chương trình đào tạo 52 buổi giúp PT, Sale, Quản lý phòng tập tăng trưởng doanh thu bền vững. Online qua Zoom. Khóa 1 dự kiến 15/08/2026, Khóa 2 dự kiến 15/11/2026.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Đình Trường Master Class</title>
+<meta name="description" content="3 khóa đào tạo thực chiến cho PT, Sale và Quản lý phòng tập: Bán hàng K03, Lãnh đạo K02, Huấn luyện K01. Online qua Zoom, khai giảng tháng 12/2026. Combo giảm đến 40 triệu.">
+<meta property="og:title" content="Đình Trường Master Class">
+<meta property="og:description" content="3 khóa đào tạo thực chiến cho PT, Sale và Quản lý phòng tập: Bán hàng K03, Lãnh đạo K02, Huấn luyện K01. Online qua Zoom, khai giảng tháng 12/2026. Combo giảm đến 40 triệu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
 <style>
-/* ============ TOKENS (Dark Bento) ============ */
+/* Layout concept: dark bento grid — giữ nguyên hệ token của trang gốc Đình Trường Master Class */
 :root{
   --bg-page:#0A0A0B; --bg-card:#141416; --bg-card-hi:#1C1C1F;
   --border:rgba(255,255,255,0.08); --border-hi:rgba(255,255,255,0.14);
-  --text-primary:#F5F5F7; --text-secondary:#A1A1A6; --text-tertiary:#6E6E73;
+  --text-primary:#F5F5F7; --text-secondary:#A1A1A6; --text-tertiary:#7A7A80;
   --accent:#2F6BFF; --accent-2:#5AA0FF; --accent-glow:rgba(47,107,255,0.28);
+  --warn:#FFB547; --warn-bg:rgba(255,181,71,0.12);
   --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px; --space-6:64px;
-  --text-hero:clamp(40px,6vw,72px); --text-h2:clamp(30px,4vw,48px); --text-h3:clamp(22px,2.5vw,30px);
+  --text-h2:clamp(28px,4vw,46px); --text-h3:clamp(21px,2.4vw,28px);
   --text-body-lg:18px; --text-body:16px; --text-small:14px; --text-micro:12px;
-  --card-primary:clamp(40px,5vw,64px); --card-secondary:16px; --card-tertiary:13px;
   --radius:20px;
-  --ease-quiet:cubic-bezier(0.25,0.1,0.25,1); --dur-hover:300ms; --dur-reveal:500ms; --stagger:80ms;
+  --ease-quiet:cubic-bezier(0.25,0.1,0.25,1); --dur-hover:300ms; --dur-reveal:500ms;
+  color-scheme:dark;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg-page); color:var(--text-primary);
-  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-  line-height:1.5; letter-spacing:-0.01em; -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{background:var(--bg-page);color:var(--text-primary);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:8px}
+h1,h2,h3{text-wrap:balance}
+.num-tab{font-variant-numeric:tabular-nums}
+
 /* ============ LAYOUT ============ */
 .section{max-width:1280px;margin:0 auto;padding:var(--space-6) 48px}
+.section.tight{padding-top:var(--space-4)}
 .bento-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
-.section-head{margin-bottom:var(--space-5);max-width:760px}
-.eyebrow{font-size:var(--text-micro);font-weight:700;letter-spacing:0.16em;color:var(--accent);text-transform:uppercase;display:inline-block;margin-bottom:var(--space-2)}
-.section-head h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
+.section-head{margin-bottom:var(--space-5);max-width:780px}
+.eyebrow{font-size:var(--text-micro);font-weight:700;letter-spacing:0.16em;color:var(--accent-2);text-transform:uppercase;display:inline-block;margin-bottom:var(--space-2)}
+.section-head h2{font-size:var(--text-h2);font-weight:800;line-height:1.22}
 .section-head p{margin-top:var(--space-2);color:var(--text-secondary);font-size:var(--text-body-lg);line-height:1.6}
-/* ============ CARD BASE ============ */
-.card{
-  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:var(--space-4);transition:background-color var(--dur-hover) var(--ease-quiet),border-color var(--dur-hover) var(--ease-quiet);
-  display:flex;flex-direction:column;
-}
+
+/* ============ CARD ============ */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);transition:background-color var(--dur-hover) var(--ease-quiet),border-color var(--dur-hover) var(--ease-quiet);display:flex;flex-direction:column;min-width:0}
 .card:hover{background:var(--bg-card-hi);border-color:var(--border-hi)}
-.card-label{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;color:var(--text-tertiary);text-transform:uppercase}
+
 /* ============ NAV ============ */
-.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,11,0.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg-page)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,10,11,0.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:14px 48px;display:flex;align-items:center;gap:var(--space-4)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;white-space:nowrap}
 .brand .mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:800}
-.nav-links{display:flex;gap:var(--space-4);margin-left:auto;font-size:var(--text-small);color:var(--text-secondary)}
-.nav-links a:hover{color:var(--text-primary)}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:700;font-size:var(--text-small);padding:11px 20px;transition:transform var(--dur-hover) var(--ease-quiet),background-color var(--dur-hover) var(--ease-quiet)}
-.btn-primary{background:var(--accent);color:#fff}
+.brand .sub{color:var(--text-tertiary);font-weight:600}
+.nav-links{display:flex;gap:var(--space-3);margin-left:auto;font-size:var(--text-small);color:var(--text-secondary)}
+.nav-links a:hover,.nav-links a.on{color:var(--text-primary)}
+.nav-links a.on{font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:700;font-size:var(--text-small);padding:11px 20px;transition:transform var(--dur-hover) var(--ease-quiet),background-color var(--dur-hover) var(--ease-quiet);text-align:center}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px var(--accent-glow)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{border:1px solid var(--border-hi);color:var(--text-primary)}
 .btn-ghost:hover{background:var(--bg-card-hi)}
-.nav .btn{padding:9px 18px}
-/* ============ HERO (full-width banner) ============ */
-.hero-banner{
-  position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border);
-  background:
-    radial-gradient(900px 520px at 18% -10%, rgba(47,107,255,0.30), transparent 60%),
-    radial-gradient(700px 500px at 100% 0%, rgba(90,160,255,0.16), transparent 55%),
-    linear-gradient(180deg, #0C1326 0%, var(--bg-page) 70%);
-}
-.hero-banner::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:56px 56px;
-  -webkit-mask-image:radial-gradient(700px 480px at 25% 25%, #000 0%, transparent 75%);
-  mask-image:radial-gradient(700px 480px at 25% 25%, #000 0%, transparent 75%);
-}
-.hero-inner{position:relative;max-width:1280px;margin:0 auto;padding:var(--space-6) 48px calc(var(--space-6) + 8px);display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:center}
-.hero-copy{display:flex;flex-direction:column;gap:var(--space-3)}
+.nav .btn{padding:9px 18px;margin-left:auto}
+.nav-links + .btn{margin-left:0}
+
+/* ============ HERO ============ */
+.hero-banner{position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:radial-gradient(900px 520px at 18% -10%,rgba(47,107,255,0.30),transparent 60%),radial-gradient(700px 500px at 100% 0%,rgba(90,160,255,0.16),transparent 55%),linear-gradient(180deg,#0C1326 0%,var(--bg-page) 70%)}
+.hero-banner::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(700px 480px at 25% 25%,#000 0%,transparent 75%);mask-image:radial-gradient(700px 480px at 25% 25%,#000 0%,transparent 75%)}
+.hero-inner{position:relative;max-width:1280px;margin:0 auto;padding:var(--space-6) 48px calc(var(--space-6) + 8px);display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:var(--space-3);min-width:0}
+.crumb{font-size:var(--text-small);color:var(--text-tertiary)}
+.crumb a{color:var(--text-secondary)}
+.crumb a:hover{color:var(--text-primary)}
 .pill-row{display:flex;flex-wrap:wrap;gap:8px}
-.pill{font-size:var(--text-micro);font-weight:700;letter-spacing:0.06em;padding:7px 13px;border-radius:999px;border:1px solid var(--border-hi);color:var(--text-secondary);background:rgba(255,255,255,0.03)}
+.pill{font-size:var(--text-micro);font-weight:700;letter-spacing:0.05em;padding:7px 13px;border-radius:999px;border:1px solid var(--border-hi);color:var(--text-secondary);background:rgba(255,255,255,0.03)}
 .pill.hot{background:var(--accent);color:#fff;border-color:transparent;box-shadow:0 6px 24px var(--accent-glow)}
-.hero-copy h1{font-size:clamp(44px,5.6vw,76px);font-weight:800;line-height:1.12;letter-spacing:-0.02em;word-break:keep-all}
+.pill.warn{background:var(--warn-bg);color:var(--warn);border-color:rgba(255,181,71,0.3)}
+.hero-copy h1{font-size:clamp(38px,5.2vw,70px);font-weight:800;line-height:1.12;letter-spacing:-0.02em}
 .hero-copy h1 .acc{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-copy p{color:var(--text-secondary);font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:620px}
+.hero-copy .lead{color:var(--text-secondary);font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:620px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--space-1)}
-.btn-primary{box-shadow:0 10px 30px var(--accent-glow)}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.hero-stats .card{background:rgba(255,255,255,0.04);border-color:var(--border-hi);backdrop-filter:blur(6px)}
-.card-stat{justify-content:center;gap:6px;min-height:150px}
-.card-stat .num{font-size:clamp(38px,4vw,56px);font-weight:800;line-height:1;letter-spacing:-0.03em;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-stats .card{background:rgba(255,255,255,0.04);border-color:var(--border-hi)}
+.card-stat{justify-content:center;gap:6px;min-height:140px}
+.card-stat .num{font-size:clamp(36px,4vw,54px);font-weight:800;line-height:1;letter-spacing:-0.03em;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .card-stat .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--text-tertiary);text-transform:uppercase}
+
+/* Hero fact panel (trang khóa) */
+.fact-panel{background:rgba(255,255,255,0.04);border:1px solid var(--border-hi);border-radius:var(--radius);padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)}
+.fact-row{display:flex;justify-content:space-between;gap:16px;font-size:var(--text-small);border-bottom:1px solid var(--border);padding-bottom:12px}
+.fact-row:last-of-type{border-bottom:0;padding-bottom:0}
+.fact-row .k{color:var(--text-tertiary)}
+.fact-row .v{font-weight:700;text-align:right}
+.seats{display:flex;flex-direction:column;gap:8px}
+.seats .top{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--text-small)}
+.seats .top b{font-size:22px}
+.seat-bar{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.seat-bar i{height:8px;border-radius:4px;background:rgba(255,255,255,0.10)}
+.seat-bar i.f{background:var(--accent)}
+.seats small{color:var(--warn);font-weight:700;font-size:var(--text-micro);letter-spacing:0.04em}
+
 /* ============ FEATURE ============ */
-.card-feature{grid-column:span 4;grid-row:span 2;gap:var(--space-2)}
+.card-feature{grid-column:span 4;gap:var(--space-2)}
 .card-feature .icon{width:48px;height:48px;border-radius:14px;background:var(--accent-glow);border:1px solid var(--border-hi);display:grid;place-items:center;font-size:22px;margin-bottom:var(--space-1)}
-.card-feature h3{font-size:var(--text-h3);font-weight:700;line-height:1.3;word-break:keep-all}
-.card-feature p{color:var(--text-secondary);font-size:var(--text-body);line-height:1.6}
-.card-feature .num-tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;color:var(--accent)}
+.card-feature h3{font-size:var(--text-h3);font-weight:700;line-height:1.3}
+.card-feature p{color:var(--text-secondary);line-height:1.6}
+.card-feature .num-tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;color:var(--accent-2)}
+
+/* ============ COURSE PICKER (trang tổng) ============ */
+.card-pick{grid-column:span 4;gap:var(--space-3)}
+.card-pick .tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--accent-2);text-transform:uppercase}
+.card-pick h3{font-size:var(--text-h3);font-weight:800;line-height:1.28}
+.card-pick .for{font-size:var(--text-small);color:var(--text-secondary);line-height:1.6;border-left:2px solid var(--accent);padding-left:14px}
+.card-pick .for b{color:var(--text-primary)}
+.mini-facts{display:grid;gap:8px;font-size:var(--text-small)}
+.mini-facts div{display:flex;justify-content:space-between;gap:12px;color:var(--text-secondary)}
+.mini-facts b{color:var(--text-primary);text-align:right}
+.from-price{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--border);padding-top:var(--space-2)}
+.from-price .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--text-tertiary);text-transform:uppercase}
+.from-price .p{font-size:28px;font-weight:800;letter-spacing:-0.02em}
+.from-price .p s{font-size:var(--text-small);color:var(--text-tertiary);font-weight:600;margin-left:8px}
+.from-price .note{font-size:var(--text-small);color:var(--warn)}
+.card-pick .btn{margin-top:auto}
+
+/* So sánh 2 khóa quản lý */
+.card-compare{grid-column:span 6;gap:var(--space-2)}
+.card-compare h3{font-size:22px;font-weight:800;line-height:1.3}
+.card-compare .q{color:var(--accent-2);font-weight:700;font-size:var(--text-small)}
+.card-compare p{color:var(--text-secondary);line-height:1.6}
+.card-compare ul{display:grid;gap:8px;margin-top:4px}
+.card-compare li{list-style:none;color:var(--text-secondary);font-size:var(--text-small);display:flex;gap:10px}
+.card-compare li::before{content:"→";color:var(--accent-2);flex:none}
+.card-compare a.more{margin-top:auto;padding-top:var(--space-2);font-weight:700;color:var(--accent-2);font-size:var(--text-small)}
+
+/* Bảng lịch khai giảng */
+.table-wrap{grid-column:span 12;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card)}
+table.sched{width:100%;border-collapse:collapse;min-width:720px;font-size:var(--text-small)}
+table.sched th{text-align:left;font-size:var(--text-micro);letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);font-weight:700;padding:16px 20px;border-bottom:1px solid var(--border)}
+table.sched td{padding:18px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+table.sched tr:last-child td{border-bottom:0}
+table.sched td b{color:var(--text-primary)}
+table.sched td a{color:var(--accent-2);font-weight:700}
+
+/* ============ WHY / WHAT / HOW ============ */
+.wwh-label{display:inline-flex;align-items:center;gap:10px;font-size:var(--text-micro);font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:var(--space-2)}
+.wwh-label span{background:var(--accent-glow);border:1px solid var(--border-hi);color:var(--text-primary);border-radius:999px;padding:5px 12px;letter-spacing:0.12em}
+.card-evidence{grid-column:span 4;gap:var(--space-2)}
+.card-evidence .big{font-size:clamp(40px,4.4vw,58px);font-weight:800;letter-spacing:-0.03em;line-height:1;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card-evidence .claim{font-size:var(--text-body);font-weight:700;line-height:1.5}
+.card-evidence .so{color:var(--text-secondary);font-size:var(--text-small);line-height:1.6}
+.card-evidence .cite{margin-top:auto;padding-top:var(--space-2);border-top:1px solid var(--border);font-size:var(--text-micro);color:var(--text-tertiary);line-height:1.5}
+.card-evidence .cite a{color:var(--accent-2);text-decoration:underline;text-underline-offset:2px}
+.card-fail{grid-column:span 12;gap:var(--space-2);background:linear-gradient(135deg,rgba(255,181,71,0.07),var(--bg-card) 55%)}
+.card-fail h3{font-size:20px;font-weight:800}
+.fail-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px}
+.fail-list li{list-style:none;color:var(--text-secondary);display:flex;gap:10px;line-height:1.55}
+.fail-list li::before{content:"✕";color:var(--warn);font-weight:800;flex:none}
+
+.card-outcome{grid-column:span 6;gap:12px}
+.card-outcome .k{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--accent-2);text-transform:uppercase}
+.card-outcome h3{font-size:20px;font-weight:800;line-height:1.35}
+.card-outcome p{color:var(--text-secondary);line-height:1.6;font-size:var(--text-body)}
+.card-for{grid-column:span 12;gap:var(--space-2)}
+.card-for h3{font-size:20px;font-weight:800}
+.for-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.for-list li{list-style:none;border:1px solid var(--border);border-radius:14px;padding:16px;color:var(--text-secondary);font-size:var(--text-small);line-height:1.6;background:rgba(255,255,255,0.015)}
+.for-list li b{display:block;color:var(--text-primary);margin-bottom:4px;font-size:var(--text-body)}
+
+/* Modules */
+.card-modules{grid-column:span 8;gap:14px}
+.card-format{grid-column:span 4;gap:var(--space-2)}
+.card-format h3{font-size:20px;font-weight:800}
+.modules{display:grid;gap:12px}
+.module{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,0.015)}
+.module summary{cursor:pointer;font-weight:700;font-size:var(--text-body);display:flex;align-items:center;gap:12px;list-style:none}
+.module summary::-webkit-details-marker{display:none}
+.module summary .n{width:26px;height:26px;border-radius:8px;background:var(--accent-glow);color:var(--accent-2);display:grid;place-items:center;font-size:12px;flex:none}
+.module summary .cnt{margin-left:auto;font-size:var(--text-micro);color:var(--text-tertiary);font-weight:600;white-space:nowrap}
+.module summary::after{content:"+";color:var(--text-tertiary);font-weight:700;width:14px;text-align:center}
+.module[open] summary::after{content:"–"}
+.module ul{margin-top:12px;display:grid;gap:8px;padding-left:38px}
+.module ul li{font-size:var(--text-small);color:var(--text-secondary);line-height:1.5;list-style:none;position:relative}
+.module ul li::before{content:"";position:absolute;left:-14px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--text-tertiary)}
+.module ul li b{color:var(--text-primary);font-weight:600}
+.kv{display:grid;gap:12px}
+.kv div{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,0.02)}
+.kv .k{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--text-tertiary);text-transform:uppercase}
+.kv .v{font-size:var(--text-small);font-weight:700;margin-top:3px}
+
+/* ============ PRICING ============ */
+.card-tier{grid-column:span 4;gap:var(--space-2)}
+.card-tier.best{border-color:var(--accent);box-shadow:0 0 60px var(--accent-glow);background:linear-gradient(180deg,rgba(47,107,255,0.10),var(--bg-card) 45%)}
+.tier-badge{align-self:flex-start;font-size:var(--text-micro);font-weight:800;letter-spacing:0.08em;color:var(--accent-2);background:var(--accent-glow);border:1px solid var(--border-hi);padding:6px 12px;border-radius:999px}
+.tier-badge.grey{color:var(--text-secondary);background:rgba(255,255,255,0.05)}
+.card-tier h3{font-size:19px;font-weight:800;line-height:1.35}
+.card-tier .when{font-size:var(--text-small);color:var(--text-secondary)}
+.card-tier .when b{color:var(--warn)}
+.tier-price{font-size:clamp(32px,3.2vw,42px);font-weight:800;letter-spacing:-0.02em;line-height:1.05;white-space:nowrap}
+.tier-old{font-size:var(--text-small);color:var(--text-tertiary)}
+.tier-old s{margin-right:6px}
+.card-tier ul{display:grid;gap:8px;border-top:1px solid var(--border);padding-top:var(--space-2)}
+.card-tier li{list-style:none;font-size:var(--text-small);color:var(--text-secondary);display:flex;gap:9px}
+.card-tier li::before{content:"✔";color:var(--accent-2);flex:none}
+.card-tier .btn{margin-top:auto}
+.price-foot{grid-column:span 12;font-size:var(--text-small);color:var(--text-tertiary);text-align:center}
+
+/* ============ COMBO ============ */
+.card-combo{grid-column:span 4;gap:var(--space-2);padding:var(--space-4)}
+.card-combo.featured{grid-column:span 12;border-color:var(--accent);box-shadow:0 0 70px var(--accent-glow);background:linear-gradient(120deg,rgba(47,107,255,0.14),var(--bg-card) 55%);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-4);align-items:center}
+.card-combo.featured .col{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
+.combo-badge{display:inline-flex;align-self:flex-start;font-size:var(--text-micro);font-weight:800;letter-spacing:0.1em;color:var(--accent-2);background:var(--accent-glow);border:1px solid var(--border-hi);padding:6px 12px;border-radius:999px}
+.card-combo h3{font-size:clamp(20px,2vw,26px);font-weight:800;line-height:1.3}
+.combo-courses{display:flex;flex-wrap:wrap;gap:8px}
+.combo-courses span{font-size:var(--text-small);font-weight:600;border:1px solid var(--border-hi);border-radius:10px;padding:6px 10px;color:var(--text-secondary)}
+.combo-price{display:flex;flex-direction:column;gap:4px}
+.combo-price .now{font-size:clamp(34px,3.6vw,48px);font-weight:800;line-height:1.05;letter-spacing:-0.02em;white-space:nowrap;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.combo-price .sub{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:var(--text-small);color:var(--text-tertiary)}
+.combo-price .save{color:var(--warn);font-weight:700}
+.card-combo .btn{margin-top:auto}
+.card-combo.featured .btn{margin-top:var(--space-1);align-self:flex-start}
+
 /* ============ ABOUT ============ */
-.card-visual{grid-column:span 4;grid-row:span 3;padding:0;overflow:hidden;position:relative;min-height:420px}
+.card-visual{grid-column:span 4;padding:0;overflow:hidden;position:relative;min-height:420px}
 .card-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .card-visual .cap{position:absolute;left:0;right:0;bottom:0;padding:var(--space-3);background:linear-gradient(transparent,rgba(10,10,11,0.92));z-index:1}
 .card-visual .cap b{display:block;font-weight:700}
 .card-visual .cap span{font-size:var(--text-small);color:var(--text-secondary)}
-.card-about{grid-column:span 8;grid-row:span 3;gap:var(--space-3);justify-content:center}
-.card-about h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
-.card-about .sub{color:var(--accent);font-weight:600}
-.about-list{display:grid;gap:14px;margin-top:var(--space-1)}
+.card-about{grid-column:span 8;gap:var(--space-3);justify-content:center}
+.card-about .sub{color:var(--accent-2);font-weight:600}
+.about-list{display:grid;gap:14px}
 .about-list li{list-style:none;display:flex;gap:12px;color:var(--text-secondary);line-height:1.6}
-.about-list li::before{content:"✦";color:var(--accent);flex:none;font-size:14px;margin-top:3px}
+.about-list li::before{content:"✦";color:var(--accent-2);flex:none;font-size:14px;margin-top:3px}
 .about-list b{color:var(--text-primary);font-weight:700}
-/* ============ COURSES ============ */
-.card-course{grid-column:span 6;grid-row:span 1;gap:var(--space-3)}
-.course-head{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap}
-.course-tag{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase}
-.card-course h3{font-size:var(--text-h3);font-weight:800;line-height:1.3;word-break:keep-all}
-.course-for{font-size:var(--text-small);color:var(--text-secondary);line-height:1.6;border-left:2px solid var(--accent);padding-left:14px}
-.course-for b{color:var(--text-primary)}
-.course-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.course-meta .m{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,0.02)}
-.course-meta .m .k{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;color:var(--text-tertiary);text-transform:uppercase}
-.course-meta .m .v{font-size:var(--text-small);font-weight:700;color:var(--text-primary);margin-top:3px}
-.modules{display:grid;gap:14px}
-.module{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,0.015)}
-.module summary{cursor:pointer;font-weight:700;font-size:var(--text-small);display:flex;align-items:center;gap:10px;list-style:none}
-.module summary::-webkit-details-marker{display:none}
-.module summary .n{width:24px;height:24px;border-radius:8px;background:var(--accent-glow);color:var(--accent);display:grid;place-items:center;font-size:12px;flex:none}
-.module summary::after{content:"+";margin-left:auto;color:var(--text-tertiary);font-weight:700}
-.module[open] summary::after{content:"–"}
-.module ul{margin-top:12px;display:grid;gap:7px;padding-left:34px}
-.module ul li{font-size:var(--text-small);color:var(--text-secondary);line-height:1.5;list-style:none;position:relative}
-.module ul li::before{content:"";position:absolute;left:-14px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--text-tertiary)}
-.price-box{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap;border-top:1px solid var(--border);padding-top:var(--space-3)}
-.price-box .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;color:var(--text-tertiary);text-transform:uppercase}
-.price-now{font-size:var(--text-h3);font-weight:800;color:var(--text-primary)}
-.price-old{font-size:var(--text-body);color:var(--text-tertiary);text-decoration:line-through;margin-left:8px}
-.price-note{font-size:var(--text-small);color:var(--accent);margin-top:4px}
-/* ============ COMBO ============ */
-.card-combo{grid-column:span 4;grid-row:span 1;gap:var(--space-2);padding:var(--space-5) var(--space-4)}
-.card-combo.featured{border-color:var(--accent);box-shadow:0 0 70px var(--accent-glow);background:linear-gradient(180deg,rgba(47,107,255,0.10),var(--bg-card) 40%);transform:translateY(-6px)}
-.combo-badge{display:inline-flex;align-self:flex-start;font-size:var(--text-micro);font-weight:800;letter-spacing:0.1em;color:var(--accent);background:var(--accent-glow);border:1px solid var(--border-hi);padding:6px 12px;border-radius:999px}
-.card-combo h3{font-size:clamp(20px,2vw,24px);font-weight:800;line-height:1.3;word-break:keep-all;min-height:2.6em}
-.price-stack{display:flex;flex-direction:column;gap:2px;margin-top:var(--space-1)}
-.price-stack .price-now{font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.05;letter-spacing:-0.02em;white-space:nowrap;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.price-stack .price-sub{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:var(--text-small);color:var(--text-tertiary)}
-.price-stack .price-old{font-size:var(--text-small);color:var(--text-tertiary);text-decoration:line-through;margin:0;white-space:nowrap}
-.price-stack .per{font-size:var(--text-micro);color:var(--text-tertiary)}
-.combo-feats{display:grid;gap:10px;margin:var(--space-2) 0;padding-top:var(--space-2);border-top:1px solid var(--border)}
-.combo-feats li{list-style:none;font-size:var(--text-small);color:var(--text-secondary);display:flex;gap:9px}
-.combo-feats li::before{content:"✔";color:var(--accent);flex:none}
-.card-combo .btn{margin-top:auto;justify-content:center;padding:13px 20px}
+
 /* ============ TESTIMONIALS ============ */
-.card-quote{grid-column:span 4;grid-row:span 1;gap:var(--space-3);justify-content:space-between}
-.card-quote.wide{grid-column:span 4}
-.stars{color:var(--accent);letter-spacing:2px;font-size:14px}
-.card-quote p{font-size:var(--text-body-lg);line-height:1.55;color:var(--text-primary);font-weight:500}
+.card-quote{grid-column:span 4;gap:var(--space-3);justify-content:space-between}
+.stars{color:var(--accent-2);letter-spacing:2px;font-size:14px}
+.card-quote p{font-size:17px;line-height:1.55;font-weight:500}
 .who{display:flex;align-items:center;gap:12px}
 .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--border-hi)}
 .who b{display:block;font-size:var(--text-small);font-weight:700}
 .who span{font-size:var(--text-micro);color:var(--text-tertiary)}
+
 /* ============ CONTACT ============ */
-.card-contact{grid-column:span 8;grid-row:span 2;gap:var(--space-3);justify-content:center}
-.card-contact h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;word-break:keep-all}
-.contact-rows{display:grid;gap:var(--space-2);margin-top:var(--space-1)}
-.contact-row{display:flex;gap:14px;color:var(--text-secondary);line-height:1.55}
-.contact-row .ic{width:40px;height:40px;border-radius:12px;background:var(--accent-glow);display:grid;place-items:center;flex:none;font-size:18px}
-.contact-row b{color:var(--text-primary);display:block}
-.card-map{grid-column:span 4;grid-row:span 2;padding:0;overflow:hidden;position:relative;min-height:300px}
-.card-map img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card-contact{grid-column:span 4;gap:12px;flex-direction:row;align-items:flex-start}
+.card-contact .ic{width:44px;height:44px;border-radius:12px;background:var(--accent-glow);display:grid;place-items:center;flex:none;font-size:19px}
+.card-contact b{display:block;margin-bottom:4px}
+.card-contact span.t{color:var(--text-secondary);line-height:1.55;font-size:var(--text-small)}
+.card-contact .phone{color:var(--accent-2);font-weight:800;font-size:18px;user-select:all}
+
 /* ============ FINAL CTA ============ */
-.card-cta{grid-column:span 12;grid-row:span 1;align-items:center;text-align:center;gap:var(--space-3);padding:var(--space-6);position:relative;overflow:hidden;box-shadow:0 0 80px var(--accent-glow)}
+.card-cta{grid-column:span 12;align-items:center;text-align:center;gap:var(--space-3);padding:var(--space-6);position:relative;overflow:hidden;box-shadow:0 0 80px var(--accent-glow)}
 .card-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--accent-glow),transparent 60%);pointer-events:none}
-.card-cta h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;max-width:760px;word-break:keep-all;position:relative}
-.card-cta p{color:var(--text-secondary);max-width:600px;font-size:var(--text-body-lg);position:relative}
+.card-cta h2{font-size:var(--text-h2);font-weight:800;line-height:1.25;max-width:780px;position:relative}
+.card-cta p{color:var(--text-secondary);max-width:640px;font-size:var(--text-body-lg);position:relative}
 .card-cta .hero-cta{justify-content:center;position:relative}
 .card-cta small{color:var(--text-tertiary);font-size:var(--text-small);position:relative}
+
 /* ============ FOOTER ============ */
 .footer{border-top:1px solid var(--border);margin-top:var(--space-5)}
 .footer-inner{max-width:1280px;margin:0 auto;padding:var(--space-4) 48px;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;color:var(--text-tertiary);font-size:var(--text-small)}
-/* ============ REVEAL ANIM ============ */
-.card{opacity:0;transform:translateY(16px);animation:reveal var(--dur-reveal) var(--ease-quiet) forwards}
-@keyframes reveal{to{opacity:1;transform:none}}
+.footer-links{display:flex;gap:var(--space-3);flex-wrap:wrap}
+.footer-links a:hover{color:var(--text-primary)}
+
+/* ============ REVEAL (trang luôn hiện đầy đủ khi tải) ============ */
+.card{animation:reveal var(--dur-reveal) var(--ease-quiet) both}
+@keyframes reveal{from{transform:translateY(14px)}to{transform:none}}
+
 /* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .nav-links{display:none}
+}
 @media (max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:32px;padding:var(--space-5) 48px}
   .hero-stats{grid-template-columns:repeat(4,1fr);gap:16px}
-  .card-stat{min-height:120px}
-  .card-about{grid-column:span 12;grid-row:auto}
-  .card-visual{grid-column:span 12;grid-row:auto;min-height:340px}
-  .card-course{grid-column:span 12}
+  .card-stat{min-height:116px}
+  .card-feature,.card-pick,.card-evidence,.card-tier{grid-column:span 6}
+  .card-pick:last-child,.card-evidence:last-child,.card-tier:last-child,.card-feature:last-child{grid-column:span 12}
+  .card-modules,.card-format{grid-column:span 12}
+  .card-about,.card-visual{grid-column:span 12}
+  .card-visual{min-height:340px}
+  .card-quote{grid-column:span 6}
+  .card-combo.featured{grid-template-columns:1fr}
+  .card-contact{grid-column:span 12}
   .card-combo{grid-column:span 12}
-  .card-combo.featured{transform:none;order:-1}
-  .card-combo h3{min-height:0}
-  .card-contact{grid-column:span 12;grid-row:auto}
-  .card-map{grid-column:span 12;grid-row:auto;min-height:260px}
-  .card-quote,.card-quote.wide{grid-column:span 6}
-  .nav-links{display:none}
+  .for-list{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .section{padding:var(--space-5) 16px}
   .nav-inner{padding:12px 16px}
+  .brand .sub{display:none}
   .footer-inner{padding:var(--space-3) 16px}
   .bento-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
   .hero-inner{padding:var(--space-5) 16px}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
-  .card-stat{min-height:110px}
-  .card-feature{grid-column:span 4;grid-row:auto}
-  .card-about,.card-visual,.card-course,.card-contact,.card-map,.card-cta{grid-column:span 4;grid-row:auto}
-  .card-combo{grid-column:span 4}
-  .card-quote,.card-quote.wide{grid-column:span 4}
+  .card-feature,.card-pick,.card-evidence,.card-tier,.card-compare,.card-outcome,.card-modules,.card-format,.card-about,.card-visual,.card-quote,.card-combo,.card-combo.featured,.card-cta,.card-fail,.card-for,.card-contact,.table-wrap,.price-foot{grid-column:span 4}
+  .card-pick:last-child,.card-evidence:last-child,.card-tier:last-child,.card-feature:last-child{grid-column:span 4}
   .card{padding:var(--space-3)}
+  .card-cta{padding:var(--space-5) var(--space-3)}
+  .fail-list{grid-template-columns:1fr}
+  .fact-panel{padding:var(--space-3)}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .card{opacity:1;transform:none}
 }
+
+.view[hidden]{display:none!important}
+[id]{scroll-margin-top:84px}
 </style>
 </head>
 <body>
-<!-- ===== NAV ===== -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="brand"><span class="mark">Đ</span> Đình Trường <span style="color:var(--text-tertiary);font-weight:600">Master Class</span></a>
-    <div class="nav-links">
-      <a href="#about">Về tôi</a>
-      <a href="#courses">Khóa học</a>
-      <a href="#combo">Ưu đãi</a>
-      <a href="#testimonials">Học viên</a>
-      <a href="#contact">Liên hệ</a>
-    </div>
+    <a href="#trang-chu" class="brand"><span class="mark">Đ</span> Đình Trường <span class="sub">Master Class</span></a>
+    <div class="nav-links"><a href="#khoa-ban-hang">Khóa Bán hàng</a><a href="#khoa-lanh-dao">Khóa Lãnh đạo</a><a href="#khoa-huan-luyen">Khóa Huấn luyện</a><a href="#trang-chu-combo">Combo ưu đãi</a></div>
     <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
   </div>
 </nav>
-<!-- ===== HERO (full-width banner) ===== -->
+<main class="view" id="trang-chu" data-title="Đình Trường Master Class">
 <header class="hero-banner">
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="pill-row">
-        <span class="pill hot">CHỈ 10 HỌC VIÊN</span>
-        <span class="pill">Khóa 1 · Dự kiến 15/08/2026</span>
-        <span class="pill">Khóa 2 · Dự kiến 15/11/2026</span>
+        <span class="pill hot">TỐI ĐA 10 HỌC VIÊN / LỚP</span>
+        <span class="pill">Khai giảng 01–02/12/2026</span>
         <span class="pill">Online qua Zoom</span>
+        <span class="pill warn">Combo giảm đến 40 triệu</span>
       </div>
-      <h1>Từ <span class="acc">"lính mới"</span> thành chuyên gia bán hàng — đến nhà <span class="acc">"lãnh đạo kiệt xuất"</span></h1>
-      <p>Chương trình 52 buổi đào tạo thực chiến cho PT, Sale, Quản lý phòng tập — đúc kết từ 12+ năm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.</p>
+      <h1>Từ <span class="acc">"lính mới"</span> thành chuyên gia bán hàng, đến nhà <span class="acc">"lãnh đạo kiệt xuất"</span></h1>
+      <p class="lead">3 khóa đào tạo thực chiến, 69 buổi cho PT, Sale và Quản lý phòng tập. Đúc kết từ 12+ năm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#courses">Xem chi tiết 2 khóa học →</a>
-        <a class="btn btn-ghost" href="#about">Tìm hiểu về thầy Trường</a>
+        <a class="btn btn-primary" href="#trang-chu-courses">Chọn khóa phù hợp →</a>
+        <a class="btn btn-ghost" href="#trang-chu-combo">Xem combo ưu đãi</a>
       </div>
     </div>
     <div class="hero-stats">
@@ -257,7 +343,170 @@ img{display:block;max-width:100%}
     </div>
   </div>
 </header>
-<!-- ===== DỊCH VỤ ===== -->
+<section class="section" id="trang-chu-courses">
+  <div class="section-head">
+    <span class="eyebrow">Chương trình đào tạo</span>
+    <h2>3 khóa học cho 3 giai đoạn sự nghiệp</h2>
+    <p>Bán giỏi trước, rồi dẫn dắt đội, rồi huấn luyện từng người. Chọn khóa đúng với vị trí của bạn hôm nay.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-pick">
+      <span class="tag">Khóa Bán hàng · K03 · 35 buổi</span>
+      <h3>Từ lính mới thành chuyên gia bán hàng</h3>
+      <p class="for"><b>Dành cho:</b> PT/Sale tại tổ hợp, private, studio, freelancer; quản lý muốn nhân bản kỹ năng bán cho đội.</p>
+      <p style="color:var(--text-secondary);line-height:1.6">Bán gói tập không cần ép khách: tâm lý khách hàng, tư vấn, chốt sale, giữ chân và tái ký.</p>
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">4/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 6 CHỖ</small>
+      </div>
+      <div class="mini-facts">
+        <div><span>Khai giảng</span><b class="num-tab">02/12/2026</b></div>
+        <div><span>Lịch học</span><b>Thứ 2 – 4 – 6 – CN</b></div>
+      </div>
+      <div class="from-price">
+        <span class="lbl">Học phí từ</span>
+        <span class="p num-tab">30.000.000đ<s>50.000.000đ</s></span>
+        <span class="note">Ca tối, đăng ký trước 01/11/2026</span>
+      </div>
+      <a class="btn btn-primary" href="#khoa-ban-hang">Xem chi tiết Khóa Bán hàng →</a>
+    </div>
+    <div class="card card-pick">
+      <span class="tag">Khóa Lãnh đạo · K02 · 17 buổi</span>
+      <h3>Phát triển kỹ năng lãnh đạo xuất sắc</h3>
+      <p class="for"><b>Dành cho:</b> PT/Sale muốn lên quản lý, quản lý đang tại vị, chủ phòng tập muốn xây đội ngũ.</p>
+      <p style="color:var(--text-secondary);line-height:1.6">Dẫn dắt cả đội đạt target: kế hoạch bán hàng cho đội, văn hóa, động lực, xung đột.</p>
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">6/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 4 CHỖ</small>
+      </div>
+      <div class="mini-facts">
+        <div><span>Khai giảng</span><b class="num-tab">01/12/2026</b></div>
+        <div><span>Lịch học</span><b>Thứ 3 – 5 – 7</b></div>
+      </div>
+      <div class="from-price">
+        <span class="lbl">Học phí từ</span>
+        <span class="p num-tab">30.000.000đ<s>40.000.000đ</s></span>
+        <span class="note">Ca tối, đăng ký trước 01/11/2026</span>
+      </div>
+      <a class="btn btn-primary" href="#khoa-lanh-dao">Xem chi tiết Khóa Lãnh đạo →</a>
+    </div>
+    <div class="card card-pick">
+      <span class="tag">Khóa Huấn luyện · K01 · 17 buổi</span>
+      <h3>Quản lý như một người Huấn luyện</h3>
+      <p class="for"><b>Dành cho:</b> Sale/PT muốn lên quản lý, FM/SM/CM đang tại vị, chủ phòng tập muốn quản lý hiệu quả.</p>
+      <p style="color:var(--text-secondary);line-height:1.6">Dẫn dắt từng nhân sự bằng câu hỏi: họp 1-1, phản hồi, CTFAR, 4 câu hỏi quyền lực.</p>
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">6/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 4 CHỖ</small>
+      </div>
+      <div class="mini-facts">
+        <div><span>Khai giảng</span><b class="num-tab">02/12/2026</b></div>
+        <div><span>Lịch học</span><b>Thứ 3 – 5 – 7</b></div>
+      </div>
+      <div class="from-price">
+        <span class="lbl">Học phí từ</span>
+        <span class="p num-tab">15.000.000đ<s>30.000.000đ</s></span>
+        <span class="note">Ca tối, đăng ký trước 25/10/2026</span>
+      </div>
+      <a class="btn btn-primary" href="#khoa-huan-luyen">Xem chi tiết Khóa Huấn luyện →</a>
+    </div>
+  </div>
+</section>
+<section class="section tight">
+  <div class="section-head">
+    <span class="eyebrow">Dành cho quản lý</span>
+    <h2>Khóa Lãnh đạo hay Khóa Huấn luyện?</h2>
+    <p>Cả hai cùng dành cho quản lý và người sắp lên quản lý, nhưng giải hai bài toán khác nhau.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-compare">
+      <span class="q">Bài toán: cả đội chưa đạt target</span>
+      <h3>Phát triển kỹ năng lãnh đạo xuất sắc</h3>
+      <p>Tập trung vào <b style="color:var(--text-primary)">cả đội</b>: hệ thống bán hàng chung, văn hóa, động lực và xung đột.</p>
+      <ul><li>Quy trình bán hàng 10 bước, kế hoạch bán hàng cho đội</li><li>Văn hóa cống hiến, văn hóa giải quyết vấn đề</li><li>Tạo động lực, hóa giải xung đột, lãnh đạo theo tình huống</li></ul>
+      <a class="more" href="#khoa-lanh-dao">Xem Khóa Lãnh đạo →</a>
+    </div>
+    <div class="card card-compare">
+      <span class="q">Bài toán: nhân sự chỉ biết chờ lệnh</span>
+      <h3>Quản lý như một người Huấn luyện</h3>
+      <p>Tập trung vào <b style="color:var(--text-primary)">từng người</b>: dẫn dắt bằng câu hỏi để nhân sự tự nghĩ, tự làm, tự chịu trách nhiệm.</p>
+      <ul><li>Họp 1-1 thực chiến, phản hồi khai phóng</li><li>CTFAR, thang suy luận, 4 câu hỏi quyền lực, khung CEGA</li><li>Dẫn dắt thay đổi, văn hóa trách nhiệm giải trình</li></ul>
+      <a class="more" href="#khoa-huan-luyen">Xem Khóa Huấn luyện →</a>
+    </div>
+  </div>
+</section>
+<section class="section tight" id="trang-chu-lich">
+  <div class="section-head">
+    <span class="eyebrow">Lịch khai giảng</span>
+    <h2>Cả 3 lớp khai giảng đầu tháng 12/2026</h2>
+  </div>
+  <div class="bento-grid">
+    <div class="table-wrap">
+      <table class="sched">
+        <thead><tr><th>Khóa</th><th>Khai giảng</th><th>Lịch học</th><th>Ca học</th><th>Đã đăng ký</th><th>Ưu đãi sớm</th><th></th></tr></thead>
+        <tbody><tr><td><b>Phát triển kỹ năng lãnh đạo xuất sắc</b><br>K02</td><td class="num-tab"><b>01/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-lanh-dao">Chi tiết →</a></td></tr><tr><td><b>Từ lính mới thành chuyên gia bán hàng</b><br>K03</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 2 – 4 – 6 – CN<br>35 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">4/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-ban-hang">Chi tiết →</a></td></tr><tr><td><b>Quản lý như một người Huấn luyện</b><br>K01</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>25/10/2026</b></td><td><a href="#khoa-huan-luyen">Chi tiết →</a></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section" id="trang-chu-combo">
+  <div class="section-head">
+    <span class="eyebrow">Ưu đãi combo</span>
+    <h2>4 combo, giảm đến 40 triệu</h2>
+    <p>Học theo lộ trình giúp kỹ năng cộng hưởng: bán hàng là nền, lãnh đạo xây đội, huấn luyện phát triển từng người.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-combo featured">
+      <div class="col">
+        <span class="combo-badge">✦ COMBO 01 · TIẾT KIỆM NHẤT</span>
+        <h3>Combo trọn lộ trình: từ bán hàng đến dẫn dắt đội ngũ</h3>
+        <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+        <p style="color:var(--text-secondary);line-height:1.6">Đi hết lộ trình 69 buổi: tự bán giỏi, rồi xây đội, rồi huấn luyện từng người trong đội.</p>
+      </div>
+      <div class="col">
+        <div class="combo-price">
+        <span class="now num-tab">80.000.000đ</span>
+        <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
+      </div>
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo này →</a>
+      </div>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 02</span>
+      <h3>Bán hàng + Lãnh đạo</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 03</span>
+      <h3>Bán hàng + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 04</span>
+      <h3>Lãnh đạo + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">50.000.000đ</span>
+        <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+    </div>
+    
+  </div>
+</section>
 <section class="section">
   <div class="section-head">
     <span class="eyebrow">Dịch vụ chuyên sâu</span>
@@ -265,322 +514,105 @@ img{display:block;max-width:100%}
     <p>Không phải lý thuyết sách vở. Đây là những gì tôi đã làm đi làm lại trong 12 năm vận hành và đào tạo thật.</p>
   </div>
   <div class="bento-grid">
-    <div class="card card-feature">
-      <div class="icon">🎯</div>
-      <span class="num-tag">01 · ĐÀO TẠO</span>
-      <h3>Kỹ năng bán hàng & tư vấn chuyên sâu</h3>
-      <p>Đột phá doanh thu dựa trên sự tử tế và thấu hiểu — không chiêu trò, không ép khách.</p>
-    </div>
-    <div class="card card-feature">
-      <div class="icon">🧭</div>
-      <span class="num-tag">02 · LÃNH ĐẠO</span>
-      <h3>Đào tạo quản lý & lãnh đạo đội nhóm</h3>
-      <p>Nâng tầm tư duy lãnh đạo và kỹ năng quản trị để dẫn dắt đội nhóm vượt qua khủng hoảng.</p>
-    </div>
-    <div class="card card-feature">
-      <div class="icon">⚙️</div>
-      <span class="num-tag">03 · TƯ VẤN</span>
-      <h3>Tư vấn giải pháp & vận hành tinh gọn</h3>
-      <p>Thiết lập chiến lược và bộ máy vận hành tinh gọn, tạo nền móng phát triển bền vững.</p>
-    </div>
+    <div class="card card-feature"><div class="icon">🎯</div><span class="num-tag">ĐÀO TẠO</span><h3>Kỹ năng bán hàng & tư vấn chuyên sâu</h3><p>Đột phá doanh thu dựa trên sự tử tế và thấu hiểu, không chiêu trò, không ép khách.</p></div>
+    <div class="card card-feature"><div class="icon">🧭</div><span class="num-tag">LÃNH ĐẠO</span><h3>Đào tạo quản lý & lãnh đạo đội nhóm</h3><p>Nâng tầm tư duy lãnh đạo và kỹ năng quản trị để dẫn dắt đội nhóm vượt qua khủng hoảng.</p></div>
+    <div class="card card-feature"><div class="icon">⚙️</div><span class="num-tag">TƯ VẤN</span><h3>Tư vấn giải pháp & vận hành tinh gọn</h3><p>Thiết lập chiến lược và bộ máy vận hành tinh gọn, tạo nền móng phát triển bền vững.</p></div>
   </div>
 </section>
-<!-- ===== ABOUT ===== -->
-<section class="section" id="about">
+<section class="section" id="trang-chu-about">
   <div class="section-head">
     <span class="eyebrow">Về người đào tạo</span>
-    <h2>Đình Trường — người vừa dạy vừa làm</h2>
+    <h2>Đình Trường, người vừa dạy vừa làm</h2>
   </div>
   <div class="bento-grid">
-    <!-- Visual card (4x3) bên trái — optical balance -->
     <div class="card card-visual">
-      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường — Founder Ladysfit Vietnam" loading="lazy">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường, Founder Ladysfit Vietnam" loading="lazy">
       <div class="cap"><b>Đình Trường</b><span>Founder & Fitness Sale Expert</span></div>
     </div>
-    <!-- About card (8x3) -->
     <div class="card card-about">
       <p class="sub">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT toàn quốc</p>
       <ul class="about-list">
-        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness — từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
+        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness, từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
         <li><span><b>Founder hệ thống Ladysfit Việt Nam</b> với 30+ phòng tập trên toàn quốc.</span></li>
-        <li><span><b>Founder học viện VPTA</b> — đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
-        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán — Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
+        <li><span><b>Founder học viện VPTA</b>, đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
+        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán: Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
         <li><span>Đào tạo <b>300+ quản lý, chủ phòng gym</b>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span></li>
         <li><span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <b>mô hình nhượng quyền</b>.</span></li>
       </ul>
     </div>
   </div>
 </section>
-<!-- ===== KHÓA HỌC ===== -->
-<section class="section" id="courses">
-  <div class="section-head">
-    <span class="eyebrow">Chương trình đào tạo</span>
-    <h2>2 khóa học, 52 buổi thực chiến</h2>
-    <p>Từ kỹ năng cá nhân đến tư duy lãnh đạo, từ chiến lược đến thực thi. Chọn đúng khóa phù hợp với giai đoạn sự nghiệp của bạn.</p>
-  </div>
-  <div class="bento-grid">
-    <!-- KHÓA 1 -->
-    <div class="card card-course">
-      <div class="course-head">
-        <span class="course-tag">Khóa 1 · 35 buổi</span>
-        <span class="pill hot">8/10 học viên đã đăng ký</span>
-      </div>
-      <h3>Khóa đào tạo bán hàng thực chiến</h3>
-      <p class="course-for"><b>Dành cho:</b> PT/Sale tại tổ hợp fitness, fitness private, studio, freelancer — và quản lý muốn hệ thống hóa chương trình đào tạo kỹ năng bán hàng để "nhân bản" cho phòng tập.</p>
-      <div class="course-meta">
-        <div class="m"><div class="k">Thời gian học</div><div class="v">15/08 – 15/10/2026</div></div>
-        <div class="m"><div class="k">Khai giảng</div><div class="v">Dự kiến 15/08/2026</div></div>
-        <div class="m"><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
-        <div class="m"><div class="k">Tài liệu</div><div class="v">Slide + Record buổi học</div></div>
-      </div>
-      <div class="modules">
-        <details class="module" open>
-          <summary><span class="n">1</span> Tư duy & Tâm lý bán hàng</summary>
-          <ul>
-            <li>Buổi 1–2: Quản trị mục tiêu & Kiến tạo sự nghiệp</li>
-            <li>Buổi 3: Tư duy sống sót & phát triển thời fitness "hỗn loạn"</li>
-            <li>Buổi 4: Hiểu cách não bộ ra quyết định mua hàng</li>
-            <li>Buổi 5–6: Ứng dụng các hiệu ứng tâm lý trong bán hàng</li>
-            <li>Buổi 7: Yếu tố ảnh hưởng tới quyết định mua hàng & đạo đức bán hàng</li>
-          </ul>
-        </details>
-        <details class="module">
-          <summary><span class="n">2</span> Kỹ năng giao tiếp cốt lõi</summary>
-          <ul>
-            <li>Buổi 8: Lắng nghe & thấu hiểu khách hàng</li>
-            <li>Buổi 9: Đặt câu hỏi "khám phá nhu cầu"</li>
-            <li>Buổi 10: "Điều khiển" giọng nói như chuyên gia</li>
-            <li>Buổi 11: Thực hành đặt câu hỏi & điều khiển giọng nói (Role Play)</li>
-            <li>Buổi 12: Diễn giải & truyền đạt rõ ràng (mô hình 7C, 3C)</li>
-            <li>Buổi 13: Xây dựng mối quan hệ & tạo thiện cảm (Rapport, Trust)</li>
-            <li>Buổi 14: Phản hồi, góp ý & xử lý tình huống khó</li>
-            <li>Buổi 15: Giao tiếp phi ngôn ngữ (quy tắc Mehrabian)</li>
-            <li>Buổi 16: Quản lý thời gian hiệu quả (Eisenhower, Time Blocking)</li>
-          </ul>
-        </details>
-        <details class="module">
-          <summary><span class="n">3</span> Tiếp cận & Tư vấn</summary>
-          <ul>
-            <li>Buổi 17: Chân dung KH mục tiêu & thiết lập USP</li>
-            <li>Buổi 18: Thấu hiểu "hành vi" KH để telesale hiệu quả</li>
-            <li>Buổi 19–21: Tư vấn bán gói tập lớn qua điện thoại (P1–P3)</li>
-            <li>Buổi 22–23: Kỹ năng Storytelling trong bán hàng (P1–P2)</li>
-            <li>Buổi 24: Phân tích & tư vấn Inbody</li>
-            <li>Buổi 25–26: Thuyết phục & bán gói tập giá trị cao (P1–P2)</li>
-            <li>Buổi 27: Thuyết trình tư vấn giải pháp tập luyện</li>
-          </ul>
-        </details>
-        <details class="module">
-          <summary><span class="n">4</span> Đàm phán, Chốt sale & Giữ khách</summary>
-          <ul>
-            <li>Buổi 28: Kỹ năng đàm phán (Negotiation Skills)</li>
-            <li>Buổi 29–31: Chốt sale & xử lý từ chối (P1–P3)</li>
-            <li>Buổi 32: Xây dựng & phát triển mối quan hệ với KH</li>
-            <li>Buổi 33: Giảm Churn Rate & tăng Customer Lifetime Value</li>
-            <li>Buổi 34: Chiến lược "Renew — Tái ký" hiệu quả</li>
-            <li>Buổi 35: Khai thác nguồn "khách hàng giới thiệu"</li>
-          </ul>
-        </details>
-      </div>
-      <div class="price-box">
-        <div>
-          <span class="lbl">Học phí khóa 1</span>
-          <div><span class="price-now">45.000.000đ</span><span class="price-old">50.000.000đ</span></div>
-          <div class="price-note">Áp dụng cho 3 học viên đăng ký sớm nhất · Chưa gồm VAT</div>
-        </div>
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 1 →</a>
-      </div>
-    </div>
-    <!-- KHÓA 2 -->
-    <div class="card card-course">
-      <div class="course-head">
-        <span class="course-tag">Khóa 2 · 17 buổi</span>
-        <span class="pill hot">02 học viên đã đăng ký</span>
-      </div>
-      <h3>Khóa phát triển kỹ năng lãnh đạo cho quản lý</h3>
-      <p class="course-for"><b>Dành cho:</b> PT/Sale muốn thăng tiến lên quản lý hoặc khởi nghiệp phòng tập · Quản lý đang tại vị muốn phát triển kỹ năng lãnh đạo · Chủ phòng tập muốn hệ thống hóa chương trình đào tạo lãnh đạo để "nhân bản" cho đội ngũ.</p>
-      <div class="course-meta">
-        <div class="m"><div class="k">Thời gian học</div><div class="v">15/11 – 15/12/2026</div></div>
-        <div class="m"><div class="k">Khai giảng</div><div class="v">Dự kiến 15/11/2026</div></div>
-        <div class="m"><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
-        <div class="m"><div class="k">Tài liệu</div><div class="v">Slide + Record buổi học</div></div>
-      </div>
-      <div class="modules">
-        <details class="module" open>
-          <summary><span class="n">1</span> Quản trị bán hàng cho PT</summary>
-          <ul>
-            <li>Buổi 1: Xây dựng quy trình bán hàng 10 bước cho PT</li>
-            <li>Buổi 2: Lập kế hoạch bán hàng cho PT</li>
-          </ul>
-        </details>
-        <details class="module">
-          <summary><span class="n">2</span> Lãnh đạo & Văn hóa đội nhóm</summary>
-          <ul>
-            <li>Buổi 3: Leading Teams — Phát triển kỹ năng lãnh đạo</li>
-            <li>Buổi 4: Chiến lược lãnh đạo bản thân</li>
-            <li>Buổi 5: Nâng tầm lãnh đạo (Leading Others & Growth)</li>
-            <li>Buổi 6: Lãnh đạo đội nhóm & xây dựng văn hóa hiệu quả</li>
-            <li>Buổi 7: Văn hóa Cống hiến — Gắn kết trong tổ chức</li>
-            <li>Buổi 8–9: Kỹ năng Giải quyết vấn đề (Problem Solving)</li>
-            <li>Buổi 10: Xây dựng văn hóa giải quyết vấn đề</li>
-          </ul>
-        </details>
-        <details class="module">
-          <summary><span class="n">3</span> Động lực, Xung đột & Lãnh đạo tình huống</summary>
-          <ul>
-            <li>Buổi 11–12: Thúc đẩy & tạo động lực cho nhân sự (P1–P2)</li>
-            <li>Buổi 13–14: Hóa giải xung đột dành cho Lãnh đạo (P1–P2)</li>
-            <li>Buổi 15: Lãnh đạo TỐT — Lãnh đạo TỒI</li>
-            <li>Buổi 16–17: Phát triển kỹ năng Lãnh đạo theo tình huống (P1–P2)</li>
-          </ul>
-        </details>
-      </div>
-      <div class="price-box">
-        <div>
-          <span class="lbl">Học phí khóa 2</span>
-          <div><span class="price-now">35.000.000đ</span><span class="price-old">40.000.000đ</span></div>
-          <div class="price-note">Áp dụng cho 3 học viên đăng ký sớm nhất · Chưa gồm VAT</div>
-        </div>
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 2 →</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ===== COMBO ===== -->
-<section class="section" id="combo">
-  <div class="section-head">
-    <span class="eyebrow">Ưu đãi combo</span>
-    <h2>Học combo, tiết kiệm tới 20 triệu</h2>
-    <p>Học đầy đủ lộ trình từ bán hàng → lãnh đạo. Mức đầu tư hợp lý hơn — giá trị cộng hưởng gấp nhiều lần.</p>
-  </div>
-  <div class="bento-grid">
-    <div class="card card-combo">
-      <span class="combo-badge">KHÓA 01</span>
-      <h3>Huấn luyện kỹ năng bán hàng xuất sắc</h3>
-      <div class="price-stack">
-        <span class="price-now">45.000.000đ</span>
-        <span class="price-sub"><span class="price-old">50.000.000đ</span><span class="per">/ học viên · chưa gồm VAT</span></span>
-      </div>
-      <ul class="combo-feats">
-        <li>35 buổi thực chiến</li>
-        <li>Tư duy & tâm lý bán hàng</li>
-        <li>Kỹ năng giao tiếp, tư vấn</li>
-        <li>Chốt sale & giữ khách</li>
-      </ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 01 →</a>
-    </div>
-    <div class="card card-combo featured">
-      <span class="combo-badge">✦ PHỔ BIẾN NHẤT · COMBO</span>
-      <h3>Khóa 01 + Khóa 02</h3>
-      <div class="price-stack">
-        <span class="price-now">60.000.000đ</span>
-        <span class="price-sub"><span class="price-old">80.000.000đ</span><span class="per">↓ Tiết kiệm 20 triệu · chưa gồm VAT</span></span>
-      </div>
-      <ul class="combo-feats">
-        <li>Kỹ năng bán hàng xuất sắc</li>
-        <li>Kỹ năng lãnh đạo đội nhóm</li>
-        <li>52 buổi thực chiến</li>
-      </ul>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo này →</a>
-    </div>
-    <div class="card card-combo">
-      <span class="combo-badge">KHÓA 02</span>
-      <h3>Lãnh đạo thời Fitness "hỗn loạn"</h3>
-      <div class="price-stack">
-        <span class="price-now">35.000.000đ</span>
-        <span class="price-sub"><span class="price-old">40.000.000đ</span><span class="per">/ học viên · chưa gồm VAT</span></span>
-      </div>
-      <ul class="combo-feats">
-        <li>17 buổi thực chiến</li>
-        <li>Quản trị & lập kế hoạch</li>
-        <li>Lãnh đạo đội nhóm</li>
-        <li>Xử lý xung đột & động lực</li>
-      </ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký khóa 02 →</a>
-    </div>
-  </div>
-</section>
-<!-- ===== TESTIMONIALS ===== -->
-<section class="section" id="testimonials">
+<section class="section" id="trang-chu-testimonials">
   <div class="section-head">
     <span class="eyebrow">Học viên nói gì</span>
     <h2>Họ đã hit target đều đặn sau khóa học</h2>
     <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
   </div>
   <div class="bento-grid">
-    <div class="card card-quote wide">
+    <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Tôi từ một người không biết gì, nay đã có thể tự tin hit Target mỗi tháng nhờ thầy Trường."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Cao Phước" loading="lazy"><div><b>Mr. Cao Phước</b><span>Personal Trainer</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Mr. Cao Phước" loading="lazy"><div><b>Mr. Cao Phước</b><span>Personal Trainer</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Doanh thu của tôi đã tăng gấp đôi chỉ sau 1 tháng áp dụng kiến thức trong khóa học."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/hien.jpg" alt="Hiền Nguyễn" loading="lazy"><div><b>Ms. Hiền Nguyễn</b><span>Personal Trainer</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/hien.jpg" alt="Ms. Hiền Nguyễn" loading="lazy"><div><b>Ms. Hiền Nguyễn</b><span>Personal Trainer</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Nhờ khóa học này, tôi đã hiểu rõ tư duy bán hàng và không còn sợ khách hàng từ chối nữa."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/maily.jpg" alt="Mai Ly" loading="lazy"><div><b>Mrs. Mai Ly</b><span>Personal Trainer</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/maily.jpg" alt="Mrs. Mai Ly" loading="lazy"><div><b>Mrs. Mai Ly</b><span>Personal Trainer</span></div></div>
     </div>
-    <div class="card card-quote wide">
+    <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Nhờ kiến thức trong khóa học của thầy Trường, tôi đã giúp doanh số của toàn đội tăng 150%."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Lưu Ngân" loading="lazy"><div><b>Ms. Lưu Ngân</b><span>Fitness Manager</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Ms. Lưu Ngân" loading="lazy"><div><b>Ms. Lưu Ngân</b><span>Fitness Manager</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Nhờ thầy Trường, tôi đã biết cách phân tích nhu cầu khách hàng và chốt sale tự tin hơn."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Trung Trung" loading="lazy"><div><b>Mr. Trung Trung</b><span>Master Trainer</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Mr. Trung Trung" loading="lazy"><div><b>Mr. Trung Trung</b><span>Master Trainer</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Tôi vào ngành Fitness như người mới không biết gì, sau 1 năm đã trở thành FM quản lý 3 phòng tập."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mai Mei" loading="lazy"><div><b>Mrs. Mai Mei</b><span>Fitness Manager</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mrs. Mai Mei" loading="lazy"><div><b>Mrs. Mai Mei</b><span>Fitness Manager</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Mr. Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
     </div>
-    <div class="card card-quote wide">
+    <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Mr. Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
     </div>
     <div class="card card-quote">
       <div class="stars">★★★★★</div>
       <p>"Đã học qua rất nhiều khóa của thầy Trường, vẫn thấy wow vì độ thực tiễn và lượng kiến thức khổng lồ."</p>
-      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Phương Thảo" loading="lazy"><div><b>Mrs. Phương Thảo</b><span>Fitness Manager</span></div></div>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Mrs. Phương Thảo" loading="lazy"><div><b>Mrs. Phương Thảo</b><span>Fitness Manager</span></div></div>
     </div>
   </div>
 </section>
-<!-- ===== CONTACT ===== -->
-<section class="section" id="contact">
+<section class="section" id="trang-chu-contact">
   <div class="section-head">
-    <span class="eyebrow">Địa điểm & Liên hệ</span>
-    <h2>Học offline tại Hà Nội hoặc online qua Zoom</h2>
-    <p>Thứ 3 — 5 — 7 — Chủ Nhật hàng tuần · 9:00 — 11:30 · Lớp nhỏ, tương tác cao.</p>
+    <span class="eyebrow">Hình thức & Liên hệ</span>
+    <h2>100% online qua Zoom, học ở đâu cũng được</h2>
+    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
   </div>
   <div class="bento-grid">
-    <div class="card card-contact">
-      <div class="contact-rows">
-        <div class="contact-row"><span class="ic">📍</span><span><b>Địa điểm</b>Tầng 5, số 8, Ngõ 69 Trần Duy Hưng, Hà Nội — hoặc online qua Zoom</span></div>
-        <div class="contact-row"><span class="ic">🕘</span><span><b>Thời gian</b>9:00 — 11:30 buổi sáng · Thứ 3, 5, 7 và Chủ nhật hàng tuần</span></div>
-        <div class="contact-row"><span class="ic">📞</span><span><b>Liên hệ — Mr. Đình Trường</b><a href="tel:0942523123" style="color:var(--accent);font-weight:700">0942.523.123</a></span></div>
-      </div>
-    </div>
-    <div class="card card-map">
-      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/vanphong2.jpg" alt="Địa điểm học — Tầng 5, số 8 Ngõ 69 Trần Duy Hưng" loading="lazy">
-    </div>
+    <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
   </div>
 </section>
-<!-- ===== FINAL CTA ===== -->
 <section class="section">
   <div class="bento-grid">
     <div class="card card-cta">
-      <h2>Sẵn sàng gia nhập hành trình từ "lính mới" thành nhà "lãnh đạo kiệt xuất"?</h2>
-      <p>Chỉ 10 học viên mỗi khóa. Khóa 1 dự kiến khai giảng 15/08/2026 (đã có 8/10 bạn tham gia), Khóa 2 dự kiến khai giảng 15/11/2026 (đã có 02 bạn tham gia). Đăng ký sớm để giữ chỗ.</p>
+      <h2>Sẵn sàng đi từ "lính mới" đến nhà "lãnh đạo kiệt xuất"?</h2>
+      <p>Mỗi lớp tối đa 10 học viên. Lớp Bán hàng K03 đã có 4 bạn, Lãnh đạo K02 và Huấn luyện K01 đã có 6 bạn. Đăng ký sớm để giữ chỗ và nhận ưu đãi.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
         <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
@@ -589,12 +621,900 @@ img{display:block;max-width:100%}
     </div>
   </div>
 </section>
-<!-- ===== FOOTER ===== -->
+</main>
+<main class="view" id="khoa-ban-hang" data-title="Từ lính mới thành chuyên gia bán hàng · K03 · Đình Trường Master Class">
+<header class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="crumb"><a href="#trang-chu">Master Class</a> / Khóa Bán hàng K03</div>
+      <div class="pill-row">
+        <span class="pill hot">KHÓA BÁN HÀNG · K03</span>
+        <span class="pill">Khai giảng 02/12/2026</span>
+        <span class="pill">Online qua Zoom</span>
+        <span class="pill warn">Ưu đãi sớm đến 01/11/2026</span>
+      </div>
+      <h1>Từ <span class="acc">lính mới</span> thành <span class="acc">chuyên gia bán hàng</span></h1>
+      <p class="lead">Bán gói tập không cần ép khách mà vẫn hit target đều mỗi tháng. 35 buổi đào tạo bán hàng thực chiến dành riêng cho PT và Sale phòng tập: từ tâm lý khách hàng, tư vấn, chốt sale đến giữ chân và tái ký.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <a class="btn btn-ghost" href="#khoa-ban-hang-hoc-phi">Xem học phí & ưu đãi</a>
+      </div>
+    </div>
+    <div class="fact-panel">
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">4/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 6 CHỖ</small>
+      </div>
+      <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">02/12/2026</span></div>
+      <div class="fact-row"><span class="k">Số buổi</span><span class="v">35 buổi · 4 buổi/tuần</span></div>
+      <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 2 – 4 – 6 – CN</span></div>
+      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
+    </div>
+  </div>
+</header>
+<section class="section" id="khoa-ban-hang-why">
+  <div class="section-head">
+    <div class="wwh-label"><span>Why</span> Vì sao không thể thiếu</div>
+    <h2>PT không biết bán sẽ giỏi chuyên môn mà vẫn trượt target</h2>
+    <p>Nghiên cứu về hiệu suất bán hàng chỉ ra điều mà nhiều PT bỏ qua: doanh số đến từ kỹ năng có thể học được, không phải từ năng khiếu.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-evidence">
+      <div class="big num-tab">Số 1</div>
+      <p class="claim">Yếu tố ảnh hưởng mạnh nhất đến doanh số là kiến thức bán hàng. Đứng thứ hai là khả năng đổi cách bán cho hợp từng khách.</p>
+      <p class="so">Kết luận từ việc tổng hợp các nghiên cứu về người bán hàng suốt 26 năm. Cả hai yếu tố này đều quan trọng hơn sự thông minh, nhanh nhạy bẩm sinh. Nghĩa là bán hàng giỏi là do học, không phải do trời cho.</p>
+      <p class="cite">Nguồn: Verbeke, Dietz & Verwaal (2011), tổng hợp nghiên cứu 1982–2008, Journal of the Academy of Marketing Science. <a href="https://repub.eur.nl/pub/26417" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">+5%</div>
+      <p class="claim">Tăng tỷ lệ giữ chân khách thêm 5% có thể làm lợi nhuận tăng từ 25% đến 95%, tùy ngành.</p>
+      <p class="so">Khách cũ mua thêm, tốn ít chi phí phục vụ hơn và giới thiệu người quen. PT chỉ biết chốt hợp đồng đầu mà không biết tái ký là bỏ lỡ phần lợi nhuận lớn nhất.</p>
+      <p class="cite">Nguồn: Reichheld & Sasser (1990), Harvard Business Review; Bain & Company. <a href="https://hbr.org/1990/09/zero-defections-quality-comes-to-services" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">3 khâu</div>
+      <p class="claim">Doanh số của PT phụ thuộc vào cả ba khâu: tư vấn đúng nhu cầu, chốt được hợp đồng, và giữ khách tái ký.</p>
+      <p class="so">Hụt một khâu là phải liên tục đi tìm khách mới để bù. Khóa học đi qua đủ ba khâu, theo đúng quy trình bán hàng tại phòng tập.</p>
+      <p class="cite">Đúc kết từ 12+ năm vận hành Ladysfit và đào tạo 1.000+ PT.</p>
+    </div>
+    <div class="card card-fail">
+      <h3>Dấu hiệu bạn đang thiếu kỹ năng bán hàng</h3>
+      <ul class="fail-list"><li>Tư vấn xong khách nói "để chị suy nghĩ thêm" rồi im lặng</li><li>Chỉ dám bán gói nhỏ, ngại báo giá gói lớn</li><li>Đứng trước lời từ chối là xuống giá hoặc bỏ cuộc</li><li>Doanh số lên xuống theo tháng, không biết vì sao</li><li>Khách tập hết gói là đi, ít khi tái ký</li><li>Gần như không có khách do khách cũ giới thiệu</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-what">
+  <div class="section-head">
+    <div class="wwh-label"><span>What</span> Bạn nhận được gì</div>
+    <h2>Sau 35 buổi, bạn có một quy trình bán hàng hoàn chỉnh</h2>
+    <p>Mỗi kết quả dưới đây gắn với một nhóm buổi học cụ thể trong chương trình.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-outcome"><span class="k">Tư duy</span><h3>Hiểu khách hàng quyết định mua như thế nào</h3><p>Nắm cách não bộ ra quyết định, các hiệu ứng tâm lý trong bán hàng và giới hạn đạo đức khi dùng chúng.</p></div>
+    <div class="card card-outcome"><span class="k">Giao tiếp</span><h3>Hỏi đúng câu, nghe ra nhu cầu thật</h3><p>Bộ câu hỏi khám phá nhu cầu, kỹ thuật lắng nghe, điều khiển giọng nói và tạo thiện cảm ngay từ lần gặp đầu.</p></div>
+    <div class="card card-outcome"><span class="k">Tư vấn</span><h3>Tư vấn và bán gói tập giá trị cao</h3><p>Telesale, phân tích Inbody, storytelling và thuyết trình giải pháp tập luyện để khách thấy giá trị trước khi thấy giá.</p></div>
+    <div class="card card-outcome"><span class="k">Chốt & giữ khách</span><h3>Chốt sale, tái ký và có khách giới thiệu</h3><p>Đàm phán, xử lý từ chối không ép khách, giảm tỷ lệ rời bỏ, tăng giá trị vòng đời khách hàng và khai thác nguồn giới thiệu.</p></div>
+    <div class="card card-for">
+      <h3>Khóa học dành cho</h3>
+      <ul class="for-list"><li><b>PT / Sale phòng tập</b>Làm tại tổ hợp fitness, phòng private, studio hoặc freelancer, muốn tăng doanh số ổn định.</li><li><b>Người mới vào nghề</b>Chưa có nền tảng bán hàng, cần một quy trình bài bản để không phải tự mò.</li><li><b>Quản lý phòng tập</b>Muốn hệ thống hóa chương trình đào tạo bán hàng để nhân bản cho cả đội.</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-how">
+  <div class="section-head">
+    <div class="wwh-label"><span>How</span> Nội dung khóa học</div>
+    <h2>35 buổi, 4 module, đi theo đúng hành trình bán hàng</h2>
+    <p>Từ tư duy, đến giao tiếp, đến tư vấn, rồi chốt và giữ khách. Bấm từng module để xem chi tiết.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-modules">
+      <div class="modules">
+        <details class="module" open>
+          <summary><span class="n">1</span> Tư duy & Tâm lý bán hàng<span class="cnt">5 mục</span></summary>
+          <ul><li>Buổi 1–2: Quản trị mục tiêu & Kiến tạo sự nghiệp</li><li>Buổi 3: Tư duy sống sót & phát triển thời fitness "hỗn loạn"</li><li>Buổi 4: Hiểu cách não bộ ra quyết định mua hàng</li><li>Buổi 5–6: Ứng dụng các hiệu ứng tâm lý trong bán hàng</li><li>Buổi 7: Yếu tố ảnh hưởng tới quyết định mua hàng & đạo đức bán hàng</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">2</span> Kỹ năng giao tiếp cốt lõi<span class="cnt">9 mục</span></summary>
+          <ul><li>Buổi 8: Lắng nghe & thấu hiểu khách hàng</li><li>Buổi 9: Đặt câu hỏi "khám phá nhu cầu"</li><li>Buổi 10: "Điều khiển" giọng nói như chuyên gia</li><li>Buổi 11: Thực hành đặt câu hỏi & điều khiển giọng nói (Role Play)</li><li>Buổi 12: Diễn giải & truyền đạt rõ ràng (mô hình 7C, 3C)</li><li>Buổi 13: Xây dựng mối quan hệ & tạo thiện cảm (Rapport, Trust)</li><li>Buổi 14: Phản hồi, góp ý & xử lý tình huống khó</li><li>Buổi 15: Giao tiếp phi ngôn ngữ (quy tắc Mehrabian)</li><li>Buổi 16: Quản lý thời gian hiệu quả (Eisenhower, Time Blocking)</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">3</span> Tiếp cận & Tư vấn<span class="cnt">7 mục</span></summary>
+          <ul><li>Buổi 17: Chân dung KH mục tiêu & thiết lập USP</li><li>Buổi 18: Thấu hiểu "hành vi" KH để telesale hiệu quả</li><li>Buổi 19–21: Tư vấn bán gói tập lớn qua điện thoại (P1–P3)</li><li>Buổi 22–23: Kỹ năng Storytelling trong bán hàng (P1–P2)</li><li>Buổi 24: Phân tích & tư vấn Inbody</li><li>Buổi 25–26: Thuyết phục & bán gói tập giá trị cao (P1–P2)</li><li>Buổi 27: Thuyết trình tư vấn giải pháp tập luyện</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">4</span> Đàm phán, Chốt sale & Giữ khách<span class="cnt">6 mục</span></summary>
+          <ul><li>Buổi 28: Kỹ năng đàm phán (Negotiation Skills)</li><li>Buổi 29–31: Chốt sale & xử lý từ chối (P1–P3)</li><li>Buổi 32: Xây dựng & phát triển mối quan hệ với KH</li><li>Buổi 33: Giảm Churn Rate & tăng Customer Lifetime Value</li><li>Buổi 34: Chiến lược "Renew – Tái ký" hiệu quả</li><li>Buổi 35: Khai thác nguồn "khách hàng giới thiệu"</li></ul>
+        </details>
+      </div>
+    </div>
+    <div class="card card-format">
+      <h3>Cách lớp học vận hành</h3>
+      <div class="kv">
+        <div><div class="k">Thời lượng</div><div class="v">35 buổi × 2 giờ 30 phút</div></div>
+        <div><div class="k">Lịch học</div><div class="v">Thứ 2 – 4 – 6 – CN (4 buổi/tuần)</div></div>
+        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
+        <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
+        <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
+      </div>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K03 →</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-hoc-phi">
+  <div class="section-head">
+    <span class="eyebrow">Học phí & ưu đãi</span>
+    <h2>Đăng ký sớm, chọn ca phù hợp để nhận mức tốt nhất</h2>
+    <p>Học phí tính theo 1 học viên.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-tier best">
+      <span class="tier-badge">ƯU ĐÃI LỚN NHẤT</span>
+      <h3>Ca tối 20:00 – 22:30</h3>
+      <p class="when">Đăng ký trước <b>01/11/2026</b></p>
+      <div class="tier-price num-tab">30.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">50.000.000đ</s> giá niêm yết</div>
+      <ul><li>Giảm ngay 20 triệu</li><li>Học ca tối, không ảnh hưởng giờ dạy</li><li>Đủ 35 buổi + bản ghi</li></ul>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge">ƯU ĐÃI SỚM</span>
+      <h3>Ca sáng 9:00 – 11:30</h3>
+      <p class="when">Đăng ký trước <b>01/11/2026</b></p>
+      <div class="tier-price num-tab">35.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">50.000.000đ</s> giá niêm yết</div>
+      <ul><li>Học ca sáng</li><li>Đủ 35 buổi + bản ghi</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge grey">TỪ 01/11/2026</span>
+      <h3>Học phí tiêu chuẩn</h3>
+      <p class="when">Đăng ký sau 01/11/2026, cả hai ca</p>
+      <div class="tier-price num-tab">50.000.000đ</div>
+      <div class="tier-old">Giá niêm yết</div>
+      <ul><li>Nhóm 3 học viên đăng ký cùng lúc: giảm 5 triệu/người, còn 45.000.000đ</li><li>Đủ 35 buổi + bản ghi</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <p class="price-foot">Muốn học thêm khóa Lãnh đạo hoặc Huấn luyện? Xem combo bên dưới.</p>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-combo">
+  <div class="section-head">
+    <span class="eyebrow">Ưu đãi combo</span>
+    <h2>Học Bán hàng cùng khóa khác</h2>
+    <p>Kết hợp Khóa Bán hàng với khóa quản lý để đi tiếp lộ trình.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 01</span>
+      <h3>Combo trọn lộ trình</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">80.000.000đ</span>
+        <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 02</span>
+      <h3>Bán hàng + Lãnh đạo</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 03</span>
+      <h3>Bán hàng + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+    </div>
+    <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-testimonials">
+  <div class="section-head">
+    <span class="eyebrow">Học viên nói gì</span>
+    <h2>PT và quản lý đã tăng doanh số sau khóa học</h2>
+    <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi từ một người không biết gì, nay đã có thể tự tin hit Target mỗi tháng nhờ thầy Trường."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Mr. Cao Phước" loading="lazy"><div><b>Mr. Cao Phước</b><span>Personal Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Doanh thu của tôi đã tăng gấp đôi chỉ sau 1 tháng áp dụng kiến thức trong khóa học."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/hien.jpg" alt="Ms. Hiền Nguyễn" loading="lazy"><div><b>Ms. Hiền Nguyễn</b><span>Personal Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ khóa học này, tôi đã hiểu rõ tư duy bán hàng và không còn sợ khách hàng từ chối nữa."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/maily.jpg" alt="Mrs. Mai Ly" loading="lazy"><div><b>Mrs. Mai Ly</b><span>Personal Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ thầy Trường, tôi đã biết cách phân tích nhu cầu khách hàng và chốt sale tự tin hơn."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Mr. Trung Trung" loading="lazy"><div><b>Mr. Trung Trung</b><span>Master Trainer</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Mr. Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Mr. Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-about">
+  <div class="section-head">
+    <span class="eyebrow">Về người đào tạo</span>
+    <h2>Đình Trường, người vừa dạy vừa làm</h2>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-visual">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường, Founder Ladysfit Vietnam" loading="lazy">
+      <div class="cap"><b>Đình Trường</b><span>Founder & Fitness Sale Expert</span></div>
+    </div>
+    <div class="card card-about">
+      <p class="sub">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT toàn quốc</p>
+      <ul class="about-list">
+        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness, từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
+        <li><span><b>Founder hệ thống Ladysfit Việt Nam</b> với 30+ phòng tập trên toàn quốc.</span></li>
+        <li><span><b>Founder học viện VPTA</b>, đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
+        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán: Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
+        <li><span>Đào tạo <b>300+ quản lý, chủ phòng gym</b>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span></li>
+        <li><span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <b>mô hình nhượng quyền</b>.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-ban-hang-contact">
+  <div class="section-head">
+    <span class="eyebrow">Hình thức & Liên hệ</span>
+    <h2>100% online qua Zoom, học ở đâu cũng được</h2>
+    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
+  </div>
+</section>
+<section class="section">
+  <div class="bento-grid">
+    <div class="card card-cta">
+      <h2>Còn 6 chỗ cho lớp Bán hàng K03</h2>
+      <p>Khai giảng 02/12/2026, học thứ 2 – 4 – 6 – CN. Đăng ký trước 01/11/2026 để nhận học phí từ 30.000.000đ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
+      </div>
+      <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
+    </div>
+  </div>
+</section>
+</main>
+<main class="view" id="khoa-lanh-dao" data-title="Phát triển kỹ năng lãnh đạo xuất sắc · K02 · Đình Trường Master Class">
+<header class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="crumb"><a href="#trang-chu">Master Class</a> / Khóa Lãnh đạo K02</div>
+      <div class="pill-row">
+        <span class="pill hot">KHÓA LÃNH ĐẠO · K02</span>
+        <span class="pill">Khai giảng 01/12/2026</span>
+        <span class="pill">Online qua Zoom</span>
+        <span class="pill warn">Ưu đãi sớm đến 01/11/2026</span>
+      </div>
+      <h1>Từ người bán giỏi nhất thành <span class="acc">người dẫn dắt cả đội</span> đạt target</h1>
+      <p class="lead">17 buổi phát triển kỹ năng lãnh đạo cho quản lý phòng tập: lập kế hoạch bán hàng cho đội, xây văn hóa, tạo động lực, hóa giải xung đột và lãnh đạo theo tình huống.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <a class="btn btn-ghost" href="#khoa-lanh-dao-hoc-phi">Xem học phí & ưu đãi</a>
+      </div>
+    </div>
+    <div class="fact-panel">
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">6/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 4 CHỖ</small>
+      </div>
+      <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">01/12/2026</span></div>
+      <div class="fact-row"><span class="k">Số buổi</span><span class="v">17 buổi · 3 buổi/tuần</span></div>
+      <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 3 – 5 – 7</span></div>
+      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
+    </div>
+  </div>
+</header>
+<section class="section" id="khoa-lanh-dao-why">
+  <div class="section-head">
+    <div class="wwh-label"><span>Why</span> Vì sao không thể thiếu</div>
+    <h2>Không có kỹ năng lãnh đạo, quản lý sẽ ôm việc và mất người giỏi</h2>
+    <p>Bán giỏi giúp bạn được đề bạt. Nhưng sau khi lên quản lý, kết quả của bạn phụ thuộc vào việc cả đội làm được gì.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-evidence">
+      <div class="big num-tab">70%</div>
+      <p class="claim">Người quản lý quyết định ít nhất 70% sự khác biệt về mức độ gắn kết của nhân viên giữa các đội.</p>
+      <p class="so">Cùng một hệ thống, cùng chính sách, đội nào gắn kết và bán tốt phần lớn do người quản lý trực tiếp.</p>
+      <p class="cite">Nguồn: Gallup, State of the American Manager (2015). <a href="https://www.gallup.com/workplace/236570/employees-lot-managers.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">1 / 2</div>
+      <p class="claim">Một nửa số người lao động được khảo sát từng nghỉ việc để thoát khỏi người quản lý của mình.</p>
+      <p class="so">Trong phòng tập, mỗi PT giỏi rời đi thường kéo theo một phần khách hàng. Quản lý yếu là chi phí thật, không chỉ là chuyện không khí.</p>
+      <p class="cite">Nguồn: Gallup, khảo sát 7.272 người trưởng thành tại Mỹ (2015). <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">1 / 10</div>
+      <p class="claim">Chỉ khoảng 1 trong 10 người có sẵn tố chất quản lý tự nhiên.</p>
+      <p class="so">Phần lớn quản lý phòng tập được đề bạt vì bán giỏi, không phải vì đã học cách dẫn dắt người khác. Kỹ năng lãnh đạo cần được đào tạo, không thể chờ tự có.</p>
+      <p class="cite">Nguồn: Gallup Business Journal (2015), Only One in 10 People Possess the Talent to Manage. <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-fail">
+      <h3>Dấu hiệu đội của bạn đang thiếu người dẫn dắt</h3>
+      <ul class="fail-list"><li>Quản lý vẫn phải tự bán để gánh doanh số cả phòng</li><li>Đội có 1–2 người gánh, phần còn lại trượt target liên tục</li><li>PT giỏi nghỉ việc, người mới vào lại phải đào tạo từ đầu</li><li>Mâu thuẫn trong đội bị né tránh đến khi bùng lên</li><li>Họp xong mọi người gật đầu nhưng không ai làm</li><li>Một cách quản lý áp cho tất cả, người mới lẫn người cũ</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-what">
+  <div class="section-head">
+    <div class="wwh-label"><span>What</span> Bạn nhận được gì</div>
+    <h2>Sau 17 buổi, bạn biết cách đưa cả đội về đích</h2>
+    <p>Khóa học bắt đầu từ quản trị bán hàng của đội, sau đó đi sâu vào con người và văn hóa.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-outcome"><span class="k">Quản trị bán hàng</span><h3>Có quy trình và kế hoạch bán hàng cho cả đội PT</h3><p>Xây quy trình bán hàng 10 bước và lập kế hoạch bán hàng để mọi PT biết rõ phải làm gì mỗi ngày.</p></div>
+    <div class="card card-outcome"><span class="k">Lãnh đạo</span><h3>Chuyển từ tự làm sang dẫn dắt người khác</h3><p>Đi từ lãnh đạo bản thân đến lãnh đạo đội nhóm, biết khi nào đứng ra làm và khi nào giao việc.</p></div>
+    <div class="card card-outcome"><span class="k">Văn hóa</span><h3>Xây văn hóa cống hiến và tự giải quyết vấn đề</h3><p>Tạo một đội gắn kết, chủ động xử lý vấn đề thay vì đẩy hết lên quản lý.</p></div>
+    <div class="card card-outcome"><span class="k">Con người</span><h3>Tạo động lực, hóa giải xung đột, đổi cách dẫn dắt theo từng người</h3><p>Biết thúc đẩy người đang chững lại, xử lý xung đột sớm và áp dụng lãnh đạo theo tình huống cho từng nhân sự.</p></div>
+    <div class="card card-for">
+      <h3>Khóa học dành cho</h3>
+      <ul class="for-list"><li><b>PT / Sale muốn thăng tiến</b>Chuẩn bị lên vị trí quản lý hoặc đang tính khởi nghiệp phòng tập.</li><li><b>Quản lý đang tại vị</b>FM, SM, CM muốn nâng kỹ năng lãnh đạo để đội đạt target bền vững.</li><li><b>Chủ phòng tập</b>Muốn hệ thống hóa chương trình đào tạo lãnh đạo để nhân bản cho đội ngũ quản lý.</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-how">
+  <div class="section-head">
+    <div class="wwh-label"><span>How</span> Nội dung khóa học</div>
+    <h2>17 buổi, 3 module: từ bán hàng của đội đến lãnh đạo theo tình huống</h2>
+    <p>Bấm từng module để xem chi tiết buổi học.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-modules">
+      <div class="modules">
+        <details class="module" open>
+          <summary><span class="n">1</span> Quản trị bán hàng cho PT<span class="cnt">2 mục</span></summary>
+          <ul><li>Buổi 1: Xây dựng quy trình bán hàng 10 bước cho PT</li><li>Buổi 2: Lập kế hoạch bán hàng cho PT</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">2</span> Lãnh đạo & Văn hóa đội nhóm<span class="cnt">7 mục</span></summary>
+          <ul><li>Buổi 3: Leading Teams: Phát triển kỹ năng lãnh đạo</li><li>Buổi 4: Chiến lược lãnh đạo bản thân</li><li>Buổi 5: Nâng tầm lãnh đạo (Leading Others & Growth)</li><li>Buổi 6: Lãnh đạo đội nhóm & xây dựng văn hóa hiệu quả</li><li>Buổi 7: Văn hóa Cống hiến: Gắn kết trong tổ chức</li><li>Buổi 8–9: Kỹ năng Giải quyết vấn đề (Problem Solving)</li><li>Buổi 10: Xây dựng văn hóa giải quyết vấn đề</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">3</span> Động lực, Xung đột & Lãnh đạo tình huống<span class="cnt">4 mục</span></summary>
+          <ul><li>Buổi 11–12: Thúc đẩy & tạo động lực cho nhân sự (P1–P2)</li><li>Buổi 13–14: Hóa giải xung đột dành cho Lãnh đạo (P1–P2)</li><li>Buổi 15: Lãnh đạo TỐT, Lãnh đạo TỒI</li><li>Buổi 16–17: Phát triển kỹ năng Lãnh đạo theo tình huống (P1–P2)</li></ul>
+        </details>
+      </div>
+    </div>
+    <div class="card card-format">
+      <h3>Cách lớp học vận hành</h3>
+      <div class="kv">
+        <div><div class="k">Thời lượng</div><div class="v">17 buổi × 2 giờ 30 phút</div></div>
+        <div><div class="k">Lịch học</div><div class="v">Thứ 3 – 5 – 7 (3 buổi/tuần)</div></div>
+        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
+        <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
+        <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
+      </div>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K02 →</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-hoc-phi">
+  <div class="section-head">
+    <span class="eyebrow">Học phí & ưu đãi</span>
+    <h2>Đăng ký sớm, chọn ca phù hợp để nhận mức tốt nhất</h2>
+    <p>Học phí tính theo 1 học viên.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-tier best">
+      <span class="tier-badge">ƯU ĐÃI LỚN NHẤT</span>
+      <h3>Ca tối 20:00 – 22:30</h3>
+      <p class="when">Đăng ký trước <b>01/11/2026</b></p>
+      <div class="tier-price num-tab">30.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">40.000.000đ</s> giá niêm yết</div>
+      <ul><li>Giảm ngay 10 triệu</li><li>Học ca tối sau giờ vận hành</li><li>Đủ 17 buổi + bản ghi</li></ul>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge">ƯU ĐÃI SỚM</span>
+      <h3>Ca sáng 9:00 – 11:30</h3>
+      <p class="when">Đăng ký trước <b>01/11/2026</b></p>
+      <div class="tier-price num-tab">35.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">40.000.000đ</s> giá niêm yết</div>
+      <ul><li>Giảm ngay 5 triệu</li><li>Đủ 17 buổi + bản ghi</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge grey">TỪ 01/11/2026</span>
+      <h3>Học phí tiêu chuẩn</h3>
+      <p class="when">Đăng ký sau 01/11/2026, cả hai ca</p>
+      <div class="tier-price num-tab">40.000.000đ</div>
+      <div class="tier-old">Giá niêm yết</div>
+      <ul><li>Nhóm 3 học viên đăng ký cùng lúc: giảm 5 triệu/người, còn 35.000.000đ</li><li>Đủ 17 buổi + bản ghi</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <p class="price-foot">Muốn học thêm khóa Sale hoặc Huấn luyện? Xem combo bên dưới.</p>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-combo">
+  <div class="section-head">
+    <span class="eyebrow">Ưu đãi combo</span>
+    <h2>Học Lãnh đạo cùng khóa khác</h2>
+    <p>Kết hợp với Khóa Bán hàng để nắm cả bán hàng, hoặc với Khóa Huấn luyện để phát triển từng nhân sự.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 01</span>
+      <h3>Combo trọn lộ trình</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">80.000.000đ</span>
+        <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 02</span>
+      <h3>Bán hàng + Lãnh đạo</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 04</span>
+      <h3>Lãnh đạo + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">50.000.000đ</span>
+        <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+    </div>
+    <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-testimonials">
+  <div class="section-head">
+    <span class="eyebrow">Học viên nói gì</span>
+    <h2>Quản lý đã đưa đội về đích sau khóa học</h2>
+    <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ kiến thức trong khóa học của thầy Trường, tôi đã giúp doanh số của toàn đội tăng 150%."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Ms. Lưu Ngân" loading="lazy"><div><b>Ms. Lưu Ngân</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi vào ngành Fitness như người mới không biết gì, sau 1 năm đã trở thành FM quản lý 3 phòng tập."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mrs. Mai Mei" loading="lazy"><div><b>Mrs. Mai Mei</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Mr. Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Mr. Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Đã học qua rất nhiều khóa của thầy Trường, vẫn thấy wow vì độ thực tiễn và lượng kiến thức khổng lồ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Mrs. Phương Thảo" loading="lazy"><div><b>Mrs. Phương Thảo</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi từ một người không biết gì, nay đã có thể tự tin hit Target mỗi tháng nhờ thầy Trường."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/Phuoc.png" alt="Mr. Cao Phước" loading="lazy"><div><b>Mr. Cao Phước</b><span>Personal Trainer</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-about">
+  <div class="section-head">
+    <span class="eyebrow">Về người đào tạo</span>
+    <h2>Đình Trường, người vừa dạy vừa làm</h2>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-visual">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường, Founder Ladysfit Vietnam" loading="lazy">
+      <div class="cap"><b>Đình Trường</b><span>Founder & Fitness Sale Expert</span></div>
+    </div>
+    <div class="card card-about">
+      <p class="sub">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT toàn quốc</p>
+      <ul class="about-list">
+        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness, từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
+        <li><span><b>Founder hệ thống Ladysfit Việt Nam</b> với 30+ phòng tập trên toàn quốc.</span></li>
+        <li><span><b>Founder học viện VPTA</b>, đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
+        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán: Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
+        <li><span>Đào tạo <b>300+ quản lý, chủ phòng gym</b>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span></li>
+        <li><span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <b>mô hình nhượng quyền</b>.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-lanh-dao-contact">
+  <div class="section-head">
+    <span class="eyebrow">Hình thức & Liên hệ</span>
+    <h2>100% online qua Zoom, học ở đâu cũng được</h2>
+    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
+  </div>
+</section>
+<section class="section">
+  <div class="bento-grid">
+    <div class="card card-cta">
+      <h2>Còn 4 chỗ cho lớp Lãnh đạo K02</h2>
+      <p>Khai giảng 01/12/2026, học thứ 3 – 5 – 7. Đăng ký trước 01/11/2026 để nhận học phí từ 30.000.000đ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
+      </div>
+      <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
+    </div>
+  </div>
+</section>
+</main>
+<main class="view" id="khoa-huan-luyen" data-title="Quản lý như một người Huấn luyện · K01 · Đình Trường Master Class">
+<header class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="crumb"><a href="#trang-chu">Master Class</a> / Khóa Huấn luyện K01</div>
+      <div class="pill-row">
+        <span class="pill hot">KHÓA HUẤN LUYỆN · K01</span>
+        <span class="pill">Khai giảng 02/12/2026</span>
+        <span class="pill">Online qua Zoom</span>
+        <span class="pill warn">Ưu đãi sớm đến 25/10/2026</span>
+      </div>
+      <h1>Quản lý như một <span class="acc">người Huấn luyện</span>: dẫn dắt nhân sự bằng câu hỏi</h1>
+      <p class="lead">17 buổi giúp quản lý thoát khỏi việc làm thay, chỉ đạo một chiều và chữa cháy sự vụ, để mỗi nhân sự tự nghĩ, tự làm và tự chịu trách nhiệm.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <a class="btn btn-ghost" href="#khoa-huan-luyen-hoc-phi">Xem học phí & ưu đãi</a>
+      </div>
+    </div>
+    <div class="fact-panel">
+      <div class="seats">
+        <div class="top"><span>Đã đăng ký</span><span><b class="num-tab">6/10</b> học viên</span></div>
+        <div class="seat-bar" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <small>CÒN 4 CHỖ</small>
+      </div>
+      <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">02/12/2026</span></div>
+      <div class="fact-row"><span class="k">Số buổi</span><span class="v">17 buổi · 3 buổi/tuần</span></div>
+      <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 3 – 5 – 7</span></div>
+      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
+    </div>
+  </div>
+</header>
+<section class="section" id="khoa-huan-luyen-why">
+  <div class="section-head">
+    <div class="wwh-label"><span>Why</span> Vì sao không thể thiếu</div>
+    <h2>Quản lý chỉ biết ra lệnh sẽ tạo ra một đội chỉ biết chờ lệnh</h2>
+    <p>Khi mọi câu trả lời đều đến từ quản lý, đội không lớn lên được và quản lý trở thành điểm nghẽn của chính phòng tập.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-evidence">
+      <div class="big num-tab">#1</div>
+      <p class="claim">Trong các hành vi của những quản lý giỏi nhất tại Google, "là một người huấn luyện giỏi" đứng đầu danh sách.</p>
+      <p class="so">Google phân tích dữ liệu hiệu suất của hàng nghìn quản lý. Hành vi quan trọng nhất không phải giỏi chuyên môn hay giỏi ra lệnh, mà là biết huấn luyện người khác.</p>
+      <p class="cite">Nguồn: Google re:Work, Project Oxygen. <a href="https://rework.withgoogle.com/en/guides/managers-coach-managers-to-coach" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">5/5</div>
+      <p class="claim">Được huấn luyện, nhân sự tiến bộ ở cả 5 nhóm kết quả mà các nhà nghiên cứu đo: hiệu suất, tinh thần, khả năng chịu áp lực, thái độ làm việc và khả năng tự đặt mục tiêu.</p>
+      <p class="so">Tiến bộ rõ nhất là khả năng tự đặt mục tiêu và tự điều chỉnh. Nói đơn giản: nhân sự tự chạy được, quản lý không phải đi nhắc từng việc.</p>
+      <p class="cite">Nguồn: Theeboom, Beersma & van Vianen (2014), tổng hợp nghiên cứu, The Journal of Positive Psychology. <a href="https://doi.org/10.1080/17439760.2013.837499" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-evidence">
+      <div class="big num-tab">Kỳ vọng</div>
+      <p class="claim">Hiểu rõ mình được kỳ vọng làm gì là nhu cầu cơ bản nhất của nhân viên, và quyết định trực tiếp đến hiệu suất.</p>
+      <p class="so">Gallup cũng ghi nhận mức gắn kết cao nhất ở những nhân viên trao đổi thường xuyên với quản lý. Đó chính là vai trò của cuộc họp 1-1 và đối thoại huấn luyện.</p>
+      <p class="cite">Nguồn: Gallup, State of the American Manager (2015). <a href="https://www.gallup.com/workplace/236570/employees-lot-managers.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+    </div>
+    <div class="card card-fail">
+      <h3>Dấu hiệu bạn đang quản lý theo kiểu "làm thay"</h3>
+      <ul class="fail-list"><li>Nhân sự gặp vấn đề là hỏi ngay, không tự nghĩ cách</li><li>Bạn sửa lỗi cho nhân viên nhanh hơn là giúp họ tự sửa</li><li>Góp ý xong nhân viên phòng thủ hoặc im lặng</li><li>Không có lịch 1-1 cố định, chỉ nói chuyện khi có sự cố</li><li>Đổi quy trình mới là gặp kháng cự ngầm</li><li>Cả ngày chữa cháy, không còn thời gian phát triển đội</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-what">
+  <div class="section-head">
+    <div class="wwh-label"><span>What</span> Bạn nhận được gì</div>
+    <h2>Sau 17 buổi, bạn dẫn dắt bằng câu hỏi thay vì mệnh lệnh</h2>
+    <p>Ba mục tiêu của khóa học, gắn với bộ công cụ cụ thể để dùng ngay trong vận hành phòng tập.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-outcome"><span class="k">Tư duy</span><h3>Chuyển dịch tư duy lãnh đạo</h3><p>Thoát khỏi bẫy "làm thay, chỉ đạo một chiều và chữa cháy sự vụ" để trở thành người dẫn dắt bằng câu hỏi gợi mở, kích hoạt tiềm năng và trao quyền tự chủ cho đội ngũ.</p></div>
+    <div class="card card-outcome"><span class="k">Công cụ</span><h3>Làm chủ bộ công cụ huấn luyện thực chiến</h3><p>Vận dụng thành thạo các mô hình tư duy và hành vi cốt lõi: CTFAR, Ladder of Inference (thang suy luận), 4 câu hỏi quyền lực, khung CEGA, Feedback Loop, vào các điểm nghẽn thực tế khi vận hành phòng tập.</p></div>
+    <div class="card card-outcome"><span class="k">Vận hành</span><h3>Chuẩn hóa kỷ luật và văn hóa vận hành</h3><p>Thiết lập nhịp họp 1-1 cố định, đo lường hiệu suất kép, dẫn dắt đội vượt qua kháng cự khi đổi mới quy trình và xây văn hóa trách nhiệm giải trình.</p></div>
+    <div class="card card-outcome"><span class="k">Khác với Khóa Lãnh đạo</span><h3>Tập trung vào từng người, không phải cả đội</h3><p>Khóa Lãnh đạo dạy cách xây đội và văn hóa chung. Khóa này dạy kỹ năng dẫn dắt từng nhân sự qua đối thoại và họp 1-1. Hai khóa bổ trợ cho nhau.</p></div>
+    <div class="card card-for">
+      <h3>Khóa học dành cho</h3>
+      <ul class="for-list"><li><b>Sale / PT muốn thăng chức</b>Chuẩn bị lên vị trí quản lý bộ phận hoặc quản lý phòng tập.</li><li><b>FM / SM / CM đang tại vị</b>Muốn nâng cao kiến thức và kỹ năng quản lý để đội tự vận hành tốt hơn.</li><li><b>Người khởi nghiệp, chủ phòng tập</b>Đang hoặc sắp làm chủ phòng tập, muốn quản lý nhân sự hiệu quả.</li></ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-how">
+  <div class="section-head">
+    <div class="wwh-label"><span>How</span> Nội dung khóa học</div>
+    <h2>17 buổi, 4 module: từ tư duy đến văn hóa huấn luyện</h2>
+    <p>Bấm từng module để xem chi tiết buổi học.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-modules">
+      <div class="modules">
+        <details class="module" open>
+          <summary><span class="n">1</span> Nền tảng tư duy người huấn luyện<span class="cnt">4 mục</span></summary>
+          <ul><li>Buổi 1: Làm chủ 5 vai trò của nhà quản lý huấn luyện</li><li>Buổi 2: Kỹ năng huấn luyện và phân định sự thật khách quan</li><li>Buổi 3: Ứng dụng mô hình CTFAR để bứt phá hiệu suất</li><li>Buổi 4: Phá vỡ định kiến với thang suy luận và mô hình tư duy</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">2</span> Hiệu suất, kỳ vọng & trách nhiệm<span class="cnt">5 mục</span></summary>
+          <ul><li>Buổi 5: Quản trị định mức năng suất và hiệu suất đội ngũ PT</li><li>Buổi 6: Thống nhất kỳ vọng và làm chủ la bàn cảm xúc</li><li>Buổi 7: Thiết lập mục tiêu và xây dựng văn hóa trách nhiệm giải trình</li><li>Buổi 8: Kỹ thuật chẩn đoán gốc rễ và huấn luyện chuyển đổi hành vi</li><li>Buổi 9: Phân loại nhân sự và nghệ thuật phản hồi khai phóng</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">3</span> Họp 1-1 & bộ công cụ huấn luyện<span class="cnt">3 mục</span></summary>
+          <ul><li>Buổi 10: Thiết kế và vận hành cuộc họp 1-1 thực chiến</li><li>Buổi 11: 6 vũ khí huấn luyện và nghệ thuật thiết lập ranh giới</li><li>Buổi 12: 4 câu hỏi quyền lực xử lý 6 tình huống nhân sự điển hình</li></ul>
+        </details>
+        <details class="module">
+          <summary><span class="n">4</span> Dẫn dắt thay đổi & văn hóa huấn luyện<span class="cnt">5 mục</span></summary>
+          <ul><li>Buổi 13: Dẫn dắt sự thay đổi và xây dựng văn hóa huấn luyện</li><li>Buổi 14: Đối thoại huấn luyện: Kích hoạt tiềm năng thay vì chỉ đạo</li><li>Buổi 15: Thực hành huấn luyện: Chuyển hóa hành vi qua đối thoại phát triển</li><li>Buổi 16: Đào tạo nâng cao kỹ năng và giải mã điểm nghẽn hiệu suất</li><li>Buổi 17: Huấn luyện người quản lý: Từ sự vụ sang lãnh đạo khai phóng</li></ul>
+        </details>
+      </div>
+    </div>
+    <div class="card card-format">
+      <h3>Cách lớp học vận hành</h3>
+      <div class="kv">
+        <div><div class="k">Thời lượng</div><div class="v">17 buổi × 2 giờ 30 phút</div></div>
+        <div><div class="k">Lịch học</div><div class="v">Thứ 3 – 5 – 7 (3 buổi/tuần)</div></div>
+        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
+        <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
+        <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
+      </div>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K01 →</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-hoc-phi">
+  <div class="section-head">
+    <span class="eyebrow">Học phí & ưu đãi</span>
+    <h2>Đăng ký sớm, chọn ca phù hợp để nhận mức tốt nhất</h2>
+    <p>Học phí tính theo 1 học viên.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-tier best">
+      <span class="tier-badge">GIẢM 50%</span>
+      <h3>Ca tối 20:00 – 22:30</h3>
+      <p class="when">Đăng ký trước <b>25/10/2026</b></p>
+      <div class="tier-price num-tab">15.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">30.000.000đ</s> giá niêm yết</div>
+      <ul><li>Giảm ngay 15 triệu</li><li>Học ca tối sau giờ vận hành</li><li>Đủ 17 buổi + bản ghi</li></ul>
+      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge">ƯU ĐÃI CA SÁNG</span>
+      <h3>Ca sáng 9:00 – 11:30</h3>
+      <p class="when">Đăng ký sau 25/10/2026</p>
+      <div class="tier-price num-tab">25.000.000đ</div>
+      <div class="tier-old"><s class="num-tab">30.000.000đ</s> giá niêm yết</div>
+      <ul><li>Giảm ngay 5 triệu</li><li>Đủ 17 buổi + bản ghi</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <div class="card card-tier">
+      <span class="tier-badge grey">GIÁ NIÊM YẾT</span>
+      <h3>Học phí tiêu chuẩn</h3>
+      <p class="when">Áp dụng cho các trường hợp còn lại</p>
+      <div class="tier-price num-tab">30.000.000đ</div>
+      <div class="tier-old">Giá niêm yết</div>
+      <ul><li>Đủ 17 buổi + bản ghi</li><li>Có thể kết hợp combo để giảm thêm</li></ul>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    </div>
+    <p class="price-foot">Ưu đãi ca tối giảm 50% kết thúc ngày 25/10/2026.</p>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-combo">
+  <div class="section-head">
+    <span class="eyebrow">Ưu đãi combo</span>
+    <h2>Học Huấn luyện cùng khóa khác</h2>
+    <p>Kết hợp với Khóa Lãnh đạo để vừa xây đội vừa phát triển từng người, hoặc với Khóa Bán hàng để huấn luyện đội bán hàng.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 01</span>
+      <h3>Combo trọn lộ trình</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">80.000.000đ</span>
+        <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 03</span>
+      <h3>Bán hàng + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Bán hàng</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">60.000.000đ</span>
+        <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+    </div>
+    <div class="card card-combo">
+      <span class="combo-badge">COMBO 04</span>
+      <h3>Lãnh đạo + Huấn luyện</h3>
+      <div class="combo-courses"><span>Khóa Lãnh đạo</span><span>Khóa Huấn luyện</span></div>
+      <div class="combo-price">
+        <span class="now num-tab">50.000.000đ</span>
+        <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
+      </div>
+      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+    </div>
+    <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-testimonials">
+  <div class="section-head">
+    <span class="eyebrow">Học viên nói gì</span>
+    <h2>Quản lý đã thay đổi cách dẫn dắt đội</h2>
+    <p>Hơn 1.000 PT và 300+ quản lý đã qua đào tạo. Đây là một vài câu chuyện thật từ họ.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ kiến thức trong khóa học của thầy Trường, tôi đã giúp doanh số của toàn đội tăng 150%."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngan.png" alt="Ms. Lưu Ngân" loading="lazy"><div><b>Ms. Lưu Ngân</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi vào ngành Fitness như người mới không biết gì, sau 1 năm đã trở thành FM quản lý 3 phòng tập."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/mai.jpg" alt="Mrs. Mai Mei" loading="lazy"><div><b>Mrs. Mai Mei</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Tôi là FM của 1 phòng tập với doanh thu lẹt đẹt trong 2 năm. Nhờ khóa học này mà tôi đã biết mùi hit Target định kỳ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/taihip.jpg" alt="Mr. Danh Tài" loading="lazy"><div><b>Mr. Danh Tài</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Đã học qua rất nhiều khóa của thầy Trường, vẫn thấy wow vì độ thực tiễn và lượng kiến thức khổng lồ."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/thao.jpg" alt="Mrs. Phương Thảo" loading="lazy"><div><b>Mrs. Phương Thảo</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Giá trị nhất của khóa học này chính là ở mindset và tư duy bán hàng."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/ngocduy.jpg" alt="Mr. Ngọc Duy" loading="lazy"><div><b>Mr. Ngọc Duy</b><span>Fitness Manager</span></div></div>
+    </div>
+    <div class="card card-quote">
+      <div class="stars">★★★★★</div>
+      <p>"Nhờ thầy Trường, tôi đã biết cách phân tích nhu cầu khách hàng và chốt sale tự tin hơn."</p>
+      <div class="who"><img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/trung.jpg" alt="Mr. Trung Trung" loading="lazy"><div><b>Mr. Trung Trung</b><span>Master Trainer</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-about">
+  <div class="section-head">
+    <span class="eyebrow">Về người đào tạo</span>
+    <h2>Đình Trường, người vừa dạy vừa làm</h2>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-visual">
+      <img src="https://raw.githubusercontent.com/ladysfitmastertrainer/font/main/about.jpg" alt="Đình Trường, Founder Ladysfit Vietnam" loading="lazy">
+      <div class="cap"><b>Đình Trường</b><span>Founder & Fitness Sale Expert</span></div>
+    </div>
+    <div class="card card-about">
+      <p class="sub">Founder Ladysfit Vietnam · Tác giả "Bán mà không Bán" · Đào tạo hơn 1.000 PT toàn quốc</p>
+      <ul class="about-list">
+        <li><span><b>Hơn 12 năm kinh nghiệm</b> trong lĩnh vực fitness, từ PT, quản lý, CEO đến kinh doanh chuỗi phòng tập.</span></li>
+        <li><span><b>Founder hệ thống Ladysfit Việt Nam</b> với 30+ phòng tập trên toàn quốc.</span></li>
+        <li><span><b>Founder học viện VPTA</b>, đào tạo thực chiến hơn 1.000 PT trên khắp Việt Nam.</span></li>
+        <li><span>Tác giả cuốn sách <b>"Bán mà không Bán: Nghệ thuật bán hàng dành riêng cho PT"</b>.</span></li>
+        <li><span>Đào tạo <b>300+ quản lý, chủ phòng gym</b>; tư vấn 20+ hệ thống phòng tập trên toàn quốc.</span></li>
+        <li><span>Kinh nghiệm tư vấn vận hành tinh gọn, đóng gói chuyển đổi sang <b>mô hình nhượng quyền</b>.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="khoa-huan-luyen-contact">
+  <div class="section-head">
+    <span class="eyebrow">Hình thức & Liên hệ</span>
+    <h2>100% online qua Zoom, học ở đâu cũng được</h2>
+    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+  </div>
+  <div class="bento-grid">
+    <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
+  </div>
+</section>
+<section class="section">
+  <div class="bento-grid">
+    <div class="card card-cta">
+      <h2>Còn 4 chỗ cho lớp Huấn luyện K01</h2>
+      <p>Khai giảng 02/12/2026, học thứ 3 – 5 – 7. Đăng ký ca tối trước 25/10/2026 chỉ còn 15.000.000đ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
+      </div>
+      <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
+    </div>
+  </div>
+</section>
+</main>
 <footer class="footer">
   <div class="footer-inner">
-    <a href="#" class="brand"><span class="mark">Đ</span> Đình Trường · Master Class</a>
-    <span>© 2026 · Founder Ladysfit Vietnam · <a href="tel:0942523123" style="color:var(--text-secondary)">0942.523.123</a></span>
+    <a href="#trang-chu" class="brand"><span class="mark">Đ</span> Đình Trường · Master Class</a>
+    <div class="footer-links">
+      <a href="#khoa-ban-hang">Khóa Bán hàng</a>
+      <a href="#khoa-lanh-dao">Khóa Lãnh đạo</a>
+      <a href="#khoa-huan-luyen">Khóa Huấn luyện</a>
+      <a href="#trang-chu-combo">Combo</a>
+    </div>
+    <span>© 2026 · Founder Ladysfit Vietnam · 0942.523.123</span>
   </div>
 </footer>
+<script>
+(function(){
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  function show(h){
+    var el=h?document.getElementById(h):null;
+    var v=el?(el.classList.contains('view')?el:el.closest('.view')):null;
+    if(!v){v=views[0];el=v;}
+    views.forEach(function(x){x.hidden=(x!==v);});
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+v.id);});
+    document.title=v.getAttribute('data-title');
+    if(el===v){window.scrollTo(0,0);}else{requestAnimationFrame(function(){el.scrollIntoView();});}
+  }
+  function fromUrl(){var h='';try{h=decodeURIComponent(location.hash.slice(1));}catch(e){}show(h);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var id=a.getAttribute('href').slice(1);
+    if(!document.getElementById(id))return;
+    e.preventDefault();
+    try{history.pushState(null,'','#'+id);}catch(err){}
+    show(id);
+  });
+  window.addEventListener('hashchange',fromUrl);
+  window.addEventListener('popstate',fromUrl);
+  fromUrl();
+})();
+</script>
 </body>
 </html>
