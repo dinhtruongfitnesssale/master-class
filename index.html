@@ -94,6 +94,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fact-row:last-of-type{border-bottom:0;padding-bottom:0}
 .fact-row .k{color:var(--text-tertiary)}
 .fact-row .v{font-weight:700;text-align:right}
+.shift-pick{display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--border);padding-bottom:16px;font-size:var(--text-small)}
+.shift-pick .k{color:var(--text-tertiary)}
+.shift-pick .k b{color:var(--warn);font-weight:700}
+.shift-opts{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.shift-opts .opt{display:flex;flex-direction:column;gap:2px;border:1px solid var(--border-hi);border-radius:12px;padding:10px 12px;background:rgba(255,255,255,0.03)}
+.shift-opts .opt i{font-style:normal;font-size:var(--text-micro);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-2)}
+.shift-opts .opt b{font-size:15px;white-space:nowrap}
+.shift-opts .or{font-size:var(--text-micro);font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em}
 .seats{display:flex;flex-direction:column;gap:8px}
 .seats .top{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--text-small)}
 .seats .top b{font-size:22px}
@@ -149,6 +157,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
 .wwh-label span{background:var(--accent-glow);border:1px solid var(--border-hi);color:var(--text-primary);border-radius:999px;padding:5px 12px;letter-spacing:0.12em}
 .card-evidence{grid-column:span 4;gap:var(--space-2)}
 .card-evidence .big{font-size:clamp(40px,4.4vw,58px);font-weight:800;letter-spacing:-0.03em;line-height:1;background:linear-gradient(120deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card-evidence .lbl{font-size:var(--text-micro);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);margin-top:-6px}
 .card-evidence .claim{font-size:var(--text-body);font-weight:700;line-height:1.5}
 .card-evidence .so{color:var(--text-secondary);font-size:var(--text-small);line-height:1.6}
 .card-evidence .cite{margin-top:auto;padding-top:var(--space-2);border-top:1px solid var(--border);font-size:var(--text-micro);color:var(--text-tertiary);line-height:1.5}
@@ -329,7 +338,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="pill">Online qua Zoom</span>
         <span class="pill warn">Combo giảm đến 40 triệu</span>
       </div>
-      <h1>Từ <span class="acc">"lính mới"</span> thành chuyên gia bán hàng, đến nhà <span class="acc">"lãnh đạo kiệt xuất"</span></h1>
+      <h1>Từ <span class="acc">"lính mới"</span> thành nhà <span class="acc">"lãnh đạo kiệt xuất"</span></h1>
       <p class="lead">3 khóa đào tạo thực chiến, 69 buổi cho PT, Sale và Quản lý phòng tập. Đúc kết từ 12+ năm vận hành hệ thống Ladysfit và đào tạo hơn 1.000 PT trên toàn quốc.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#trang-chu-courses">Chọn khóa phù hợp →</a>
@@ -452,7 +461,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
     <div class="table-wrap">
       <table class="sched">
         <thead><tr><th>Khóa</th><th>Khai giảng</th><th>Lịch học</th><th>Ca học</th><th>Đã đăng ký</th><th>Ưu đãi sớm</th><th></th></tr></thead>
-        <tbody><tr><td><b>Phát triển kỹ năng lãnh đạo xuất sắc</b><br>K02</td><td class="num-tab"><b>01/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-lanh-dao">Chi tiết →</a></td></tr><tr><td><b>Từ lính mới thành chuyên gia bán hàng</b><br>K03</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 2 – 4 – 6 – CN<br>35 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">4/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-ban-hang">Chi tiết →</a></td></tr><tr><td><b>Quản lý như một nhà Khai vấn</b><br>K01</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Sáng 9:00–11:30<br>Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>25/10/2026</b></td><td><a href="#khoa-khai-van">Chi tiết →</a></td></tr></tbody>
+        <tbody><tr><td><b>Phát triển kỹ năng lãnh đạo xuất sắc</b><br>K02</td><td class="num-tab"><b>01/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Chọn 1 ca:<br>Sáng 9:00–11:30<br>hoặc Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-lanh-dao">Chi tiết →</a></td></tr><tr><td><b>Từ lính mới thành chuyên gia bán hàng</b><br>K03</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 2 – 4 – 6 – CN<br>35 buổi</td><td>Chọn 1 ca:<br>Sáng 9:00–11:30<br>hoặc Tối 20:00–22:30</td><td class="num-tab">4/10</td><td>Đến <b>01/11/2026</b></td><td><a href="#khoa-ban-hang">Chi tiết →</a></td></tr><tr><td><b>Quản lý như một nhà Khai vấn</b><br>K01</td><td class="num-tab"><b>02/12/2026</b></td><td>Thứ 3 – 5 – 7<br>17 buổi</td><td>Chọn 1 ca:<br>Sáng 9:00–11:30<br>hoặc Tối 20:00–22:30</td><td class="num-tab">6/10</td><td>Đến <b>25/10/2026</b></td><td><a href="#khoa-khai-van">Chi tiết →</a></td></tr></tbody>
       </table>
     </div>
   </div>
@@ -605,18 +614,18 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="section-head">
     <span class="eyebrow">Hình thức & Liên hệ</span>
     <h2>100% online qua Zoom, học ở đâu cũng được</h2>
-    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+    <p>Mỗi buổi 2 tiếng 30 phút. Mỗi khóa mở 2 lớp song song, bạn chỉ chọn 1 ca sáng hoặc tối theo lịch làm việc.</p>
   </div>
   <div class="bento-grid">
     <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
-    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Chọn 1 trong 2 ca</b><span class="t">Ca sáng 9:00 – 11:30<br>hoặc ca tối 20:00 – 22:30</span></span></div>
     <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
   </div>
 </section>
 <section class="section">
   <div class="bento-grid">
     <div class="card card-cta">
-      <h2>Sẵn sàng đi từ "lính mới" đến nhà "lãnh đạo kiệt xuất"?</h2>
+      <h2>Sẵn sàng đi từ "lính mới" thành nhà "lãnh đạo kiệt xuất"?</h2>
       <p>Mỗi lớp tối đa 10 học viên. Lớp Bán hàng K03 đã có 4 bạn, Lãnh đạo K02 và Khai vấn K01 đã có 6 bạn. Đăng ký sớm để giữ chỗ và nhận ưu đãi.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
@@ -655,7 +664,14 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">02/12/2026</span></div>
       <div class="fact-row"><span class="k">Số buổi</span><span class="v">35 buổi · 4 buổi/tuần</span></div>
       <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 2 – 4 – 6 – CN</span></div>
-      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="shift-pick">
+        <span class="k">Ca học: <b>chọn 1 trong 2 ca</b></span>
+        <div class="shift-opts">
+          <span class="opt"><i>Ca sáng</i><b class="num-tab">9:00 – 11:30</b></span>
+          <span class="or">hoặc</span>
+          <span class="opt"><i>Ca tối</i><b class="num-tab">20:00 – 22:30</b></span>
+        </div>
+      </div>
       <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
     </div>
   </div>
@@ -669,20 +685,23 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="bento-grid">
     <div class="card card-evidence">
       <div class="big num-tab">Số 1</div>
-      <p class="claim">Yếu tố ảnh hưởng mạnh nhất đến doanh số là kiến thức bán hàng. Đứng thứ hai là khả năng đổi cách bán cho hợp từng khách.</p>
-      <p class="so">Kết luận từ việc tổng hợp các nghiên cứu về người bán hàng suốt 26 năm. Cả hai yếu tố này đều quan trọng hơn sự thông minh, nhanh nhạy bẩm sinh. Nghĩa là bán hàng giỏi là do học, không phải do trời cho.</p>
-      <p class="cite">Nguồn: Verbeke, Dietz & Verwaal (2011), tổng hợp nghiên cứu 1982–2008, Journal of the Academy of Marketing Science. <a href="https://repub.eur.nl/pub/26417" target="_blank" rel="noopener">Xem nguồn</a></p>
+      <span class="lbl">yếu tố quyết định doanh số</span>
+      <p class="claim">Người bán giỏi nhất không phải người khéo miệng nhất, mà là người được học bán hàng bài bản.</p>
+      <p class="so">Các nhà nghiên cứu tổng hợp nghiên cứu về người bán hàng trong 26 năm và thấy: kiến thức bán hàng ảnh hưởng đến doanh số nhiều hơn cả sự thông minh bẩm sinh. Bán giỏi là kỹ năng học được.</p>
+      <p class="cite">Nguồn: Verbeke, Dietz & Verwaal (2011), Journal of the Academy of Marketing Science. <a href="https://repub.eur.nl/pub/26417" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
       <div class="big num-tab">+5%</div>
-      <p class="claim">Tăng tỷ lệ giữ chân khách thêm 5% có thể làm lợi nhuận tăng từ 25% đến 95%, tùy ngành.</p>
-      <p class="so">Khách cũ mua thêm, tốn ít chi phí phục vụ hơn và giới thiệu người quen. PT chỉ biết chốt hợp đồng đầu mà không biết tái ký là bỏ lỡ phần lợi nhuận lớn nhất.</p>
+      <span class="lbl">khách cũ ở lại</span>
+      <p class="claim">Giữ thêm được 5% khách cũ có thể làm lợi nhuận tăng từ 25% đến 95%.</p>
+      <p class="so">Khách cũ mua thêm, tốn ít công chăm hơn và còn giới thiệu người quen. PT chỉ biết bán gói đầu mà không biết tái ký là đang bỏ phí phần tiền lớn nhất.</p>
       <p class="cite">Nguồn: Reichheld & Sasser (1990), Harvard Business Review; Bain & Company. <a href="https://hbr.org/1990/09/zero-defections-quality-comes-to-services" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
       <div class="big num-tab">3 khâu</div>
-      <p class="claim">Doanh số của PT phụ thuộc vào cả ba khâu: tư vấn đúng nhu cầu, chốt được hợp đồng, và giữ khách tái ký.</p>
-      <p class="so">Hụt một khâu là phải liên tục đi tìm khách mới để bù. Khóa học đi qua đủ ba khâu, theo đúng quy trình bán hàng tại phòng tập.</p>
+      <span class="lbl">làm nên doanh số của PT</span>
+      <p class="claim">Tư vấn đúng nhu cầu, chốt được hợp đồng, giữ khách tái ký. Thiếu một khâu là hụt doanh số.</p>
+      <p class="so">Hụt khâu nào thì cứ phải đi tìm khách mới để bù vào. Khóa học đi qua đủ cả 3 khâu, theo đúng quy trình bán hàng tại phòng tập.</p>
       <p class="cite">Đúc kết từ 12+ năm vận hành Ladysfit và đào tạo 1.000+ PT.</p>
     </div>
     <div class="card card-fail">
@@ -740,7 +759,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="kv">
         <div><div class="k">Thời lượng</div><div class="v">35 buổi × 2 giờ 30 phút</div></div>
         <div><div class="k">Lịch học</div><div class="v">Thứ 2 – 4 – 6 – CN (4 buổi/tuần)</div></div>
-        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Ca học (chọn 1)</div><div class="v">Ca sáng 9:00–11:30 <span style="color:var(--text-tertiary)">hoặc</span> ca tối 20:00–22:30</div></div>
         <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
@@ -892,11 +911,11 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="section-head">
     <span class="eyebrow">Hình thức & Liên hệ</span>
     <h2>100% online qua Zoom, học ở đâu cũng được</h2>
-    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+    <p>Mỗi buổi 2 tiếng 30 phút. Mỗi khóa mở 2 lớp song song, bạn chỉ chọn 1 ca sáng hoặc tối theo lịch làm việc.</p>
   </div>
   <div class="bento-grid">
     <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
-    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Chọn 1 trong 2 ca</b><span class="t">Ca sáng 9:00 – 11:30<br>hoặc ca tối 20:00 – 22:30</span></span></div>
     <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
   </div>
 </section>
@@ -942,7 +961,14 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">01/12/2026</span></div>
       <div class="fact-row"><span class="k">Số buổi</span><span class="v">17 buổi · 3 buổi/tuần</span></div>
       <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 3 – 5 – 7</span></div>
-      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="shift-pick">
+        <span class="k">Ca học: <b>chọn 1 trong 2 ca</b></span>
+        <div class="shift-opts">
+          <span class="opt"><i>Ca sáng</i><b class="num-tab">9:00 – 11:30</b></span>
+          <span class="or">hoặc</span>
+          <span class="opt"><i>Ca tối</i><b class="num-tab">20:00 – 22:30</b></span>
+        </div>
+      </div>
       <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
     </div>
   </div>
@@ -956,21 +982,24 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="bento-grid">
     <div class="card card-evidence">
       <div class="big num-tab">70%</div>
-      <p class="claim">Người quản lý quyết định ít nhất 70% sự khác biệt về mức độ gắn kết của nhân viên giữa các đội.</p>
-      <p class="so">Cùng một hệ thống, cùng chính sách, đội nào gắn kết và bán tốt phần lớn do người quản lý trực tiếp.</p>
+      <span class="lbl">sự gắn bó của nhân viên</span>
+      <p class="claim">Nhân viên có nhiệt huyết, có gắn bó hay không thì 70% là do người quản lý trực tiếp.</p>
+      <p class="so">Cùng một công ty, cùng một chính sách, nhưng đội này hăng hái còn đội kia chán nản. Khác biệt chủ yếu nằm ở người quản lý.</p>
       <p class="cite">Nguồn: Gallup, State of the American Manager (2015). <a href="https://www.gallup.com/workplace/236570/employees-lot-managers.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
-      <div class="big num-tab">1 / 2</div>
-      <p class="claim">Một nửa số người lao động được khảo sát từng nghỉ việc để thoát khỏi người quản lý của mình.</p>
-      <p class="so">Trong phòng tập, mỗi PT giỏi rời đi thường kéo theo một phần khách hàng. Quản lý yếu là chi phí thật, không chỉ là chuyện không khí.</p>
-      <p class="cite">Nguồn: Gallup, khảo sát 7.272 người trưởng thành tại Mỹ (2015). <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+      <div class="big num-tab">1/2</div>
+      <span class="lbl">từng nghỉ việc vì sếp</span>
+      <p class="claim">Cứ 2 người đi làm thì 1 người từng nghỉ việc chỉ để thoát khỏi người quản lý của mình.</p>
+      <p class="so">Ở phòng tập, mỗi PT giỏi nghỉ việc thường mang theo một phần khách hàng. Quản lý kém làm mất cả người lẫn doanh thu.</p>
+      <p class="cite">Nguồn: Gallup, khảo sát 7.272 người đi làm tại Mỹ (2015). <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
-      <div class="big num-tab">1 / 10</div>
-      <p class="claim">Chỉ khoảng 1 trong 10 người có sẵn tố chất quản lý tự nhiên.</p>
-      <p class="so">Phần lớn quản lý phòng tập được đề bạt vì bán giỏi, không phải vì đã học cách dẫn dắt người khác. Kỹ năng lãnh đạo cần được đào tạo, không thể chờ tự có.</p>
-      <p class="cite">Nguồn: Gallup Business Journal (2015), Only One in 10 People Possess the Talent to Manage. <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
+      <div class="big num-tab">1/10</div>
+      <span class="lbl">có sẵn tố chất quản lý</span>
+      <p class="claim">Chỉ khoảng 1 trong 10 người sinh ra đã có sẵn tố chất làm quản lý.</p>
+      <p class="so">9 người còn lại phải học. Phần lớn quản lý phòng tập được đề bạt vì bán giỏi, nhưng chưa ai dạy họ cách dẫn dắt người khác.</p>
+      <p class="cite">Nguồn: Gallup (2015), Only One in 10 People Possess the Talent to Manage. <a href="https://news.gallup.com/businessjournal/187946/best-business-articles-2015-workplace.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-fail">
       <h3>Dấu hiệu đội của bạn đang thiếu người dẫn dắt</h3>
@@ -1023,7 +1052,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="kv">
         <div><div class="k">Thời lượng</div><div class="v">17 buổi × 2 giờ 30 phút</div></div>
         <div><div class="k">Lịch học</div><div class="v">Thứ 3 – 5 – 7 (3 buổi/tuần)</div></div>
-        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Ca học (chọn 1)</div><div class="v">Ca sáng 9:00–11:30 <span style="color:var(--text-tertiary)">hoặc</span> ca tối 20:00–22:30</div></div>
         <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
@@ -1175,11 +1204,11 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="section-head">
     <span class="eyebrow">Hình thức & Liên hệ</span>
     <h2>100% online qua Zoom, học ở đâu cũng được</h2>
-    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+    <p>Mỗi buổi 2 tiếng 30 phút. Mỗi khóa mở 2 lớp song song, bạn chỉ chọn 1 ca sáng hoặc tối theo lịch làm việc.</p>
   </div>
   <div class="bento-grid">
     <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
-    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Chọn 1 trong 2 ca</b><span class="t">Ca sáng 9:00 – 11:30<br>hoặc ca tối 20:00 – 22:30</span></span></div>
     <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
   </div>
 </section>
@@ -1225,7 +1254,14 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="fact-row"><span class="k">Khai giảng</span><span class="v num-tab">02/12/2026</span></div>
       <div class="fact-row"><span class="k">Số buổi</span><span class="v">17 buổi · 3 buổi/tuần</span></div>
       <div class="fact-row"><span class="k">Lịch học</span><span class="v">Thứ 3 – 5 – 7</span></div>
-      <div class="fact-row"><span class="k">Ca học</span><span class="v">Sáng 9:00–11:30 · Tối 20:00–22:30</span></div>
+      <div class="shift-pick">
+        <span class="k">Ca học: <b>chọn 1 trong 2 ca</b></span>
+        <div class="shift-opts">
+          <span class="opt"><i>Ca sáng</i><b class="num-tab">9:00 – 11:30</b></span>
+          <span class="or">hoặc</span>
+          <span class="opt"><i>Ca tối</i><b class="num-tab">20:00 – 22:30</b></span>
+        </div>
+      </div>
       <div class="fact-row"><span class="k">Hình thức</span><span class="v">Online qua Zoom</span></div>
     </div>
   </div>
@@ -1239,20 +1275,23 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="bento-grid">
     <div class="card card-evidence">
       <div class="big num-tab">#1</div>
-      <p class="claim">Trong các hành vi của những quản lý giỏi nhất tại Google, "là một người khai vấn (coach) giỏi" đứng đầu danh sách.</p>
-      <p class="so">Google phân tích dữ liệu hiệu suất của hàng nghìn quản lý. Hành vi quan trọng nhất không phải giỏi chuyên môn hay giỏi ra lệnh, mà là biết khai vấn người khác.</p>
+      <span class="lbl">kỹ năng của quản lý giỏi</span>
+      <p class="claim">Google nghiên cứu hàng nghìn quản lý và thấy: kỹ năng quan trọng nhất của người giỏi nhất là biết kèm cặp, khai vấn nhân viên.</p>
+      <p class="so">Không phải giỏi chuyên môn, cũng không phải giỏi ra lệnh. Quản lý giỏi là người giúp nhân viên tự giỏi lên.</p>
       <p class="cite">Nguồn: Google re:Work, Project Oxygen. <a href="https://rework.withgoogle.com/en/guides/managers-coach-managers-to-coach" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
       <div class="big num-tab">5/5</div>
-      <p class="claim">Được khai vấn, nhân sự tiến bộ ở cả 5 nhóm kết quả mà các nhà nghiên cứu đo: hiệu suất, tinh thần, khả năng chịu áp lực, thái độ làm việc và khả năng tự đặt mục tiêu.</p>
-      <p class="so">Tiến bộ rõ nhất là khả năng tự đặt mục tiêu và tự điều chỉnh. Nói đơn giản: nhân sự tự chạy được, quản lý không phải đi nhắc từng việc.</p>
-      <p class="cite">Nguồn: Theeboom, Beersma & van Vianen (2014), tổng hợp nghiên cứu, The Journal of Positive Psychology. <a href="https://doi.org/10.1080/17439760.2013.837499" target="_blank" rel="noopener">Xem nguồn</a></p>
+      <span class="lbl">mặt đều tiến bộ</span>
+      <p class="claim">Nhân viên được khai vấn tiến bộ ở cả 5 mặt: hiệu suất, tinh thần, chịu áp lực, thái độ làm việc và tự đặt mục tiêu.</p>
+      <p class="so">Tiến bộ rõ nhất là tự đặt mục tiêu và tự điều chỉnh. Nói đơn giản: nhân viên tự chạy được, quản lý không phải nhắc từng việc.</p>
+      <p class="cite">Nguồn: Theeboom, Beersma & van Vianen (2014), The Journal of Positive Psychology. <a href="https://doi.org/10.1080/17439760.2013.837499" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-evidence">
-      <div class="big num-tab">Kỳ vọng</div>
-      <p class="claim">Hiểu rõ mình được kỳ vọng làm gì là nhu cầu cơ bản nhất của nhân viên, và quyết định trực tiếp đến hiệu suất.</p>
-      <p class="so">Gallup cũng ghi nhận mức gắn kết cao nhất ở những nhân viên trao đổi thường xuyên với quản lý. Đó chính là vai trò của cuộc họp 1-1 và đối thoại khai vấn.</p>
+      <div class="big num-tab">Rõ việc</div>
+      <span class="lbl">nhu cầu số 1 của nhân viên</span>
+      <p class="claim">Điều nhân viên cần nhất là biết rõ mình phải làm gì và được kỳ vọng đến đâu.</p>
+      <p class="so">Nhân viên được nói chuyện thường xuyên với quản lý cũng là những người gắn bó nhất. Họp 1-1 đều đặn giải quyết cả hai việc này cùng lúc.</p>
       <p class="cite">Nguồn: Gallup, State of the American Manager (2015). <a href="https://www.gallup.com/workplace/236570/employees-lot-managers.aspx" target="_blank" rel="noopener">Xem nguồn</a></p>
     </div>
     <div class="card card-fail">
@@ -1310,7 +1349,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="kv">
         <div><div class="k">Thời lượng</div><div class="v">17 buổi × 2 giờ 30 phút</div></div>
         <div><div class="k">Lịch học</div><div class="v">Thứ 3 – 5 – 7 (3 buổi/tuần)</div></div>
-        <div><div class="k">Ca học</div><div class="v">Sáng 9:00–11:30 hoặc tối 20:00–22:30</div></div>
+        <div><div class="k">Ca học (chọn 1)</div><div class="v">Ca sáng 9:00–11:30 <span style="color:var(--text-tertiary)">hoặc</span> ca tối 20:00–22:30</div></div>
         <div><div class="k">Hình thức</div><div class="v">Online qua Zoom</div></div>
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
@@ -1462,11 +1501,11 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="section-head">
     <span class="eyebrow">Hình thức & Liên hệ</span>
     <h2>100% online qua Zoom, học ở đâu cũng được</h2>
-    <p>Mỗi buổi 2 tiếng 30 phút, có hai ca sáng và tối để bạn chọn theo lịch làm việc.</p>
+    <p>Mỗi buổi 2 tiếng 30 phút. Mỗi khóa mở 2 lớp song song, bạn chỉ chọn 1 ca sáng hoặc tối theo lịch làm việc.</p>
   </div>
   <div class="bento-grid">
     <div class="card card-contact"><span class="ic">💻</span><span><b>Hình thức học</b><span class="t">Online qua Zoom. Có slide và bản ghi từng buổi để xem lại.</span></span></div>
-    <div class="card card-contact"><span class="ic">🕘</span><span><b>Hai ca học</b><span class="t">Ca sáng 9:00 – 11:30<br>Ca tối 20:00 – 22:30</span></span></div>
+    <div class="card card-contact"><span class="ic">🕘</span><span><b>Chọn 1 trong 2 ca</b><span class="t">Ca sáng 9:00 – 11:30<br>hoặc ca tối 20:00 – 22:30</span></span></div>
     <div class="card card-contact"><span class="ic">📞</span><span><b>Liên hệ Mr. Đình Trường</b><a class="phone num-tab" href="tel:0942523123">0942.523.123</a></span></div>
   </div>
 </section>
