@@ -1671,6 +1671,10 @@ button.btn-ghost{background:none;border:1px solid var(--border-hi)}
   <div class="lbl">Bạn sống/làm việc ở đâu? <span class="optl">không bắt buộc</span></div>
   <select id="f-city" name="Tỉnh/thành"><option value="">Chọn…</option><option value="Hà Nội">Hà Nội</option><option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option><option value="Đà Nẵng">Đà Nẵng</option><option value="Tỉnh/thành khác">Tỉnh/thành khác</option></select>
   <p class="err" hidden></p>
+</div><div class="fld if-city" data-field="cityother">
+  <div class="lbl">Bạn ở tỉnh/thành nào? <b class="req" aria-hidden="true">*</b></div>
+  <input type="text" id="f-city-other" name="_city_other" placeholder="VD: Hải Phòng, Cần Thơ…" required>
+  <p class="err" hidden></p>
 </div></fieldset>
         <fieldset class="step" data-step="3" hidden><div class="fld " data-field="">
   <div class="lbl">Khó khăn lớn nhất của bạn hiện nay <span class="optl">không bắt buộc</span></div>
@@ -1796,6 +1800,7 @@ var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlis3upPgMrXim_qr
   }
   function updFee(){var f=fee();feeV.textContent=f.t;feeN.textContent=f.n;form.querySelector('#f-fee').value=f.v?money(f.v)+(f.n?' ('+f.n+')':''):'';}
   function updCombo(){var c=form.querySelector('#f-course').value, isC=c.charAt(0)==='C';var r=form.querySelector('#f-shift-2');r.closest('.opt').hidden=!isC;if(!isC&&r.checked)r.checked=false;}
+  function updCity(){var c=form.querySelector('#f-city').value;var f=form.querySelector('.if-city');var show=(c==='Tỉnh/thành khác');f.hidden=!show;if(!show){form.querySelector('#f-city-other').value='';setErr(f,'');}}
   function updGroup(){var g=form.querySelector('input[name="Hình thức đăng ký"]:checked');var show=!!(g&&g.value.indexOf('Nhóm')===0);form.querySelector('.if-group').hidden=!show;}
 
   function go(n){
@@ -1827,7 +1832,7 @@ var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlis3upPgMrXim_qr
     if(course){form.querySelector('#f-course').value=course;}
     if(shift){[].forEach.call(form.querySelectorAll('input[name="Ca học"]'),function(r){r.checked=(r.value.indexOf(shift)===0);});}
     var v=document.querySelector('.view:not([hidden])'); form.querySelector('#f-page').value=v?(v.getAttribute('data-title')||v.id):'';
-    updCombo(); updFee(); updGroup(); go(1);
+    updCombo(); updFee(); updGroup(); updCity(); go(1);
     ov.hidden=false; document.documentElement.classList.add('reg-lock');
     setTimeout(function(){var f=form.querySelector('#f-name');try{f.focus({preventScroll:true});}catch(e){}},30);
   }
@@ -1842,7 +1847,7 @@ var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlis3upPgMrXim_qr
     if(e.target===ov)close();
   },true);
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden)close();});
-  form.addEventListener('change',function(e){updCombo();updFee();updGroup();var f=e.target.closest('.fld');if(f&&f.classList.contains('bad'))setErr(f,'');});
+  form.addEventListener('change',function(e){updCombo();updFee();updGroup();updCity();var f=e.target.closest('.fld');if(f&&f.classList.contains('bad'))setErr(f,'');});
   form.addEventListener('input',function(e){var f=e.target.closest('.fld');if(f&&f.classList.contains('bad'))setErr(f,'');});
   bNext.addEventListener('click',function(){if(check(cur))go(cur+1);});
   bBack.addEventListener('click',function(){go(cur-1);});
@@ -1855,12 +1860,13 @@ var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlis3upPgMrXim_qr
     if(!SHEET_ENDPOINT||SHEET_ENDPOINT.indexOf('__')===0){
       alertEl.textContent='Form chưa được kết nối với Google Sheet. Bạn vui lòng gọi '+PHONE+' để đăng ký trực tiếp.';alertEl.hidden=false;return;}
     var data=new URLSearchParams();
-    [].forEach.call(form.querySelectorAll('[name]'),function(el){var n=el.name;if(n==='website'||data.has(n))return;data.append(n,val(n));});
+    [].forEach.call(form.querySelectorAll('[name]'),function(el){var n=el.name;if(n==='website'||n.charAt(0)==='_'||data.has(n))return;data.append(n,val(n));});
     data.set('Khóa/Combo',COURSE_LABEL[val('Khóa/Combo')]||val('Khóa/Combo'));
+    if(val('Tỉnh/thành')==='Tỉnh/thành khác'&&val('_city_other'))data.set('Tỉnh/thành',val('_city_other'));
     bSub.disabled=true; bSub.textContent='Đang gửi…';
     fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:data}).then(function(){
       document.getElementById('reg-done-phone').textContent=val('Số điện thoại (Zalo)');
-      form.hidden=true; done.hidden=false; form.reset(); updFee(); updGroup();
+      form.hidden=true; done.hidden=false; form.reset(); updFee(); updGroup(); updCity();
     }).catch(function(){
       alertEl.textContent='Chưa gửi được do lỗi kết nối. Thông tin bạn nhập vẫn còn nguyên, vui lòng bấm Gửi lại, hoặc gọi '+PHONE+'.';alertEl.hidden=false;
     }).then(function(){bSub.disabled=false;bSub.textContent='Gửi đăng ký';});
