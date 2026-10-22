@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -318,6 +319,73 @@ table.sched td a{color:var(--accent-2);font-weight:700}
 
 .view[hidden]{display:none!important}
 [id]{scroll-margin-top:84px}
+
+/* ============ FORM ĐĂNG KÝ ============ */
+[hidden]{display:none!important}
+html.reg-lock{overflow:hidden}
+.reg-overlay{position:fixed;inset:0;z-index:100;background:rgba(5,6,10,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+.reg-panel{width:100%;max-width:640px;max-height:min(92vh,880px);display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border-hi);border-radius:var(--radius);box-shadow:0 30px 90px rgba(0,0,0,0.6),0 0 60px var(--accent-glow);overflow:hidden}
+.reg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 24px 12px}
+.reg-eyebrow{font-size:var(--text-micro);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2)}
+.reg-head h2{font-size:24px;font-weight:800;margin-top:4px}
+.reg-close{background:none;border:1px solid var(--border-hi);color:var(--text-secondary);width:38px;height:38px;border-radius:50%;font-size:15px;cursor:pointer;flex:none}
+.reg-close:hover{color:var(--text-primary);background:var(--bg-card-hi)}
+.reg-steps{list-style:none;display:flex;gap:8px;padding:0 24px 14px;border-bottom:1px solid var(--border)}
+.reg-steps li{flex:1;display:flex;align-items:center;gap:8px;font-size:var(--text-small);color:var(--text-tertiary);font-weight:600}
+.reg-steps li span{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border-hi);font-size:12px;flex:none}
+.reg-steps li.on{color:var(--text-primary)}
+.reg-steps li.on span{background:var(--accent);border-color:var(--accent);color:#fff}
+.reg-steps li.done span{background:var(--accent-glow);border-color:transparent;color:var(--accent-2)}
+#reg-form{display:flex;flex-direction:column;min-height:0;flex:1}
+.reg-body{overflow-y:auto;padding:20px 24px;flex:1;min-height:0}
+.step{border:0;display:grid;gap:18px;min-width:0}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fld .lbl{font-weight:700;font-size:15px}
+.fld .req{color:var(--warn);margin-left:2px}
+.fld .optl{font-weight:500;font-size:var(--text-micro);color:var(--text-tertiary);margin-left:6px}
+.fld .hint{font-size:var(--text-small);color:var(--text-tertiary);margin-top:-4px}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select,.fld textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border-hi);border-radius:12px;color:var(--text-primary);font:inherit;font-size:16px;padding:12px 14px;outline:none;transition:border-color var(--dur-hover)}
+.fld select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text-secondary) 50%),linear-gradient(135deg,var(--text-secondary) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.fld select option{background:#141416;color:#F5F5F7}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--accent-2)}
+.fld textarea{resize:vertical;min-height:70px}
+.fld.bad input,.fld.bad select,.fld.bad textarea,.fld.bad .opts{border-color:var(--warn)}
+.fld .err{color:var(--warn);font-size:var(--text-small);font-weight:600}
+.opts{display:grid;gap:8px;border:1px solid transparent;border-radius:14px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:1px solid var(--border-hi);border-radius:12px;cursor:pointer;font-size:var(--text-small);color:var(--text-secondary);line-height:1.45;transition:border-color var(--dur-hover),background-color var(--dur-hover)}
+.opt:hover{background:var(--bg-card-hi)}
+.opt input{accent-color:var(--accent);width:17px;height:17px;margin-top:1px;flex:none}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-glow);color:var(--text-primary)}
+.opt.agree{border-style:dashed}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reg-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 24px;border-top:1px solid var(--border);background:rgba(255,255,255,0.02)}
+.reg-fee{display:flex;flex-direction:column;gap:2px;min-width:0}
+.reg-fee .k{font-size:var(--text-micro);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary)}
+.reg-fee b{font-size:20px;font-weight:800}
+.reg-fee small{font-size:var(--text-micro);color:var(--warn);font-weight:600}
+.reg-actions{display:flex;gap:10px;margin-left:auto}
+.reg-actions .btn{cursor:pointer;border:0;font-family:inherit}
+.reg-actions .btn-ghost{border:1px solid var(--border-hi);background:none}
+.reg-actions .btn[disabled]{opacity:0.6;cursor:wait}
+.reg-alert{margin:0 24px 16px;padding:12px 14px;border-radius:12px;background:var(--warn-bg);color:var(--warn);font-size:var(--text-small);font-weight:600;line-height:1.5}
+.reg-done{padding:40px 28px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.reg-done .done-mark{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:30px;color:#fff;box-shadow:0 10px 40px var(--accent-glow)}
+.reg-done h3{font-size:24px;font-weight:800}
+.reg-done p{color:var(--text-secondary);max-width:440px;line-height:1.6}
+.reg-done .small{font-size:var(--text-small)}
+.reg-done .sel{user-select:all;color:var(--accent-2)}
+button.btn{cursor:pointer;border:0;font-family:inherit}
+button.btn-ghost{background:none;border:1px solid var(--border-hi)}
+@media (max-width:640px){
+  .reg-overlay{padding:0;align-items:flex-end}
+  .reg-panel{max-height:100%;height:100%;border-radius:0;border:0}
+  .reg-head{padding-top:calc(22px + env(safe-area-inset-top,0px))}
+  .reg-head,.reg-steps,.reg-body,.reg-foot{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .reg-foot{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .reg-steps li{font-size:12px}
+  .reg-actions{width:100%}
+  .reg-actions .btn{flex:1}
+}
 </style>
 </head>
 <body>
@@ -325,10 +393,10 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   <div class="nav-inner">
     <a href="#trang-chu" class="brand"><span class="mark">Đ</span> Đình Trường <span class="sub">Master Class</span></a>
     <div class="nav-links"><a href="#khoa-ban-hang">Khóa Bán hàng</a><a href="#khoa-lanh-dao">Khóa Lãnh đạo</a><a href="#khoa-khai-van">Khóa Khai vấn</a><a href="#trang-chu-combo">Combo ưu đãi</a></div>
-    <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+    <button type="button" class="btn btn-primary" data-reg>Đăng ký →</button>
   </div>
 </nav>
-<main class="view" id="trang-chu" data-title="Đình Trường Master Class">
+<main class="view" id="trang-chu" data-course="" data-title="Đình Trường Master Class">
 <header class="hero-banner">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -485,7 +553,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">80.000.000đ</span>
         <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
       </div>
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo này →</a>
+        <button type="button" class="btn btn-primary" data-reg data-course="C01">Chọn combo này →</button>
       </div>
     </div>
     <div class="card card-combo">
@@ -496,7 +564,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C02">Chọn combo 02 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 03</span>
@@ -506,7 +574,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C03">Chọn combo 03 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 04</span>
@@ -516,7 +584,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">50.000.000đ</span>
         <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C04">Chọn combo 04 →</button>
     </div>
     
   </div>
@@ -628,7 +696,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <h2>Sẵn sàng đi từ "lính mới" thành nhà "lãnh đạo kiệt xuất"?</h2>
       <p>Mỗi lớp tối đa 10 học viên. Lớp Bán hàng K03 đã có 4 bạn, Lãnh đạo K02 và Khai vấn K01 đã có 6 bạn. Đăng ký sớm để giữ chỗ và nhận ưu đãi.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký ngay →</button>
         <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
       </div>
       <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
@@ -636,7 +704,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   </div>
 </section>
 </main>
-<main class="view" id="khoa-ban-hang" data-title="Từ lính mới thành chuyên gia bán hàng · K03 · Đình Trường Master Class">
+<main class="view" id="khoa-ban-hang" data-course="K03" data-title="Từ lính mới thành chuyên gia bán hàng · K03 · Đình Trường Master Class">
 <header class="hero-banner">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -651,7 +719,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       
       <p class="lead">Bán gói tập không cần ép khách mà vẫn hit target đều mỗi tháng. 35 buổi đào tạo bán hàng thực chiến dành riêng cho PT và Sale phòng tập: từ tâm lý khách hàng, tư vấn, chốt sale đến giữ chân và tái ký.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký giữ chỗ →</button>
         <a class="btn btn-ghost" href="#khoa-ban-hang-hoc-phi">Xem học phí & ưu đãi</a>
       </div>
     </div>
@@ -764,7 +832,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
       </div>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K03 →</a>
+      <button type="button" class="btn btn-primary" data-reg>Giữ chỗ lớp K03 →</button>
     </div>
   </div>
 </section>
@@ -782,7 +850,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">30.000.000đ</div>
       <div class="tier-old"><s class="num-tab">50.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 20 triệu so với giá gốc 50 triệu</li><li>Học ca sáng</li><li>Đủ 35 buổi + bản ghi</li></ul>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-primary" data-reg data-shift="Ca sáng">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge">ƯU ĐÃI SỚM</span>
@@ -791,7 +859,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">40.000.000đ</div>
       <div class="tier-old"><s class="num-tab">50.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 10 triệu</li><li>Học ca tối, không ảnh hưởng giờ dạy</li><li>Đủ 35 buổi + bản ghi</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-shift="Ca tối">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge grey">TỪ 01/11/2026</span>
@@ -800,7 +868,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">50.000.000đ</div>
       <div class="tier-old">Giá niêm yết</div>
       <ul><li>Nhóm 3 học viên đăng ký cùng lúc: giảm 5 triệu/người, còn 45.000.000đ</li><li>Đủ 35 buổi + bản ghi</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg>Đăng ký →</button>
     </div>
     <p class="price-foot">Muốn học thêm khóa Lãnh đạo hoặc Khai vấn? Xem combo bên dưới.</p>
   </div>
@@ -820,7 +888,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">80.000.000đ</span>
         <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C01">Chọn combo 01 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 02</span>
@@ -830,7 +898,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C02">Chọn combo 02 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 03</span>
@@ -840,7 +908,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C03">Chọn combo 03 →</button>
     </div>
     <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
   </div>
@@ -925,7 +993,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <h2>Còn 6 chỗ cho lớp Bán hàng K03</h2>
       <p>Khai giảng 02/12/2026, học thứ 2 – 4 – 6 – CN. Đăng ký trước 01/11/2026 để nhận học phí từ 30.000.000đ.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký ngay →</button>
         <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
       </div>
       <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
@@ -933,7 +1001,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   </div>
 </section>
 </main>
-<main class="view" id="khoa-lanh-dao" data-title="Phát triển kỹ năng lãnh đạo xuất sắc · K02 · Đình Trường Master Class">
+<main class="view" id="khoa-lanh-dao" data-course="K02" data-title="Phát triển kỹ năng lãnh đạo xuất sắc · K02 · Đình Trường Master Class">
 <header class="hero-banner">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -948,7 +1016,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       
       <p class="lead">17 buổi phát triển kỹ năng lãnh đạo cho quản lý phòng tập: lập kế hoạch bán hàng cho đội, xây văn hóa, tạo động lực, hóa giải xung đột và lãnh đạo theo tình huống.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký giữ chỗ →</button>
         <a class="btn btn-ghost" href="#khoa-lanh-dao-hoc-phi">Xem học phí & ưu đãi</a>
       </div>
     </div>
@@ -1057,7 +1125,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
       </div>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K02 →</a>
+      <button type="button" class="btn btn-primary" data-reg>Giữ chỗ lớp K02 →</button>
     </div>
   </div>
 </section>
@@ -1075,7 +1143,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">30.000.000đ</div>
       <div class="tier-old"><s class="num-tab">40.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 10 triệu</li><li>Học ca sáng</li><li>Đủ 17 buổi + bản ghi</li></ul>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-primary" data-reg data-shift="Ca sáng">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge">ƯU ĐÃI SỚM</span>
@@ -1084,7 +1152,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">35.000.000đ</div>
       <div class="tier-old"><s class="num-tab">40.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 5 triệu</li><li>Học ca tối sau giờ vận hành</li><li>Đủ 17 buổi + bản ghi</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-shift="Ca tối">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge grey">TỪ 01/11/2026</span>
@@ -1093,7 +1161,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">40.000.000đ</div>
       <div class="tier-old">Giá niêm yết</div>
       <ul><li>Nhóm 3 học viên đăng ký cùng lúc: giảm 5 triệu/người, còn 35.000.000đ</li><li>Đủ 17 buổi + bản ghi</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg>Đăng ký →</button>
     </div>
     <p class="price-foot">Muốn học thêm khóa Sale hoặc Khai vấn? Xem combo bên dưới.</p>
   </div>
@@ -1113,7 +1181,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">80.000.000đ</span>
         <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C01">Chọn combo 01 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 02</span>
@@ -1123,7 +1191,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">90.000.000đ</s><span class="save">Giảm 30 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 02 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C02">Chọn combo 02 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 04</span>
@@ -1133,7 +1201,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">50.000.000đ</span>
         <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C04">Chọn combo 04 →</button>
     </div>
     <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
   </div>
@@ -1218,7 +1286,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <h2>Còn 4 chỗ cho lớp Lãnh đạo K02</h2>
       <p>Khai giảng 01/12/2026, học thứ 3 – 5 – 7. Đăng ký trước 01/11/2026 để nhận học phí từ 30.000.000đ.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký ngay →</button>
         <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
       </div>
       <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
@@ -1226,7 +1294,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   </div>
 </section>
 </main>
-<main class="view" id="khoa-khai-van" data-title="Quản lý như một nhà Khai vấn · K01 · Đình Trường Master Class">
+<main class="view" id="khoa-khai-van" data-course="K01" data-title="Quản lý như một nhà Khai vấn · K01 · Đình Trường Master Class">
 <header class="hero-banner">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -1241,7 +1309,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <p class="tagline">Nghệ thuật khai vấn và kèm cặp nhân sự dành cho Quản lý phòng tập</p>
       <p class="lead">17 buổi giúp quản lý thoát khỏi việc làm thay, chỉ đạo một chiều và chữa cháy sự vụ, để mỗi nhân sự tự nghĩ, tự làm và tự chịu trách nhiệm.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký giữ chỗ →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký giữ chỗ →</button>
         <a class="btn btn-ghost" href="#khoa-khai-van-hoc-phi">Xem học phí & ưu đãi</a>
       </div>
     </div>
@@ -1354,7 +1422,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <div><div class="k">Tài liệu</div><div class="v">Slide + bản ghi từng buổi</div></div>
         <div><div class="k">Sĩ số</div><div class="v">Tối đa 10 học viên</div></div>
       </div>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Giữ chỗ lớp K01 →</a>
+      <button type="button" class="btn btn-primary" data-reg>Giữ chỗ lớp K01 →</button>
     </div>
   </div>
 </section>
@@ -1372,7 +1440,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">15.000.000đ</div>
       <div class="tier-old"><s class="num-tab">30.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 15 triệu</li><li>Học ca tối sau giờ vận hành</li><li>Đủ 17 buổi + bản ghi</li></ul>
-      <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-primary" data-reg data-shift="Ca tối">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge">ƯU ĐÃI CA SÁNG</span>
@@ -1381,7 +1449,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">25.000.000đ</div>
       <div class="tier-old"><s class="num-tab">30.000.000đ</s> giá niêm yết</div>
       <ul><li>Giảm ngay 5 triệu</li><li>Đủ 17 buổi + bản ghi</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-shift="Ca sáng">Đăng ký →</button>
     </div>
     <div class="card card-tier">
       <span class="tier-badge grey">GIÁ NIÊM YẾT</span>
@@ -1390,7 +1458,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <div class="tier-price num-tab">30.000.000đ</div>
       <div class="tier-old">Giá niêm yết</div>
       <ul><li>Đủ 17 buổi + bản ghi</li><li>Có thể kết hợp combo để giảm thêm</li></ul>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký →</a>
+      <button type="button" class="btn btn-ghost" data-reg>Đăng ký →</button>
     </div>
     <p class="price-foot">Ưu đãi ca tối giảm 50% kết thúc ngày 01/11/2026.</p>
   </div>
@@ -1410,7 +1478,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">80.000.000đ</span>
         <span class="sub"><s class="num-tab">120.000.000đ</s><span class="save">Giảm 40 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 01 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C01">Chọn combo 01 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 03</span>
@@ -1420,7 +1488,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">60.000.000đ</span>
         <span class="sub"><s class="num-tab">80.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 03 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C03">Chọn combo 03 →</button>
     </div>
     <div class="card card-combo">
       <span class="combo-badge">COMBO 04</span>
@@ -1430,7 +1498,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
         <span class="now num-tab">50.000.000đ</span>
         <span class="sub"><s class="num-tab">70.000.000đ</s><span class="save">Giảm 20 triệu</span><span>/ học viên</span></span>
       </div>
-      <a class="btn btn-ghost" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Chọn combo 04 →</a>
+      <button type="button" class="btn btn-ghost" data-reg data-course="C04">Chọn combo 04 →</button>
     </div>
     <p class="price-foot"><a href="#trang-chu-combo" style="color:var(--accent-2);font-weight:700">Xem đủ 4 combo ở trang tổng →</a></p>
   </div>
@@ -1515,7 +1583,7 @@ table.sched td a{color:var(--accent-2);font-weight:700}
       <h2>Còn 4 chỗ cho lớp Khai vấn K01</h2>
       <p>Khai giảng 01/12/2026, học thứ 3 – 5 – 7. Đăng ký ca tối trước 01/11/2026 chỉ còn 15.000.000đ.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://h5r05zsyho5.sg.larksuite.com/share/base/form/shrlgjgNpUTvaUdmTjZhTCSQLbd" target="_blank" rel="noopener">Đăng ký ngay →</a>
+        <button type="button" class="btn btn-primary" data-reg>Đăng ký ngay →</button>
         <a class="btn btn-ghost" href="tel:0942523123">Gọi tư vấn: 0942.523.123</a>
       </div>
       <small>💬 Có thể trao đổi trực tiếp với thầy Trường trước khi quyết định</small>
@@ -1535,6 +1603,136 @@ table.sched td a{color:var(--accent-2);font-weight:700}
     <span>© 2026 · Founder Ladysfit Vietnam · 0942.523.123</span>
   </div>
 </footer>
+<div class="reg-overlay" id="dang-ky-form" hidden>
+  <div class="reg-panel" role="dialog" aria-modal="true" aria-labelledby="reg-title">
+    <div class="reg-head">
+      <div>
+        <p class="reg-eyebrow">Đình Trường Master Class</p>
+        <h2 id="reg-title">Đăng ký giữ chỗ</h2>
+      </div>
+      <button type="button" class="reg-close" data-reg-close aria-label="Đóng">✕</button>
+    </div>
+    <ol class="reg-steps" aria-label="Các bước">
+      <li class="on" data-dot="1"><span>1</span> Đăng ký</li>
+      <li data-dot="2"><span>2</span> Về bạn</li>
+      <li data-dot="3"><span>3</span> Nhu cầu</li>
+    </ol>
+    <form id="reg-form" novalidate>
+      <div class="reg-body">
+        <fieldset class="step" data-step="1"><div class="fld " data-field="name">
+  <div class="lbl">Họ và tên <b class="req" aria-hidden="true">*</b></div>
+  <input type="text" id="f-name" name="Họ và tên" autocomplete="name" required>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="phone">
+  <div class="lbl">Số điện thoại (Zalo) <b class="req" aria-hidden="true">*</b></div>
+  <input type="tel" id="f-phone" name="Số điện thoại (Zalo)" autocomplete="tel" inputmode="tel" placeholder="VD: 0912 345 678" required>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="email">
+  <div class="lbl">Email <b class="req" aria-hidden="true">*</b></div>
+  <input type="email" id="f-email" name="Email" autocomplete="email" placeholder="Để nhận link Zoom và tài liệu" required>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="course">
+  <div class="lbl">Khóa hoặc combo muốn đăng ký <b class="req" aria-hidden="true">*</b></div>
+  <select id="f-course" name="Khóa/Combo" required><option value="">Chọn…</option><option value="K03">Khóa Bán hàng K03 · Từ lính mới thành chuyên gia bán hàng</option><option value="K02">Khóa Lãnh đạo K02 · Phát triển kỹ năng lãnh đạo xuất sắc</option><option value="K01">Khóa Khai vấn K01 · Quản lý như một nhà Khai vấn</option><option value="C01">Combo 01 · Cả 3 khóa</option><option value="C02">Combo 02 · Bán hàng + Lãnh đạo</option><option value="C03">Combo 03 · Bán hàng + Khai vấn</option><option value="C04">Combo 04 · Lãnh đạo + Khai vấn</option></select>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="shift">
+  <div class="lbl">Ca học <b class="req" aria-hidden="true">*</b></div>
+  <p class="hint">Mỗi khóa chọn 1 trong 2 ca. Ca học ảnh hưởng mức ưu đãi.</p><div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-shift-0" name="Ca học" value="Ca sáng 9:00 – 11:30" required><span>Ca sáng 9:00 – 11:30</span></label><label class="opt"><input type="radio" id="f-shift-1" name="Ca học" value="Ca tối 20:00 – 22:30"><span>Ca tối 20:00 – 22:30</span></label><label class="opt"><input type="radio" id="f-shift-2" name="Ca học" value="Combo: mỗi khóa một ca khác nhau"><span>Combo: mỗi khóa một ca khác nhau</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="group">
+  <div class="lbl">Hình thức đăng ký <b class="req" aria-hidden="true">*</b></div>
+  <div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-group-0" name="Hình thức đăng ký" value="Cá nhân" required><span>Cá nhân</span></label><label class="opt"><input type="radio" id="f-group-1" name="Hình thức đăng ký" value="Nhóm 3 người đăng ký cùng lúc"><span>Nhóm 3 người đăng ký cùng lúc</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld if-group" data-field="members">
+  <div class="lbl">Họ tên và số điện thoại 2 người còn lại <span class="optl">không bắt buộc</span></div>
+  <textarea id="f-members" name="Thành viên nhóm" rows="2"></textarea>
+  <p class="err" hidden></p>
+</div></fieldset>
+        <fieldset class="step" data-step="2" hidden><div class="fld " data-field="role">
+  <div class="lbl">Vị trí công việc hiện tại <b class="req" aria-hidden="true">*</b></div>
+  <div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-role-0" name="Vị trí công việc" value="Personal Trainer (PT)" required><span>Personal Trainer (PT)</span></label><label class="opt"><input type="radio" id="f-role-1" name="Vị trí công việc" value="Sale / Tư vấn viên phòng tập"><span>Sale / Tư vấn viên phòng tập</span></label><label class="opt"><input type="radio" id="f-role-2" name="Vị trí công việc" value="Quản lý (FM / SM / CM)"><span>Quản lý (FM / SM / CM)</span></label><label class="opt"><input type="radio" id="f-role-3" name="Vị trí công việc" value="Chủ phòng tập / Đang khởi nghiệp phòng tập"><span>Chủ phòng tập / Đang khởi nghiệp phòng tập</span></label><label class="opt"><input type="radio" id="f-role-4" name="Vị trí công việc" value="Khác"><span>Khác</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Nơi bạn đang làm thuộc loại hình nào? <span class="optl">không bắt buộc</span></div>
+  <select id="f-place" name="Loại hình nơi làm việc"><option value="">Chọn…</option><option value="Tổ hợp fitness / chuỗi phòng tập">Tổ hợp fitness / chuỗi phòng tập</option><option value="Phòng tập private">Phòng tập private</option><option value="Studio (Yoga, Pilates, EMS…)">Studio (Yoga, Pilates, EMS…)</option><option value="Freelancer">Freelancer</option><option value="Chưa đi làm trong ngành">Chưa đi làm trong ngành</option></select>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Bạn đã làm trong ngành fitness bao lâu? <span class="optl">không bắt buộc</span></div>
+  <div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-exp-0" name="Kinh nghiệm" value="Dưới 1 năm"><span>Dưới 1 năm</span></label><label class="opt"><input type="radio" id="f-exp-1" name="Kinh nghiệm" value="1 – 3 năm"><span>1 – 3 năm</span></label><label class="opt"><input type="radio" id="f-exp-2" name="Kinh nghiệm" value="3 – 5 năm"><span>3 – 5 năm</span></label><label class="opt"><input type="radio" id="f-exp-3" name="Kinh nghiệm" value="Trên 5 năm"><span>Trên 5 năm</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Nếu đang làm quản lý: đội bạn có bao nhiêu người? <span class="optl">không bắt buộc</span></div>
+  <div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-team-0" name="Quy mô đội" value="Chưa quản lý ai"><span>Chưa quản lý ai</span></label><label class="opt"><input type="radio" id="f-team-1" name="Quy mô đội" value="1 – 5 người"><span>1 – 5 người</span></label><label class="opt"><input type="radio" id="f-team-2" name="Quy mô đội" value="6 – 15 người"><span>6 – 15 người</span></label><label class="opt"><input type="radio" id="f-team-3" name="Quy mô đội" value="Trên 15 người"><span>Trên 15 người</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Bạn sống/làm việc ở đâu? <span class="optl">không bắt buộc</span></div>
+  <select id="f-city" name="Tỉnh/thành"><option value="">Chọn…</option><option value="Hà Nội">Hà Nội</option><option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option><option value="Đà Nẵng">Đà Nẵng</option><option value="Tỉnh/thành khác">Tỉnh/thành khác</option></select>
+  <p class="err" hidden></p>
+</div></fieldset>
+        <fieldset class="step" data-step="3" hidden><div class="fld " data-field="">
+  <div class="lbl">Khó khăn lớn nhất của bạn hiện nay <span class="optl">không bắt buộc</span></div>
+  <p class="hint">Chọn được nhiều ý.</p><div class="opts"><label class="opt"><input type="checkbox" id="f-pain-0" name="Khó khăn lớn nhất" value="Chưa tự tin tư vấn, chốt sale"><span>Chưa tự tin tư vấn, chốt sale</span></label><label class="opt"><input type="checkbox" id="f-pain-1" name="Khó khăn lớn nhất" value="Khách hay từ chối hoặc &quot;để suy nghĩ thêm&quot;"><span>Khách hay từ chối hoặc &quot;để suy nghĩ thêm&quot;</span></label><label class="opt"><input type="checkbox" id="f-pain-2" name="Khó khăn lớn nhất" value="Khách hết gói không tái ký"><span>Khách hết gói không tái ký</span></label><label class="opt"><input type="checkbox" id="f-pain-3" name="Khó khăn lớn nhất" value="Đội ngũ không đạt target"><span>Đội ngũ không đạt target</span></label><label class="opt"><input type="checkbox" id="f-pain-4" name="Khó khăn lớn nhất" value="Nhân sự thụ động, chờ giao việc"><span>Nhân sự thụ động, chờ giao việc</span></label><label class="opt"><input type="checkbox" id="f-pain-5" name="Khó khăn lớn nhất" value="Khó giữ chân nhân sự giỏi"><span>Khó giữ chân nhân sự giỏi</span></label><label class="opt"><input type="checkbox" id="f-pain-6" name="Khó khăn lớn nhất" value="Chưa biết cách họp 1-1, góp ý nhân viên"><span>Chưa biết cách họp 1-1, góp ý nhân viên</span></label><label class="opt"><input type="checkbox" id="f-pain-7" name="Khó khăn lớn nhất" value="Khác"><span>Khác</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Sau khóa học, bạn muốn đạt được điều gì? <span class="optl">không bắt buộc</span></div>
+  <textarea id="f-goal" name="Mục tiêu sau khóa" rows="2"></textarea>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Bạn đã từng học khóa nào của thầy Đình Trường chưa? <span class="optl">không bắt buộc</span></div>
+  <div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-prev-0" name="Đã học thầy Trường" value="Chưa từng"><span>Chưa từng</span></label><label class="opt"><input type="radio" id="f-prev-1" name="Đã học thầy Trường" value="Đã học 1 khóa"><span>Đã học 1 khóa</span></label><label class="opt"><input type="radio" id="f-prev-2" name="Đã học thầy Trường" value="Đã học từ 2 khóa trở lên"><span>Đã học từ 2 khóa trở lên</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="pay">
+  <div class="lbl">Bạn dự định thanh toán theo cách nào? <b class="req" aria-hidden="true">*</b></div>
+  <p class="hint">Thông tin chuyển khoản sẽ được gửi qua Zalo sau khi tư vấn viên xác nhận với bạn.</p><div class="opts" role="radiogroup"><label class="opt"><input type="radio" id="f-pay-0" name="Cách thanh toán" value="Chuyển khoản toàn bộ học phí" required><span>Chuyển khoản toàn bộ học phí</span></label><label class="opt"><input type="radio" id="f-pay-1" name="Cách thanh toán" value="Đặt cọc giữ chỗ, thanh toán phần còn lại trước khai giảng"><span>Đặt cọc giữ chỗ, thanh toán phần còn lại trước khai giảng</span></label><label class="opt"><input type="radio" id="f-pay-2" name="Cách thanh toán" value="Cần tư vấn thêm"><span>Cần tư vấn thêm</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Giờ thuận tiện để tư vấn viên gọi lại <span class="optl">không bắt buộc</span></div>
+  <div class="opts"><label class="opt"><input type="checkbox" id="f-call-0" name="Giờ gọi lại" value="Sáng (8:00 – 12:00)"><span>Sáng (8:00 – 12:00)</span></label><label class="opt"><input type="checkbox" id="f-call-1" name="Giờ gọi lại" value="Chiều (13:00 – 17:00)"><span>Chiều (13:00 – 17:00)</span></label><label class="opt"><input type="checkbox" id="f-call-2" name="Giờ gọi lại" value="Tối (19:00 – 21:00)"><span>Tối (19:00 – 21:00)</span></label></div>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Bạn biết đến khóa học qua đâu? <span class="optl">không bắt buộc</span></div>
+  <select id="f-src" name="Biết qua đâu"><option value="">Chọn…</option><option value="Facebook">Facebook</option><option value="TikTok">TikTok</option><option value="Zalo">Zalo</option><option value="Bạn bè, đồng nghiệp giới thiệu">Bạn bè, đồng nghiệp giới thiệu</option><option value="Website dinhtruong.vn">Website dinhtruong.vn</option><option value="Khác">Khác</option></select>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Người giới thiệu / mã giới thiệu <span class="optl">không bắt buộc</span></div>
+  <input type="text" id="f-ref" name="Người giới thiệu">
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="">
+  <div class="lbl">Ghi chú thêm <span class="optl">không bắt buộc</span></div>
+  <textarea id="f-note" name="Ghi chú" rows="2" placeholder="Câu hỏi hoặc yêu cầu đặc biệt"></textarea>
+  <p class="err" hidden></p>
+</div><div class="fld " data-field="agree">
+  <div class="lbl"> <b class="req" aria-hidden="true">*</b></div>
+  <label class="opt agree"><input type="checkbox" id="f-agree" name="Đồng ý liên hệ" value="Đồng ý" required><span>Tôi đồng ý để Đình Trường Master Class liên hệ tư vấn qua số điện thoại và Zalo đã cung cấp.</span></label>
+  <p class="err" hidden></p>
+</div></fieldset>
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" id="f-fee" name="Học phí dự kiến">
+        <input type="hidden" id="f-page" name="Trang gửi">
+      </div>
+      <div class="reg-foot">
+        <div class="reg-fee">
+          <span class="k">Học phí dự kiến</span>
+          <b id="reg-fee-v" class="num-tab">Chọn khóa và ca học</b>
+          <small id="reg-fee-n"></small>
+        </div>
+        <div class="reg-actions">
+          <button type="button" class="btn btn-ghost" id="reg-back" hidden>← Quay lại</button>
+          <button type="button" class="btn btn-primary" id="reg-next">Tiếp tục →</button>
+          <button type="submit" class="btn btn-primary" id="reg-submit" hidden>Gửi đăng ký</button>
+        </div>
+      </div>
+      <p class="reg-alert" id="reg-alert" role="alert" hidden></p>
+    </form>
+    <div class="reg-done" id="reg-done" hidden>
+      <div class="done-mark">✓</div>
+      <h3>Đã nhận đăng ký của bạn</h3>
+      <p>Tư vấn viên sẽ liên hệ qua số <b id="reg-done-phone"></b> để xác nhận lớp, ca học và học phí.</p>
+      <p class="small">Cần gấp, bạn gọi trực tiếp Mr. Đình Trường: <b class="sel">0942.523.123</b></p>
+      <button type="button" class="btn btn-primary" data-reg-close>Đóng</button>
+    </div>
+  </div>
+</div>
 <script>
 (function(){
   var views=[].slice.call(document.querySelectorAll('.view'));
@@ -1563,5 +1761,110 @@ table.sched td a{color:var(--accent-2);font-weight:700}
   fromUrl();
 })();
 </script>
+<script>
+/* ============ DÁN LINK GOOGLE APPS SCRIPT VÀO GIỮA HAI DẤU NHÁY BÊN DƯỚI ============ */
+var SHEET_ENDPOINT = "";
+/* =================================================================================== */
+(function(){
+  var PHONE = "0942.523.123";
+  var ov=document.getElementById('dang-ky-form'), form=document.getElementById('reg-form');
+  var steps=[].slice.call(form.querySelectorAll('.step')), dots=[].slice.call(ov.querySelectorAll('[data-dot]'));
+  var bBack=document.getElementById('reg-back'), bNext=document.getElementById('reg-next'), bSub=document.getElementById('reg-submit');
+  var alertEl=document.getElementById('reg-alert'), done=document.getElementById('reg-done');
+  var feeV=document.getElementById('reg-fee-v'), feeN=document.getElementById('reg-fee-n');
+  var cur=1, lastFocus=null;
+  var COURSE_LABEL={}; [].forEach.call(form.querySelectorAll('#f-course option'),function(o){if(o.value)COURSE_LABEL[o.value]=o.textContent;});
+
+  function money(m){return (m*1000000).toLocaleString('vi-VN').replace(/,/g,'.')+'đ';}
+  function early(){return new Date()<new Date(2026,10,1);} /* trước 01/11/2026 */
+  function fee(){
+    var c=form.querySelector('#f-course').value, sEl=form.querySelector('input[name="Ca học"]:checked'), s=sEl?sEl.value:'';
+    var g=form.querySelector('input[name="Hình thức đăng ký"]:checked'), grp=g&&g.value.indexOf('Nhóm')===0;
+    var morn=s.indexOf('sáng')>-1, eve=s.indexOf('tối')>-1, e=early();
+    var combo={C01:[80,120],C02:[60,90],C03:[60,80],C04:[50,70]};
+    if(!c) return {t:'Chọn khóa và ca học',n:''};
+    if(combo[c]) return {t:money(combo[c][0]),n:'Giá gốc '+combo[c][1]+' triệu, giảm '+(combo[c][1]-combo[c][0])+' triệu',v:combo[c][0]};
+    if(!morn&&!eve) return {t:'Chọn ca học',n:''};
+    var p,n='';
+    if(c==='K03'){ if(e){p=morn?30:40;n='Ưu đãi đăng ký trước 01/11/2026';} else {p=grp?45:50;n=grp?'Ưu đãi nhóm 3 người':'';} }
+    if(c==='K02'){ if(e){p=morn?30:35;n='Ưu đãi đăng ký trước 01/11/2026';} else {p=grp?35:40;n=grp?'Ưu đãi nhóm 3 người':'';} }
+    if(c==='K01'){ if(eve&&e){p=15;n='Giảm 50%, đăng ký ca tối trước 01/11/2026';} else if(morn&&!e){p=25;n='Ưu đãi ca sáng';} else {p=30;n='';} }
+    return {t:money(p)+' / người',n:n,v:p};
+  }
+  function updFee(){var f=fee();feeV.textContent=f.t;feeN.textContent=f.n;form.querySelector('#f-fee').value=f.v?money(f.v)+(f.n?' ('+f.n+')':''):'';}
+  function updCombo(){var c=form.querySelector('#f-course').value, isC=c.charAt(0)==='C';var r=form.querySelector('#f-shift-2');r.closest('.opt').hidden=!isC;if(!isC&&r.checked)r.checked=false;}
+  function updGroup(){var g=form.querySelector('input[name="Hình thức đăng ký"]:checked');var show=!!(g&&g.value.indexOf('Nhóm')===0);form.querySelector('.if-group').hidden=!show;}
+
+  function go(n){
+    cur=n;
+    steps.forEach(function(s){s.hidden=(+s.getAttribute('data-step')!==n);});
+    dots.forEach(function(d){var k=+d.getAttribute('data-dot');d.classList.toggle('on',k===n);d.classList.toggle('done',k<n);});
+    bBack.hidden=(n===1); bNext.hidden=(n===3); bSub.hidden=(n!==3);
+    form.querySelector('.reg-body').scrollTop=0;
+  }
+  function setErr(fld,msg){fld.classList.toggle('bad',!!msg);var e=fld.querySelector('.err');e.hidden=!msg;e.textContent=msg||'';}
+  function val(name){var els=form.querySelectorAll('[name="'+name+'"]');var out=[];[].forEach.call(els,function(el){if((el.type==='radio'||el.type==='checkbox')){if(el.checked)out.push(el.value);}else if(el.value.trim())out.push(el.value.trim());});return out.join(', ');}
+  function check(n){
+    var ok=true, first=null, step=steps[n-1];
+    [].forEach.call(step.querySelectorAll('.fld'),function(fld){
+      var req=fld.querySelector('[required]'); if(!req||fld.hidden){setErr(fld,'');return;}
+      var v=val(req.name), msg='';
+      if(!v) msg= req.type==='checkbox'?'Vui lòng tích vào ô này để tư vấn viên được phép liên hệ.':'Vui lòng điền thông tin này.';
+      else if(req.type==='tel'&&!/^(\+?84|0)\d{9}$/.test(v.replace(/[\s.\-]/g,''))) msg='Số điện thoại chưa đúng. VD: 0912 345 678';
+      else if(req.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg='Email chưa đúng định dạng.';
+      setErr(fld,msg); if(msg){ok=false; if(!first)first=fld;}
+    });
+    if(first){first.scrollIntoView({block:'center'});var i=first.querySelector('input,select,textarea');if(i)try{i.focus({preventScroll:true});}catch(e){}}
+    return ok;
+  }
+
+  function open(course,shift){
+    lastFocus=document.activeElement;
+    form.hidden=false; done.hidden=true; alertEl.hidden=true;
+    if(course){form.querySelector('#f-course').value=course;}
+    if(shift){[].forEach.call(form.querySelectorAll('input[name="Ca học"]'),function(r){r.checked=(r.value.indexOf(shift)===0);});}
+    var v=document.querySelector('.view:not([hidden])'); form.querySelector('#f-page').value=v?(v.getAttribute('data-title')||v.id):'';
+    updCombo(); updFee(); updGroup(); go(1);
+    ov.hidden=false; document.documentElement.classList.add('reg-lock');
+    setTimeout(function(){var f=form.querySelector('#f-name');try{f.focus({preventScroll:true});}catch(e){}},30);
+  }
+  function close(){ov.hidden=true;document.documentElement.classList.remove('reg-lock');if(lastFocus&&lastFocus.focus)try{lastFocus.focus({preventScroll:true});}catch(e){}}
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-reg]');
+    if(b){e.preventDefault();e.stopPropagation();
+      var view=b.closest('.view');
+      open(b.getAttribute('data-course')||(view&&view.getAttribute('data-course'))||'', b.getAttribute('data-shift')||'');return;}
+    if(e.target.closest&&e.target.closest('[data-reg-close]')){close();return;}
+    if(e.target===ov)close();
+  },true);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden)close();});
+  form.addEventListener('change',function(e){updCombo();updFee();updGroup();var f=e.target.closest('.fld');if(f&&f.classList.contains('bad'))setErr(f,'');});
+  form.addEventListener('input',function(e){var f=e.target.closest('.fld');if(f&&f.classList.contains('bad'))setErr(f,'');});
+  bNext.addEventListener('click',function(){if(check(cur))go(cur+1);});
+  bBack.addEventListener('click',function(){go(cur-1);});
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); alertEl.hidden=true;
+    if(!check(3)){return;}
+    for(var i=1;i<=2;i++){if(!check(i)){go(i);check(i);return;}}
+    if(form.querySelector('#f-website').value){return;} /* chặn spam bot */
+    if(!SHEET_ENDPOINT||SHEET_ENDPOINT.indexOf('__')===0){
+      alertEl.textContent='Form chưa được kết nối với Google Sheet. Bạn vui lòng gọi '+PHONE+' để đăng ký trực tiếp.';alertEl.hidden=false;return;}
+    var data=new URLSearchParams();
+    [].forEach.call(form.querySelectorAll('[name]'),function(el){var n=el.name;if(n==='website'||data.has(n))return;data.append(n,val(n));});
+    data.set('Khóa/Combo',COURSE_LABEL[val('Khóa/Combo')]||val('Khóa/Combo'));
+    bSub.disabled=true; bSub.textContent='Đang gửi…';
+    fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:data}).then(function(){
+      document.getElementById('reg-done-phone').textContent=val('Số điện thoại (Zalo)');
+      form.hidden=true; done.hidden=false; form.reset(); updFee(); updGroup();
+    }).catch(function(){
+      alertEl.textContent='Chưa gửi được do lỗi kết nối. Thông tin bạn nhập vẫn còn nguyên, vui lòng bấm Gửi lại, hoặc gọi '+PHONE+'.';alertEl.hidden=false;
+    }).then(function(){bSub.disabled=false;bSub.textContent='Gửi đăng ký';});
+  });
+})();
+</script>
 </body>
 </html>
+
+</body></html>
