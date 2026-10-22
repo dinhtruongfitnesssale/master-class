@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -316,6 +315,10 @@ table.sched td a{color:var(--accent-2);font-weight:700}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* Chữ tô gradient: chừa chỗ cho ký tự cuối (dấu +, chữ có dấu) không bị cắt */
+.card-stat .num,.card-evidence .big,.combo-price .now{display:inline-block;padding-right:0.12em;margin-right:-0.12em;padding-top:0.06em;white-space:nowrap}
+.hero-copy h1 .acc{padding-right:0.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
 .view[hidden]{display:none!important}
 [id]{scroll-margin-top:84px}
@@ -1866,5 +1869,3 @@ var SHEET_ENDPOINT = "";
 </script>
 </body>
 </html>
-
-</body></html>
